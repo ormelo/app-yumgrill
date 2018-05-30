@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="../js/jquery-1.3.min.js"></script>
+    <style>
+        * {
+        box-sizing: border-box;
+        }
+        @font-face {
+        font-family: mon;
+        src: url(../fonts/Montserrat-Regular.ttf);
+        }
+        @font-face {
+        font-family: hero;
+        src: url(../fonts/Hero-Light.otf);
+        }
+        @font-face {
+        font-family: mo-bold;
+        src: url(../fonts/Montserrat-Bold.ttf);
+        }
+        body {
+        //background-image: url("../images/sbg.jpg");
+        //background-size: cover;
+        background: #ffffff;
+        font-family: mon;
+        }
+        .header {
+        position: relative;
+        top: 0;
+        left: 0;
+        height: 50px;
+        display: block;
+        text-align: center;
+        }
+        .header-item {
+        position: absolute;
+        text-align: center;
+        }
+        .container {
+        position: relative;
+        }
+        .logo {
+
+        }
+        .banner {
+        left:50px;
+        top:0px;
+        text-align: center;
+        -moz-animation-name: dropHeader1;
+        -moz-animation-iteration-count: 1;
+        -moz-animation-timing-function: ease-out;
+        -moz-animation-duration: 1s;
+
+        -webkit-animation-name: dropHeader1;
+        -webkit-animation-iteration-count: 1;
+        -webkit-animation-timing-function: ease-out;
+        -webkit-animation-duration: 1s;
+
+        animation-name: dropHeader1;
+        animation-iteration-count: 1;
+        animation-timing-function: ease-out;
+        animation-duration: 0.9s;
+        }
+        .title {
+        position:absolute;
+        top:-70px;
+        left:10px;
+        font-family:mon;
+        font-size:16px;
+        letter-spacing:4px;
+        color:#000000;
+        -moz-animation-name: dropHeader;
+        -moz-animation-iteration-count: 1;
+        -moz-animation-timing-function: ease-out;
+        -moz-animation-duration: 0.4s;
+
+        -webkit-animation-name: dropHeader;
+        -webkit-animation-iteration-count: 1;
+        -webkit-animation-timing-function: ease-out;
+        -webkit-animation-duration: 0.4s;
+
+        animation-name: dropHeader;
+        animation-iteration-count: 1;
+        animation-timing-function: ease-out;
+        animation-duration: 0.4s;
+        }
+        .banner-img{
+        left:0px;
+        top:0px;
+        }
+        .banner-img img {
+        width: 100%;
+        }
+        #selfie{
+
+        }
+        #selfie img {
+        //-ms-transform: rotate(-90deg);
+        //-webkit-transform: rotate(-90deg);
+        //transform: rotate(-90deg);
+        border: 1px solid grey;
+        padding: 5px;
+        }
+        .description {
+        margin-top: 4px;
+        width: 80%;
+        color: #000000;
+        line-height: 24px;
+        font-family: hero;
+        font-size: 20px;
+        font-weight: bold;
+        }
+        .vid {
+        top: 30px;
+        width: 100%;
+        }
+        .cta {
+        display: none;
+        width:246px;
+        -webkit-animation: animation 1000ms linear both;
+        animation-delay: 2s;
+        animation: animation 3000ms linear both;
+        }
+        .anim {
+        -webkit-animation: animation 1000ms linear both;
+        animation-delay: 2s;
+        animation: animation 3000ms linear both;
+        }
+        iframe{
+        left:-50px;
+        }
+        .overlay {
+        position: fixed;
+        top: 0px;
+        left: -100%;
+        height: 100%;
+        width: 100%;
+        background: rgba(0,0,0,0.4);
+        transition: left 0.5s;
+        z-index: 9;
+        }
+        .menu-container{
+        left: -100%;
+        background: rgba(255,255,255,0.9);
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        transition: left 0.5s;
+        z-index: 9;
+        }
+        .ic-menu:hover + div.overlay {
+        left:0px;
+        }
+        .ic-menu:hover + div.overlay > div.menu-container {
+        left:50px;
+        }
+        .ic-menu:hover + div.overlay > div.menu-container > .ic-close {
+        left:0px;
+        }
+        .menu-list {
+        list-style: none;
+        left: -40px;
+        position: absolute;
+        text-align: left;
+        width: 100%;
+        top: -20px;
+        }
+        .menu-item {
+        padding: 20px 20px;
+        width: 100%;
+        border-bottom: 1px solid gainsboro;
+        }
+        .menu-item a{
+        text-decoration: none;
+        color: black;
+        }
+        .ic-close{
+        position: fixed;
+        left: -100%;
+        transition: left 0.5s;
+        }
+        .tape {
+        display:none;
+        }
+        .inputfile {
+        display: none;
+        }
+        .inputfile + label {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        cursor: pointer;
+        display: inline-block;
+        overflow: hidden;
+        padding: 7px 24px 7px 24px;
+        text-align: center;
+        width: 96%;
+        margin: 0 auto;
+        left: 0px;
+        right: 0px;
+        position: absolute;
+        font-family: "mon";
+        font-weight: bold;
+        letter-spacing: 3px;
+        font-size: 13px;
+        }
+        .inputfile-1 + label {
+        color: black;
+        background-color: transparent;
+        border: 2px solid black;
+        }
+        .resize-drag {
+        opacity: 0;
+        top:100px;
+        width: 160px;
+        height: 120px;
+        background-image: url('../images/tape0.png');
+        background-size: cover;
+        //border: 1px solid grey;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 30px 20px;
+        z-index: 9999;
+        position: relative;
+        /* This makes things *much* easier */
+        box-sizing: border-box;
+        }
+
+        .button{
+        position: relative;
+        top: 0px;
+        font-size: 16px;
+        color: #ffffff;
+        border-radius: 24px;
+        margin-left: 8px;
+        margin-top: 12px;
+        padding: 10px 40px 10px 49px;
+        background: #ff8d31;
+        }
+
+        .resize-container {
+        position:relative;
+        }
+
+        @-moz-keyframes dropHeader1 {
+        0% {
+        opacity:0;
+        }
+        100% {
+        opacity:1;
+        }
+        }
+        @-webkit-keyframes dropHeader1 {
+        0% {
+        opacity:0;
+        }
+        100% {
+        opacity:1;
+        }
+        }
+        @keyframes dropHeader1 {
+        0% {
+        opacity:0;
+        }
+        100% {
+        opacity:1;
+        }
+        }
+
+        @-moz-keyframes dropHeader {
+        0% {
+        -moz-transform: translateX(-80px);
+        }
+        100% {
+        -moz-transform: translateX(0);
+        }
+        }
+        @-webkit-keyframes dropHeader {
+        0% {
+        -webkit-transform: translateX(-80px);
+        }
+        100% {
+        -webkit-transform: translateX(0);
+        }
+        }
+        @keyframes dropHeader {
+        0% {
+        transform: translateX(-80px);
+        }
+        100% {
+        transform: translateX(0);
+        }
+        }
+        /* Generated with Bounce.js. Edit at http://goo.gl/y3FSYm */
+        .animation-target {
+        -webkit-animation: animation 1000ms linear both;
+        animation: animation 1000ms linear both;
+        }
+
+            </style>
+ <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-89899703-1', 'auto');
+  ga('send', 'pageview');
+
+  window.smartlook||(function(d) {
+    var o=smartlook=function(){ o.api.push(arguments)},h=d.getElementsByTagName('head')[0];
+    var c=d.createElement('script');o.api=new Array();c.async=true;c.type='text/javascript';
+    c.charset='utf-8';c.src='//rec.smartlook.com/recorder.js';h.appendChild(c);
+    })(document);
+    smartlook('init', '5a4fdad6b86c8d1c94cf8ccf415e44fd789ac740');
+
+</script>   
+</head>
+<body >
+
+
+<div class="header">
+    <img class="header-item ic-menu" src="../images/merch_logo.png" style="
+    top: 16px;
+    left: 2px;
+    width: 105px;
+    ">
+    <div class="overlay">
+        <div class="menu-container">
+            <img src="../images/icclose.png" class="ic-close"/>
+            <ul class="menu-list">
+                <li class="menu-item"><a href="index.html">Home</a></li>
+                <li class="menu-item"><a href="#">Blog</a></li>
+                <li class="menu-item"><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="container resize-container">
+
+    <div class="banner">
+        <hr style="margin-top:26px"/>
+        <center>
+
+            <div class="banner-img">
+
+                <div class="description">
+                    <br>
+                    <center>
+                        <img src="../images/reviews.png" style="width: 180px;margin-top: -28px;"/>
+                        <img class="selfie" id="productPic" style="width:150px;margin-top:10px;" src="../images/loading.gif"/>
+
+                        <div id="selfie"  style="width:80%;display:none;position:relative;top:10px;"></div>
+                        <div id="description" class="description anim"></div>
+                        <br><br>
+                        <div class="description" style="font-size:16px;margin-top: -16px;">
+                            Select Size:&nbsp;&nbsp; <select id="sizes" style="margin-top:5px;height: 40px;font-family:'mon';font-size: 18px;">
+                                <option id="s1" value="s">S</option>
+                                <option id="s2" value="m">M</option>
+                                <option id="s3" value="l">L</option>
+                                <option id="s4" value="xl">XL</option>
+                            </select>
+                        </div>
+                        <input type="text" placeholder="Enter Pincode for shipping" style="width: 280px;height: 40px;padding: 10px;font-size: 16px;font-family:mon;margin-top: 12px;">
+                        <div className="btn-check" id="checkAvailability"><span>Check Availability</span></div>
+                        <br>
+                    </center>
+                </div>
+
+            </div>
+
+
+        </center>
+    </div>
+
+</div>
+
+
+
+<script language="JavaScript">
+var pId = location.href.substring(location.href.indexOf('?p=')+3,location.href.indexOf('&r='));
+var price = location.href.substring(location.href.indexOf('&r=')+3,location.href.indexOf('&s='));
+var sizes = location.href.substring(location.href.indexOf('&s=')+3,location.href.indexOf('&g='));
+var selIndex = location.href.substring(location.href.indexOf('&g=')+3,location.href.length);
+$('#productPic').attr('src','../images/fashion/'+pId+'.png');
+$('#description').html('&#8377;'+price);
+sizes = sizes.split('-');
+$('#s1').html(sizes[0].toUpperCase());$('#s2').html(sizes[1].toUpperCase());$('#s3').html(sizes[2].toUpperCase());$('#s4').html(sizes[3].toUpperCase());
+document.getElementById("sizes").selectedIndex = selIndex;
+
+$('#checkAvailability').click(function(){
+alert('Sorry, we are working on enabling shipping in your area. We will notify you soon.');
+});
+
+    </script>
+
+</body>
+</html>
+

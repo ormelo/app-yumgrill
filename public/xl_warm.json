@@ -1,0 +1,37 @@
+[
+  {
+    "type": "heading",
+    "title": "Attires that make you look slim",
+    "backgroundClass": "look-1"
+  },
+  {
+    "type": "subHeading",
+    "num": "1",
+    "title": "Busy prints that hide your belly fat",
+    "background": "#dfdbe5"
+  },
+  {
+    "id": 0,
+    "discount": "30% OFF",
+    "normalPrice": "1049",
+    "discountedPrice": "729",
+    "saleCountdown": "7",
+    "offerText": "Hurry!<br>Only few left",
+    "url": "https://attirist.wooplr.com/product/faballey/6724696888442880/curve-sequin-strip-blouse-oxblood",
+    "img": "img/products/w/xxl_warm/2.png",
+    "suggestTitle": "Maroon color",
+    "suggestDesc": "balances your shoulders"
+  },
+  {
+    "id": 0,
+    "discount": "30% OFF",
+    "normalPrice": "1499",
+    "discountedPrice": "974",
+    "saleCountdown": "7",
+    "offerText": "Hurry!<br>Offer ends in few hours",
+    "url": "https://attirist.wooplr.com/dashboard/product/sassafras/6563817955917824/blue-floral-print-front-open-shirt-kurta",
+    "img": "img/products/w/xxl_warm/3.png",
+    "suggestTitle": "Busy print",
+    "suggestDesc": "contours your belly fat"
+  }
+]

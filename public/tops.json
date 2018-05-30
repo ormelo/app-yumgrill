@@ -1,0 +1,25 @@
+[
+  {
+    "type": "heading",
+    "title": "Attires that make you look slim",
+    "backgroundClass": "look-1",
+  },
+  {
+    "type": "subHeading",
+    "num": "1",
+    "title": "Busy prints that hide your belly fat",
+    "backgroundClass": "look-1-subheading",
+  },
+  {
+    "type": "product",
+    "id": 0,
+    "discount": "30% OFF",
+    "normalPrice": "1049",
+    "discountedPrice": "729",
+    "saleCountdown": "7",
+    "url": "https://dl.flipkart.com/dl/harpa-casual-3-4th-sleeve-floral-print-women-s-white-top/p/itmet7ptnysgxctq?iid=9027c529-f044-4e68-95d7-adb85d5bffe2.TOPE8R9NKDZ6NGJ6.SEARCH&ppt=Store%20Browse&srno=b_2_37&lid=LSTTOPE8R9NKDZ6NGJ6FOKSXA&pid=TOPE8R9NKDZ6NGJ6&affid=attiristf&ssid=u69e212vq80000001514641359101&ppn=Search%20Page",
+    "img": "img/products/w/xxl/1.png",
+    "suggestTitle": "Floral print",
+    "suggestDesc": "balances your broad shoulders"
+  }
+]

@@ -1,0 +1,550 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-107877274-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-107877274-1');
+</script>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>attirist - shop looks that suit you</title>
+<link rel="manifest" href="/manifest.json">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#ffffff">
+
+<style type="text/css">
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300');
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    font-family: 'f', sans-serif;
+    background: url(img/main1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: 73px;
+}
+.content {
+    position: relative;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+@font-face{
+  font-family:'f';
+  src: url('fonts/f.ttf');
+}
+@font-face{
+  font-family:'a';
+  src: url('fonts/a.otf');
+}
+.button-container {
+    margin: 0 auto;
+    position: fixed;
+    width: 297px;
+    bottom: 0px;
+    height: 100px;
+    padding-top: 36px;
+    z-index: 2;
+}
+.bag {
+  position: relative;
+  float: right;
+  margin-top: 8px;
+  right: 20px;
+}
+.logoFont {
+    font-family: f;
+    font-size: 32px;
+    position: absolute;
+    margin-top: 3px;
+    left: 19px;
+    color: #8e8c92;
+}
+.prod-container {
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  width: 340px;
+  font-size: 14px;
+  color: #fff;
+  margin-top: 30px;
+  text-align: center;
+}
+.btn {
+    display: block;
+    bottom: 22px;
+    height: 50px;
+    width: 300px;
+    font-family: f;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    text-transform: none;
+    letter-spacing: 2px;
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    -webkit-border-radius: 34px;
+}
+.btn span {
+    position: relative;
+    top: 14px;
+    font-size: 18px;
+    letter-spacing: 0px;
+}
+.btn:after {
+    position: absolute;
+    content: '';
+    display: inline-block;
+    background: #7243a9;
+    background: -webkit-linear-gradient(0deg, #fb3152 0%, #fb576f 100%);
+    background: linear-gradient(0deg, #fb3152 0%, #fb576f 100%);
+    height: 50px;
+    width: 402px;
+    z-index: -1;
+    -webkit-transform: translateX(-280px);
+    transform: translateX(-280px);
+    -webkit-transition: -webkit-transform 400ms ease-in;
+    transition: -webkit-transform 400ms ease-in;
+    transition: transform 400ms ease-in;
+    transition: transform 400ms ease-in, -webkit-transform 400ms ease-in;
+}
+.fader {
+    -moz-transition: opacity 0.7s linear;
+    -o-transition: opacity 0.7s linear;
+    -webkit-transition: opacity 0.7s linear;
+    transition: opacity 0.7s linear;
+}
+
+.fadedOut {
+    opacity: 0;
+}
+
+.tag {
+  font-family: a;
+  font-size: 24px;
+  color: #fff;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.39);
+  border-radius: 6px;
+  padding: 4px;
+  width: 340px;
+  margin: 0 auto;
+  margin-top: 90px;
+}
+.second {
+  top: 57vh;
+  position: absolute;
+  margin: 0 auto;
+  width: 340px;
+  text-align: center;
+  left: 0;
+  right: 0;
+  color: rgb(73, 75, 75);
+  font-family: "a";
+  font-size: 24px;
+}
+#G {
+    background: -moz-linear-gradient(top,rgba(255,255,255,1) 0,rgba(255,255,255,0) 100%);
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(0,rgba(255,255,255,1)),color-stop(100%,rgba(255,255,255,0)));
+    background: -webkit-linear-gradient(top,rgba(255,255,255,1) 0,rgba(255,255,255,0) 100%);
+    background: -o-linear-gradient(top,rgba(255,255,255,1) 0,rgba(255,255,255,0) 100%);
+    background: -ms-linear-gradient(top,rgba(255,255,255,1) 0,rgba(255,255,255,0) 100%);
+    background: linear-gradient(to bottom,rgba(255,255,255,1) 0,rgba(255,255,255,0) 100%);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 180px;
+    z-index: 1;
+    pointer-events: none;
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+@media (max-width: 599px){
+    .container{
+        with: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position-y: -31px;
+    }
+    .glitter {
+      background-image: url(img/bg.png);
+      height: 100%;
+      background-size: cover;
+      background-position-y: -15px;
+    }
+    .logo {
+      width: 100%;
+      height: 58px;
+      margin: 0 auto;
+      top: 15px;
+      position: absolute;
+      left: 0px;
+      -webkit-box-shadow: 0px 13px 25px -12px rgba(0,0,0,0.18);
+      -moz-box-shadow: 0px 13px 25px -12px rgba(0,0,0,0.18);
+      box-shadow: 0px 13px 25px -12px rgba(0,0,0,0.18);
+    }
+    .headline {
+      margin: 0 auto;
+      width: 340px;
+      font-size: 22px;
+      letter-spacing: 0px;
+      text-align: center;
+      font-family: f;
+      color: #9f9f9f;
+    }
+    .description {
+      margin: 0 auto;
+      width: 80%;
+      margin-top: 30px;
+      font-size: 20px;
+      text-align: center;
+      line-height: 26px;
+      padding-bottom: 32px;
+      font-family: f;
+    }
+    .gylph img {
+      width: 110px;
+    }
+    .gylph {
+        width: 123px;
+        margin: 0 auto;
+        left: 6px;
+        position: relative;
+    }
+    .button-container {
+      margin: 0 auto;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 100px;
+      position: fixed;
+      width: 297px;
+      background: rgba(255, 255, 255, 0.8);
+    }
+}
+@media (min-width: 600px){
+    .container{
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position-y: -31px;
+    }
+    .btn {
+      width: 275px;
+    }
+    .glitter {
+      background-image: url(img/bg.png);
+      height: 100%;
+      background-size: cover;
+      background-position-y: -31px;
+    }
+    .logo {
+      width: 178px;
+      height: 44px;
+      margin: 0 auto;
+      top: 20px;
+      position: absolute;
+      left: 20px;
+    }
+    .headline {
+      margin: 0 auto;
+      width: 340px;
+      font-size: 22px;
+      letter-spacing: 0px;
+      text-align: center;
+      font-family: f;
+      color: #9f9f9f;
+    }
+    .description {
+      margin-left: 65px;
+      width: 80%;
+      font-size: 20px;
+      padding-bottom: 50px;
+      margin-top: 12px;
+      line-height: 26px;
+    }
+    .gylph img {
+      width: 184px;
+      margin-left: 26px;
+    }
+    .gylph {
+        width: 200px;
+        margin: 0 auto;
+    }
+    .button-container {
+      padding-top: 36px;
+      margin: 0 auto;
+      position: relative;
+      width: 240px;
+    }
+    .tag {
+      font-size: 30px;
+      width: 500px;
+      padding: 12px;
+    }
+    .second { display: none; }
+}
+@media (min-width: 1025px){
+    .container{
+        width: 1025px;
+        margin: 0 auto;
+        height: 100%;
+        background-size: cover;
+        background-position-y: -31px;
+    }
+    .btn {
+      width: 275px;
+    }
+    .content {
+      margin-top: 100px;
+    }
+    .glitter {
+      background-image: url(img/bg.png);
+      height: 100%;
+      background-size: cover;
+      background-position-y: -31px;
+    }
+    .logo {
+      width: 178px;
+      height: 44px;
+      margin: 0 auto;
+      background-size: contain;
+      top: 20px;
+      position: absolute;
+      left: 20px;
+    }
+    .headline {
+      margin: 0 auto;
+      width: 340px;
+      font-size: 22px;
+      letter-spacing: 0px;
+      text-align: center;
+      font-family: f;
+      color: #9f9f9f;
+    }
+    .description {
+      margin-left: 85px;
+      width: 80%;
+      font-size: 24px;
+      padding-bottom: 50px;
+      margin-top: 12px;
+      line-height: 26px;
+    }
+    .gylph img {
+      width: 184px;
+      margin-left: 26px;
+    }
+    .gylph {
+        width: 200px;
+        margin: 0 auto;
+    }
+    .button-container {
+      padding-top: 36px;
+      margin: 0 auto;
+      position: relative;
+      width: 240px;
+    }
+    .tag {
+      font-size: 34px;
+      width: 560px;
+      padding: 16px;
+    }
+    .city {
+      margin-top: 400px;
+    }
+    .second { display: none; }
+}
+</style>
+</head>
+
+<body>
+<div class="container fader" id="container">
+<div>
+  <div class="logo"><img src="img/logoimg.png" style="width: 16px;margin-left: 20px;"><span class="logoFont">attirist</span>
+  
+  </div>
+  
+  <div class="tag">Your personal partywear shopper at your price!</div>
+<br/>
+  <div class="prod-container city">Bangalore  •  Mumbai  •  Hyderabad  •  Chennai</div>
+  <div class="button-container">
+    <a id="cta" href="/fit-profile?from=get_started" class="btn"><span>Get started</span></a>
+  </div>
+
+</div>
+</div>
+<div class="second">Shopping party attire stressing you out?
+<br><br>
+<div style="font-size: 17px;font-family: Open Sans;margin-top: -10px;">
+Tell us your needs and we'll go shopping on your behalf to suggest attires that suit you within your budget!
+</div>
+<br><br><br><br><br>
+</div>
+<div id="G"></div>
+
+
+<!--Bundled file-->
+<script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+<script type="text/javascript">
+!function(s){var i="-",n="";screen.width&&(width=screen.width?screen.width:"",height=screen.height?screen.height:"",n+=""+width+" x "+height);var e,r,o,d=navigator.appVersion,a=navigator.userAgent,t=navigator.appName,w=""+parseFloat(navigator.appVersion),c=parseInt(navigator.appVersion,10);-1!=(r=a.indexOf("Opera"))&&(t="Opera",w=a.substring(r+6),-1!=(r=a.indexOf("Version"))&&(w=a.substring(r+8))),-1!=(r=a.indexOf("OPR"))?(t="Opera",w=a.substring(r+4)):-1!=(r=a.indexOf("Edge"))?(t="Microsoft Edge",w=a.substring(r+5)):-1!=(r=a.indexOf("MSIE"))?(t="Microsoft Internet Explorer",w=a.substring(r+5)):-1!=(r=a.indexOf("Chrome"))?(t="Chrome",w=a.substring(r+7)):-1!=(r=a.indexOf("Safari"))?(t="Safari",w=a.substring(r+7),-1!=(r=a.indexOf("Version"))&&(w=a.substring(r+8))):-1!=(r=a.indexOf("Firefox"))?(t="Firefox",w=a.substring(r+8)):-1!=a.indexOf("Trident/")?(t="Microsoft Internet Explorer",w=a.substring(a.indexOf("rv:")+3)):(e=a.lastIndexOf(" ")+1)<(r=a.lastIndexOf("/"))&&(t=a.substring(e,r),w=a.substring(r+1),t.toLowerCase()==t.toUpperCase()&&(t=navigator.appName)),-1!=(o=w.indexOf(";"))&&(w=w.substring(0,o)),-1!=(o=w.indexOf(" "))&&(w=w.substring(0,o)),-1!=(o=w.indexOf(")"))&&(w=w.substring(0,o)),c=parseInt(""+w,10),isNaN(c)&&(w=""+parseFloat(navigator.appVersion),c=parseInt(navigator.appVersion,10));var W=/Mobile|mini|Fennec|Android|iP(ad|od|hone)/.test(d),O=navigator.cookieEnabled?!0:!1;"undefined"!=typeof navigator.cookieEnabled||O||(document.cookie="testcookie",O=-1!=document.cookie.indexOf("testcookie")?!0:!1);var f=i,g=[{s:"Windows 10",r:/(Windows 10.0|Windows NT 10.0)/},{s:"Windows 8.1",r:/(Windows 8.1|Windows NT 6.3)/},{s:"Windows 8",r:/(Windows 8|Windows NT 6.2)/},{s:"Windows 7",r:/(Windows 7|Windows NT 6.1)/},{s:"Windows Vista",r:/Windows NT 6.0/},{s:"Windows Server 2003",r:/Windows NT 5.2/},{s:"Windows XP",r:/(Windows NT 5.1|Windows XP)/},{s:"Windows 2000",r:/(Windows NT 5.0|Windows 2000)/},{s:"Windows ME",r:/(Win 9x 4.90|Windows ME)/},{s:"Windows 98",r:/(Windows 98|Win98)/},{s:"Windows 95",r:/(Windows 95|Win95|Windows_95)/},{s:"Windows NT 4.0",r:/(Windows NT 4.0|WinNT4.0|WinNT|Windows NT)/},{s:"Windows CE",r:/Windows CE/},{s:"Windows 3.11",r:/Win16/},{s:"Android",r:/Android/},{s:"Open BSD",r:/OpenBSD/},{s:"Sun OS",r:/SunOS/},{s:"Linux",r:/(Linux|X11)/},{s:"iOS",r:/(iPhone|iPad|iPod)/},{s:"Mac OS X",r:/Mac OS X/},{s:"Mac OS",r:/(MacPPC|MacIntel|Mac_PowerPC|Macintosh)/},{s:"QNX",r:/QNX/},{s:"UNIX",r:/UNIX/},{s:"BeOS",r:/BeOS/},{s:"OS/2",r:/OS\/2/},{s:"Search Bot",r:/(nuhk|Googlebot|Yammybot|Openbot|Slurp|MSNBot|Ask Jeeves\/Teoma|ia_archiver)/}];for(var p in g){var b=g[p];if(b.r.test(a)){f=b.s;break}}var x=i;switch(/Windows/.test(f)&&(x=/Windows (.*)/.exec(f)[1],f="Windows"),f){case"Mac OS X":x=/Mac OS X (10[\.\_\d]+)/.exec(a)[1];break;case"Android":x=/Android ([\.\_\d]+)/.exec(a)[1];break;case"iOS":x=/OS (\d+)_(\d+)_?(\d+)?/.exec(d),x=x[1]+"."+x[2]+"."+(0|x[3])}var u="no check";if("undefined"!=typeof swfobject){var h=swfobject.getFlashPlayerVersion();u=h.major>0?h.major+"."+h.minor+" r"+h.release:i}s.jscd={screen:n,browser:t,browserVersion:w,browserMajorVersion:c,mobile:W,os:f,osVersion:x,cookies:O,flashVersion:u}}(this);
+
+if((location.host == "attirist.in" || location.host == "www.attirist.in")  && location.protocol == 'http:') {
+  location.href = location.href.replace(location.protocol,'https:');
+}
+
+var nonLatestChrome = true;
+if(jscd.browser == 'Chrome' && navigator.userAgent.indexOf('Samsung') == -1
+  && jscd.browserMajorVersion >= 54) {
+  nonLatestChrome = false;
+}
+
+  localStorage.removeItem('m');
+</script>
+<script language="Javascript">
+var guid = function() {
+    if(sessionStorage.getItem('guid') != null) {
+      return sessionStorage.getItem('guid');
+    }
+    var nav = window.navigator;
+    var screen = window.screen;
+    var guid = nav.mimeTypes.length;
+    guid += nav.userAgent.replace(/\D+/g, '');
+    guid += nav.plugins.length;
+    guid += screen.height || '';
+    guid += screen.width || '';
+    guid += screen.pixelDepth || '';
+    sessionStorage.setItem('guid', guid);
+    return guid;
+};
+uid = guid();
+if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('service-worker.js').then(function(registration) {
+            // Registration was successful
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+          }, function(err) {
+            // registration failed :(
+            console.log('ServiceWorker registration failed: ', err);
+          }).then(function(reg) {
+              console.log('Service Worker is ready to go!', reg);
+              reg.pushManager.subscribe(
+                {
+                  userVisibleOnly: true
+                }
+            ).then(function(sub) {
+              console.log(JSON.stringify(sub));
+            });
+          }).catch(function(error) {
+            console.log('Service Worker failed to boot', error);
+          }).catch(function(err) {
+            console.log(err)
+          });
+        });
+      } else {
+        console.log('service worker is not supported');
+      }
+
+gtag('config', 'UA-107877274-1',{'page_title': 'homepage','page_location': 'http://www.poseding.com','page_path': '/'}); 
+
+function appendScripts() {
+var s = document.createElement("script");
+s.type = "text/javascript";
+s.src = "haar/lib/jsfeat-samples/js/jsfeat-min.js";
+addToHead(s);
+var s = document.createElement("script");
+s.type = "text/javascript";
+s.src = "haar/lib/jsfeat/cascades/upperbody.js";
+addToHead(s);
+var s = document.createElement("script");
+s.type = "text/javascript";
+s.src = "haar/lib/jsfeat-samples/js/compatibility.js";
+addToHead(s);
+var s = document.createElement("script");
+s.type = "text/javascript";
+s.src = "haar/lib/jsfeat-samples/js/frontalface.js";
+addToHead(s);
+}
+function addToHead(scr) {
+  var scriptAdded = document.head.append ? document.head.append(scr) : document.head.appendChild(scr);
+}
+
+function appendNonChromeScripts(){
+var s = document.createElement("script");
+s.type = "text/javascript";
+s.src = "scripts/load-image.js";
+addToHead(s);
+var s = document.createElement("script");
+s.type = "text/javascript";
+s.src = "scripts/load-image-scale.js";
+addToHead(s);
+var s = document.createElement("script");
+s.type = "text/javascript";
+s.src = "scripts/load-image-meta.js";
+addToHead(s);
+var s = document.createElement("script");
+s.type = "text/javascript";
+s.src = "scripts/load-image-fetch.js";
+addToHead(s);
+var s = document.createElement("script");
+s.type = "text/javascript";
+s.src = "scripts/load-image-exif.js";
+addToHead(s);
+var s = document.createElement("script");
+s.type = "text/javascript";
+s.src = "scripts/load-image-exif-map.js";
+addToHead(s);
+var s = document.createElement("script");
+s.type = "text/javascript";
+s.src = "scripts/load-image-orientation.js";
+addToHead(s);
+}
+setTimeout(function(){appendScripts();},1800);
+//if(nonLatestChrome) {
+  appendNonChromeScripts();
+//}
+
+var changeInt = 0;
+var i=0,j=0;
+var text = ["body shape", "skin color", "shoulder width"];
+var imgs = ["img/product1.png","img/product2.png","img/product3.png","img/product4.png"]
+
+setInterval(function() {
+    $("#attri").fadeOut(400, function() {
+        $(this).text(text[i])
+    }).fadeIn(400);
+    i++;
+    if (i >= text.length) {
+        i = 0;
+    }
+}, 1800);
+
+setInterval(function() {
+    $("#prod").fadeOut(400, function() {
+        $(this).attr('src', imgs[j]);
+    }).fadeIn(400);
+    j++;
+    if (j >= imgs.length) {
+        j = 0;
+    }
+}, 1800);
+
+</script>
+
+</body>
+</html>
+

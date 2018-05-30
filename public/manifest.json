@@ -1,0 +1,21 @@
+{
+"short_name": "attirist",
+"name": "attirist - try on!",
+"gcm_sender_id": "477854726038",
+"icons": [
+{
+"src": "icon192.png",
+"sizes": "192x192",
+"type": "image/png"
+},
+{
+"src": "icon512.png",
+"sizes": "512x512",
+"type": "image/png"
+}
+],
+"start_url": "/?from=hs",
+"background_color": "#f8f8f8",
+"theme_color": "#ffffff",
+"display": "fullscreen"
+}
