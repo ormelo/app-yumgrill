@@ -3281,7 +3281,7 @@ html.no-csstransitions .home-content__main {
     }
     .contact-primary #contactForm {
         margin-top: -1.5rem;
-        margin-bottom: 7.2rem;
+        margin-bottom: 0rem;
     }
     .contact-secondary .hide-on-fullwidth {
         display: none;
@@ -3315,6 +3315,7 @@ html.no-csstransitions .home-content__main {
     }
     .contact-primary, .contact-secondary {
         padding: 0 20px;
+        margin-top: 40px;
     }
     .sm-hidden {
       display: none;

@@ -400,16 +400,16 @@
                     <fieldset>
     
                     <div class="form-field">
-                        <input name="contactName" type="text" id="contactName" placeholder="Tentative party date (dd/mm/yyyy)" value="" minlength="2" required="" aria-required="true" class="full-width">
+                        <input name="partyDate" type="text" id="partyDate" placeholder="Tentative party date (dd/mm/yyyy)" value="" minlength="2" required="" aria-required="true" class="full-width">
                     </div>
                     <div class="form-field">
-                        <input name="contactEmail" type="text" id="contactEmail" placeholder="Your mobile number" value="" required="" aria-required="true" class="full-width">
+                        <input name="mobNum" type="text" id="mobNum" placeholder="Your mobile number" value="" required="" aria-required="true" class="full-width">
                     </div>
                     <div class="form-field">
-                        <input name="contactSubject" type="text" id="contactSubject" placeholder="No. of people expected" value="" class="full-width">
+                        <input name="peopleNum" type="text" id="peopleNum" placeholder="No. of people expected" value="" class="full-width">
                     </div>
                     <div class="form-field">
-                        <button class="full-width btn--primary">Get quote</button>
+                        <button onClick="submitData();" class="full-width btn--primary">Get quote</button>
                         <div class="submit-loader">
                             <div class="text-loader">Sending...</div>
                             <div class="s-loader">
@@ -424,8 +424,8 @@
                 </form>
 
                 <!-- contact-warning -->
-                <div class="message-warning">
-                    Something went wrong. Please try again.
+                <div id="msgSuccess" class="message-success">
+                    Thank you. We will contact you soon!
                 </div> 
             
                 <!-- contact-success -->
@@ -567,6 +567,13 @@
     <script src="scripts/main.js"></script>
     <script src="https://api.loggr.net/1/loggr.min.js?l=poshfind&a=b687eacebeee405cafc202bc350d4f71"></script>
     <script language="Javascript">
+    function submitData() {
+     Loggr.Log.trackUser(uid, "", "yumgrill quote requested.");
+     Loggr.Log.trackUser(uid, "", "Date:"+document.getElementById("partyDate").value);
+     Loggr.Log.trackUser(uid, "", "Mobile:"+document.getElementById("mobNum").value);
+     Loggr.Log.trackUser(uid, "", "People Num:"+document.getElementById("peopleNum").value);
+     setTimeout("document.getElementById('msgSuccess').style.display='inline'", 1500);
+  }
     var guid = function() {
         if(sessionStorage.getItem('guid') != null) {
           return sessionStorage.getItem('guid');
