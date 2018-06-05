@@ -562,6 +562,13 @@
     <script src="https://api.loggr.net/1/loggr.min.js?l=poshfind&a=b687eacebeee405cafc202bc350d4f71"></script>
     <script language="Javascript">
     function submitData() {
+     var xmlhttp = new XMLHttpRequest();
+     var imgUrl = document.getElementById("mobNum").value;
+     xmlhttp.open("GET", "http://198.91.88.86/home/rest/signup/adduser/"+imgUrl, true);
+     xmlhttp.send(null);
+     xmlhttp.onreadystatechange=function() {
+      if (xmlhttp.readyState==4 && xmlhttp.status==200){}
+     }
      Loggr.Log.trackUser(uid, "", "yumgrill quote requested.");
      Loggr.Log.trackUser(uid, "", "Date:"+document.getElementById("partyDate").value);
      Loggr.Log.trackUser(uid, "", "Mobile:"+document.getElementById("mobNum").value);
