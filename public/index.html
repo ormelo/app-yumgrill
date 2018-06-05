@@ -47,7 +47,7 @@
                 
                 <ul class="header-nav__list">
                     <li class="current"><a class="smoothscroll"  href="#home" title="home">Home</a></li>
-                    <li><a class="smoothscroll"  href="#services" title="services">How it works</a></li>
+                    <li><a class="smoothscroll"  href="#services" onClick="Loggr.Log.trackUser(uid, '', 'howitworkslink clicked.');" title="services">How it works</a></li>
                     <li><a class="smoothscroll"  href="#works" title="works">Menu</a></li>
                     <li><a class="smoothscroll"  href="#contact" title="contact">Get quote</a></li>
                 </ul>
@@ -86,7 +86,7 @@
                 <br><span class="secondary-desc">What's more, we prepare the barbeque on our foodtruck right infront of your home so you get everything served hot & fresh!</span>
                 <div class="home-content__buttons">
                   
-                    <a href="#services" class="smoothscroll btn btn--stroke">
+                    <a href="#services" class="smoothscroll btn btn--stroke" onClick="Loggr.Log.trackUser(uid, '', 'howitworks clicked.');">
                         How it works
                     </a>
                 </div>
@@ -145,7 +145,7 @@
 
             <div>
                   
-                    <a href="#works" class="smoothscroll btn btn--stroke" style="color:#000;border-color:#000;">
+                    <a href="#works" class="smoothscroll btn btn--stroke" style="color:#000;border-color:#000;" onClick="Loggr.Log.trackUser(uid, '', 'ourmenu clicked.');">
                         Our Menu
                     </a>
                 </div>
@@ -355,7 +355,7 @@
                 </div> <!-- end masonry -->
                 <div style="margin: 0 auto;left: 0;right: 0;width: 227px;margin-top: 70px;">
                   
-                    <a href="#contact" class="smoothscroll btn btn--stroke" style="color:#000;border-color:#000;">
+                    <a href="#contact" class="smoothscroll btn btn--stroke" style="color:#000;border-color:#000;" onClick="Loggr.Log.trackUser(uid, '', 'getaquotenow clicked.');">
                         Get a quote now
                     </a>
                 </div>
