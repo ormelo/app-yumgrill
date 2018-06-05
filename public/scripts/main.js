@@ -195,13 +195,14 @@
     var clMasonryFolio = function () {
         
         var containerBricks = $('.masonry');
-
-        containerBricks.imagesLoaded(function () {
-            containerBricks.masonry({
-                itemSelector: '.masonry__brick',
-                resize: true
-            });
-        });
+        $(window).scroll(function(){if($(window).scrollTop()>=1700){ 
+          containerBricks.imagesLoaded(function () {
+              containerBricks.masonry({
+                  itemSelector: '.masonry__brick',
+                  resize: true
+              });
+          });
+        }});
     };
 
 

@@ -181,8 +181,7 @@
                                 
                             <div class="item-folio__thumb">
                                 <a href="img/portfolio/gallery/g-shutterbug.jpg" class="thumb-link" title="Shutterbug" data-size="1050x700">
-                                    <img src="img/portfolio/lady-shutterbug.jpg" 
-                                         srcset="img/portfolio/lady-shutterbug.jpg 1x, img/portfolio/lady-shutterbug@2x.jpg 2x" alt="">
+                                    <img data-src="img/portfolio/lady-shutterbug.jpg" alt="">
                                 </a>
                             </div>
     
@@ -211,8 +210,7 @@
                                 
                             <div class="item-folio__thumb">
                                 <a href="img/portfolio/gallery/g-woodcraft.jpg" class="thumb-link" title="Woodcraft" data-size="1050x700">
-                                    <img src="img/portfolio/woodcraft.jpg" 
-                                         srcset="img/portfolio/woodcraft.jpg 1x, img/portfolio/woodcraft@2x.jpg 2x" alt="">
+                                    <img data-src="img/portfolio/woodcraft.jpg" alt="">
                                 </a>
                             </div>
     
@@ -241,8 +239,7 @@
                                 
                             <div class="item-folio__thumb">
                                 <a href="img/portfolio/gallery/g-beetle.jpg" class="thumb-link" title="The Beetle Car" data-size="1050x700">
-                                    <img src="img/portfolio/the-beetle.jpg"
-                                         srcset="img/portfolio/the-beetle.jpg 1x, img/portfolio/the-beetle@2x.jpg 2x" alt="">
+                                    <img data-src="img/portfolio/the-beetle.jpg" alt="">
                                 </a>
                             </div>
     
@@ -271,8 +268,7 @@
                                 
                             <div class="item-folio__thumb">
                                 <a href="img/portfolio/gallery/g-grow-green.jpg" class="thumb-link" title="Grow Green" data-size="1050x700">
-                                    <img src="img/portfolio/grow-green.jpg" 
-                                         srcset="img/portfolio/grow-green.jpg 1x, img/portfolio/grow-green@2x.jpg 2x" alt="">
+                                    <img data-src="img/portfolio/grow-green.jpg" alt="">
                                 </a>
                             </div>
     
@@ -301,8 +297,7 @@
                                 
                             <div class="item-folio__thumb">
                                 <a href="img/portfolio/gallery/g-guitarist.jpg" class="thumb-link" title="Guitarist" data-size="1050x700">
-                                    <img src="img/portfolio/guitarist.jpg" 
-                                         srcset="img/portfolio/guitarist.jpg 1x, img/portfolio/guitarist@2x.jpg 2x" alt="">
+                                    <img data-src="img/portfolio/guitarist.jpg" alt="">
                                 </a>
                             </div>
     
@@ -331,8 +326,7 @@
                                 
                             <div class="item-folio__thumb">
                                 <a href="img/portfolio/gallery/g-palmeira.jpg" class="thumb-link" title="Palmeira" data-size="1050x700">
-                                    <img src="img/portfolio/palmeira.jpg"
-                                         srcset="img/portfolio/palmeira.jpg 1x, img/portfolio/palmeira@2x.jpg 2x" alt="">
+                                    <img data-src="img/portfolio/palmeira.jpg" alt="">
                                 </a>
                             </div>
     
@@ -591,6 +585,16 @@
     };
     uid = guid();
     Loggr.Log.trackUser(uid, "", "Yumgrill page loaded.");
+
+    function lazyLoad() {
+      $('.thumb-link').each(function(a){
+        var imgElem = $($($('.thumb-link')[a]).children()[0]);
+        var dataSrc = imgElem.attr('data-src');
+        imgElem.attr('src', dataSrc);
+      });
+    }
+    $(window).scroll(function(){if($(window).scrollTop()>=1700){ lazyLoad();setTimeout("clMasonryFolio();",1000); }});
+
     </script>
 
 </body>
