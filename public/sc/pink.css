@@ -74,10 +74,10 @@ input[type="submit"] {
   background: #f1505b;
 }
 .portfolio-item:hover .portfolio-item-content {
-  background: #f1505b;
+  background: #0abc9a;
 }
 .portfolio-item:hover .portfolio-item-content .icon i {
-  color: #f1505b;
+  color: #0abc9a;
 }
 .blog-item .blog-content h3 {
   color: #f1505b;
