@@ -8,6 +8,8 @@
 .logo {
   width: 100px;
 }
+
+
 </style>
     <!-- Basic -->
     <title>Scoosh - Party catering service in Bangalore</title>
@@ -146,6 +148,52 @@
             color: #f0515c;
         }
 
+        @media (max-width: 768px){
+                h1.big_title {
+                     font-size: 30px;
+                    line-height: 34px;
+                }
+                h3.small_title {
+                  font-size: 14px;
+                  line-height: 22px;
+                  color: #000;
+                  margin-top: 16px;
+               }
+               .background {
+                  background-image: none;
+                  background-size: cover;
+               }
+               .panel-center {
+                  margin-top: 20px;
+               }
+               .container {
+                padding-left: 20px;
+                padding-right: 20px;
+               }
+            }
+        
+
+        
+            @media (min-width: 600px){
+                .mob-banner {
+                  display: none;
+                }
+                h1.big_title {
+                    background-image: url('https://cf0316.s3.amazonaws.com/cookificom/menu/3459/landing-page--03c8c7.png');
+                }
+            }
+        
+
+        
+           @media (min-width: 1025px){
+              .mob-banner {
+                  display: none;
+                }
+                h1.big_title {
+                    background-image: url('https://cf0316.s3.amazonaws.com/cookificom/menu/3459/landing-page-edit-md-14-6022f4.png');
+                }
+            }
+
 
     </style>
 
@@ -210,8 +258,9 @@
         <div class="container">
             <div class="row" style="min-height: 400px;">
                 <div class="col-sm-6 col-md-8" style="valign: middle&#39;; ">
-                    <h1 class="big_title" style="font-family: quicksand-regular; font-weight: normal;">Fresh salad for your house party</h1>
+                    <h1 class="big_title" style="background: none;font-family: quicksand-regular; font-weight: normal;">Fresh salad for your house party</h1>
                     <h3 class="small_title" style="font-weight: normal;font-family: quicksand-light">Scoosh catering offers an environment-friendly, affordable and healthy food serving option at your party!</h3>
+                    <img class="mob-banner" src="./sc/sbgm.jpg"/>
                 </div>
 
                 <div class="col-sm-6 col-md-4">
