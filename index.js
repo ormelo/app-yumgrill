@@ -2,6 +2,12 @@ var express = require('express');
 var app = express();
 var path = require('path');
 var webpush = require('web-push');
+var fs = require('fs');
+
+var pages = [];
+  fs.readFile("public/index.html", "utf8", function(err, data) {
+    pages.index = data;
+  });
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -61,10 +67,13 @@ app.get('/fit-test', function(request, response) {
   response.sendFile(path.resolve(__dirname, 'public', 'steps.html'));
 });
 
-
-app.get('/', function(request, response) {
-  response.sendFile(path.resolve(__dirname, 'public', 'index.html'));
+app.get("/", function(request, response) {
+  response.send(pages.index);
 });
+
+/* app.get('/', function(request, response) {
+  response.sendFile(path.resolve(__dirname, 'public', 'index.html'));
+});*/
 
 app.get('/onboard/step2', function(request, response) {
   response.writeHead(301,
