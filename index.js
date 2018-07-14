@@ -83,13 +83,13 @@ app.get("/get", function(request, response) {
 
 var redisURL = url.parse(process.env.REDISCLOUD_URL);
 var client = redis.createClient(process.env.REDISCLOUD_URL, {no_ready_check: true});
-client.auth(redisURL.auth.split(":")[1]);
+// client.auth(redisURL.auth.split(":")[1]);
 // res.send(client);
   client.get("welcome_msg", function (err, reply) {
     if (reply != null) {
       res.send(reply);
     } else {
-      res.send("Error");
+      res.send("key not found");
     }
   });
 });
