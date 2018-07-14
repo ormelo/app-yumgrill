@@ -5,6 +5,7 @@ var webpush = require('web-push');
 var fs = require('fs');
 var url = require('url');
 var redis = require('redis');
+var client = redis.createClient('redis://rediscloud:vWISiXr6xai89eidZYXjM0OK3KeXfkPU@redis-16431.c10.us-east-1-2.ec2.cloud.redislabs.com:16431', {no_ready_check: true});
 
 var pages = [];
   fs.readFile("public/index.html", "utf8", function(err, data) {
@@ -82,7 +83,6 @@ app.get("/get", function(request, response) {
   // res.send(process.env); 
 
 //var redisURL = url.parse(process.env.REDISCLOUD_URL);
-var client = redis.createClient('redis://rediscloud:vWISiXr6xai89eidZYXjM0OK3KeXfkPU@redis-16431.c10.us-east-1-2.ec2.cloud.redislabs.com:16431', {no_ready_check: true});
  // client.auth('vWISiXr6xai89eidZYXjM0OK3KeXfkPU');
 // res.send(client);
   client.get("welcome_msg", function (err, reply) {
