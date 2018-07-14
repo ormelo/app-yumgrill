@@ -83,7 +83,7 @@ app.get("/get", function(request, response) {
 
 var redisURL = url.parse(process.env.REDISCLOUD_URL);
 var client = redis.createClient(process.env.REDISCLOUD_URL, {no_ready_check: true});
-// client.auth(redisURL.auth.split(":")[1]);
+ client.auth('vWISiXr6xai89eidZYXjM0OK3KeXfkPU');
 // res.send(client);
   client.get("welcome_msg", function (err, reply) {
     if (reply != null) {
