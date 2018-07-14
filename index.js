@@ -82,8 +82,8 @@ app.get("/get", function(request, response) {
   // res.send(process.env);
 
 var redisURL = url.parse(process.env.REDISCLOUD_URL);
-var client = redis.createClient(process.env.REDISCLOUD_URL, {no_ready_check: true});
- client.auth('vWISiXr6xai89eidZYXjM0OK3KeXfkPU');
+var client = redis.createClient('redis://rediscloud:vWISiXr6xai89eidZYXjM0OK3KeXfkPU@redis-16431.c10.us-east-1-2.ec2.cloud.redislabs.com:16431', {no_ready_check: true});
+ // client.auth('vWISiXr6xai89eidZYXjM0OK3KeXfkPU');
 // res.send(client);
   client.get("welcome_msg", function (err, reply) {
     if (reply != null) {
