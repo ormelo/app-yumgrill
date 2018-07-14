@@ -79,7 +79,7 @@ app.get("/set", function(request, response) {
 
 app.get("/get", function(request, response) {
   var REDISCLOUD_URL = 'redis-16431.c10.us-east-1-2.ec2.cloud.redislabs.com:16431';
-  res.send(process.env.REDISCLOUD_URL);
+  res.send(process.env);
 
 var redisURL = url.parse(process.env.REDISCLOUD_URL);
 var client = redis.createClient(process.env.REDISCLOUD_URL, {no_ready_check: true});
