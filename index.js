@@ -11,8 +11,8 @@ var pages = [];
     pages.index = data;
   });
 
-var REDISCLOUD_URL = 'redis-16431.c10.us-east-1-2.ec2.cloud.redislabs.com:16431';
-var redisURL = url.parse(process.env.REDISCLOUD_URL);
+var REDISCLOUD_URL = 'redis://rediscloud:vWISiXr6xai89eidZYXjM0OK3KeXfkPU@redis-16431.c10.us-east-1-2.ec2.cloud.redislabs.com:16431';
+var redisURL = url.parse(REDISCLOUD_URL);
 var client = redis.createClient(process.env.REDISCLOUD_URL, {no_ready_check: true});
 // client.auth(redisURL.auth.split(":")[1]);
 
