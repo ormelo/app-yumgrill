@@ -11,12 +11,6 @@ var pages = [];
     pages.index = data;
   });
 
-var REDISCLOUD_URL = 'redis-16431.c10.us-east-1-2.ec2.cloud.redislabs.com:16431';
-var redisURL = url.parse(process.env.HEROKU_REDIS_GREEN_URL);
-var client = redis.createClient(process.env.HEROKU_REDIS_GREEN_URL, {no_ready_check: true});
-client.auth(redisURL.auth.split(":")[1]);
-console.log('--client--', client);
-
 app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname + '/public'));
@@ -84,13 +78,18 @@ app.get("/set", function(request, response) {
 });
 
 app.get("/get", function(request, response) {
-  client.get("welcome_msg", function (err, reply) {
+  var REDISCLOUD_URL = 'redis-16431.c10.us-east-1-2.ec2.cloud.redislabs.com:16431';
+var redisURL = url.parse(process.env.HEROKU_REDIS_GREEN_URL);
+var client = redis.createClient(process.env.HEROKU_REDIS_GREEN_URL, {no_ready_check: true});
+client.auth(redisURL.auth.split(":")[1]);
+res.send(client);
+  /* client.get("welcome_msg", function (err, reply) {
     if (reply != null) {
       res.send(reply);
     } else {
       res.send("Error");
     }
-  });
+  }); */
 });
 
 app.get("/redis", function(request, response) {
