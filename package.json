@@ -16,7 +16,8 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-router": "^4.1.2",
-    "web-push": "^3.0.0"
+    "web-push": "^3.0.0",
+    "redis": "0.7.0"
   },
   "devDependencies": {
     "babel-core": "^6.25.0",

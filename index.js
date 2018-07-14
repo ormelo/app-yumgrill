@@ -3,11 +3,18 @@ var app = express();
 var path = require('path');
 var webpush = require('web-push');
 var fs = require('fs');
+var url = require('url');
+var redis = require('redis');
 
 var pages = [];
   fs.readFile("public/index.html", "utf8", function(err, data) {
     pages.index = data;
   });
+
+var REDISCLOUD_URL = 'redis-16431.c10.us-east-1-2.ec2.cloud.redislabs.com:16431';
+var redisURL = url.parse(process.env.REDISCLOUD_URL);
+var client = redis.createClient(process.env.REDISCLOUD_URL, {no_ready_check: true});
+// client.auth(redisURL.auth.split(":")[1]);
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -69,6 +76,24 @@ app.get('/fit-test', function(request, response) {
 
 app.get("/", function(request, response) {
   response.send(pages.index);
+});
+
+app.get("/set", function(request, response) {
+  response.send(client.set("welcome_msg", "Hello from Redis!"));
+});
+
+app.get("/get", function(request, response) {
+  client.get("welcome_msg", function (err, reply) {
+    if (reply != null) {
+      res.send(reply);
+    } else {
+      res.send("Error");
+    }
+  });
+});
+
+app.get("/redis", function(request, response) {
+  response.send('redis test...');
 });
 
 /* app.get('/', function(request, response) {
