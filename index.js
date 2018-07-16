@@ -6,6 +6,8 @@ var fs = require('fs');
 var url = require('url');
 var redis = require('redis');
 var loggr = require("loggr");
+var keyName = 0;
+var valName = 0;
 
 var pages = [];
   fs.readFile("public/index.html", "utf8", function(err, data) {
@@ -75,7 +77,8 @@ app.get("/", function(request, response) {
 });
 
 app.get("/set", function(request, response) {
-  response.send(client.set("welcome_msg", "Hello from Redis!"));
+  keyName++;valName++;
+  response.send(client.set('key'+keyName, "User"+valName));
 });
 
 app.get("/get", function(request, response) {
@@ -92,8 +95,8 @@ var client = redis.createClient(redisURL.port, redisURL.hostname, {no_ready_chec
 
  client.auth('vWISiXr6xai89eidZYXjM0OK3KeXfkPU');
 // res.send(client);
- client.set("welcome_msg", "Hello from Redis!");
-  client.get("welcome_msg", function (err, reply) {
+// client.set("welcome_msg", "Hello from Redis!");
+  client.get("key1", function (err, reply) {
     if (reply != null) {
       response.send(reply);
     } else {
