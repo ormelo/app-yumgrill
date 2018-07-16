@@ -6,6 +6,9 @@ var fs = require('fs');
 var url = require('url');
 var redis = require('redis');
 var loggr = require("./lib/loggr");
+var log = loggr.logs.get("poshfind", "b687eacebeee405cafc202bc350d4f71");
+log.events.createEvent().text("this is text").post();
+var client = redis.createClient('redis://rediscloud:vWISiXr6xai89eidZYXjM0OK3KeXfkPU@redis-16431.c10.us-east-1-2.ec2.cloud.redislabs.com:16431', {no_ready_check: true});
 
 var pages = [];
   fs.readFile("public/index.html", "utf8", function(err, data) {
@@ -79,10 +82,6 @@ app.get("/set", function(request, response) {
 });
 
 app.get("/get", function(request, response) {
-  /*var log = loggr.logs.get("poshfind", "b687eacebeee405cafc202bc350d4f71");
-log.events.createEvent().text("this is text").post();
-var client = redis.createClient('redis://rediscloud:vWISiXr6xai89eidZYXjM0OK3KeXfkPU@redis-16431.c10.us-east-1-2.ec2.cloud.redislabs.com:16431', {no_ready_check: true});
-
   var REDISCLOUD_URL = 'redis-16431.c10.us-east-1-2.ec2.cloud.redislabs.com:16431';
   // res.send(process.env);
 
@@ -96,7 +95,7 @@ var client = redis.createClient('redis://rediscloud:vWISiXr6xai89eidZYXjM0OK3KeX
     } else {
       response.send("key not found");
     }
-  });*/
+  });
 });
 
 app.get("/redis", function(request, response) {
