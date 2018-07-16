@@ -5,7 +5,7 @@ var webpush = require('web-push');
 var fs = require('fs');
 var url = require('url');
 var redis = require('redis');
-var loggr = require("./lib/loggr");
+var loggr = require("loggr");
 
 var pages = [];
   fs.readFile("public/index.html", "utf8", function(err, data) {
@@ -80,14 +80,17 @@ app.get("/set", function(request, response) {
 
 app.get("/get", function(request, response) {
   var log = loggr.logs.get("poshfind", "b687eacebeee405cafc202bc350d4f71");
-log.events.createEvent().text("this is text").post();
-var client = redis.createClient('redis://rediscloud:vWISiXr6xai89eidZYXjM0OK3KeXfkPU@redis-16431.c10.us-east-1-2.ec2.cloud.redislabs.com:16431', {no_ready_check: true});
+  //console.log('--loggr--', log);
+log.events.createEvent().text("this is text2").post();
 
-  var REDISCLOUD_URL = 'redis-16431.c10.us-east-1-2.ec2.cloud.redislabs.com:16431';
+  //var REDISCLOUD_URL = 'redis-16431.c10.us-east-1-2.ec2.cloud.redislabs.com:16431';
   // res.send(process.env);
 
-//var redisURL = url.parse(process.env.REDISCLOUD_URL);
- // client.auth('vWISiXr6xai89eidZYXjM0OK3KeXfkPU');
+var redisURL = url.parse(process.env.REDISCLOUD_URL);
+//var client = redis.createClient('redis://rediscloud:vWISiXr6xai89eidZYXjM0OK3KeXfkPU@redis-16431.c10.us-east-1-2.ec2.cloud.redislabs.com:16431', {no_ready_check: true});
+var client = redis.createClient(redisURL.port, redisURL.hostname, {no_ready_check: true});
+
+ client.auth('vWISiXr6xai89eidZYXjM0OK3KeXfkPU');
 // res.send(client);
 // client.set("welcome_msg", "Hello from Redis!");
   client.get("welcome_msg", function (err, reply) {
