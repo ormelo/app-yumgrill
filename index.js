@@ -6,6 +6,10 @@ var fs = require('fs');
 var url = require('url');
 var redis = require('redis');
 var loggr = require("loggr");
+var redisURL = url.parse(process.env.REDISCLOUD_URL);
+
+var client = redis.createClient(redisURL.port, redisURL.hostname, {no_ready_check: true});
+client.auth('vWISiXr6xai89eidZYXjM0OK3KeXfkPU');
 var keyName = 0;
 var valName = 0;
 
@@ -89,11 +93,9 @@ log.events.createEvent().text("this is text2").post();
   //var REDISCLOUD_URL = 'redis-16431.c10.us-east-1-2.ec2.cloud.redislabs.com:16431';
   // res.send(process.env);
 
-var redisURL = url.parse(process.env.REDISCLOUD_URL);
 //var client = redis.createClient('redis://rediscloud:vWISiXr6xai89eidZYXjM0OK3KeXfkPU@redis-16431.c10.us-east-1-2.ec2.cloud.redislabs.com:16431', {no_ready_check: true});
-var client = redis.createClient(redisURL.port, redisURL.hostname, {no_ready_check: true});
 
- client.auth('vWISiXr6xai89eidZYXjM0OK3KeXfkPU');
+
 // res.send(client);
 // client.set("welcome_msg", "Hello from Redis!");
   client.get("key1", function (err, reply) {
