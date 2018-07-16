@@ -92,7 +92,7 @@ var client = redis.createClient(redisURL.port, redisURL.hostname, {no_ready_chec
 
  client.auth('vWISiXr6xai89eidZYXjM0OK3KeXfkPU');
 // res.send(client);
-// client.set("welcome_msg", "Hello from Redis!");
+ client.set("welcome_msg", "Hello from Redis!");
   client.get("welcome_msg", function (err, reply) {
     if (reply != null) {
       response.send(reply);
