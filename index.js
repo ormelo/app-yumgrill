@@ -6,16 +6,30 @@ var fs = require('fs');
 var url = require('url');
 var redis = require('redis');
 var loggr = require("loggr");
-var redisURL = url.parse(process.env.REDISCLOUD_URL);
+var redisURLVal = process.env.REDISCLOUD_URL || 'redis://rediscloud:vWISiXr6xai89eidZYXjM0OK3KeXfkPU@redis-16431.c10.us-east-1-2.ec2.cloud.redislabs.com:16431';
+redisURL = url.parse(redisURLVal);
+var bodyParser = require('body-parser');
 
 var client = redis.createClient(redisURL.port, redisURL.hostname, {no_ready_check: true});
 client.auth('vWISiXr6xai89eidZYXjM0OK3KeXfkPU');
 var keyName = 0;
 var valName = 0;
 
+var bodyParser = require('body-parser')
+app.use( bodyParser.json() );       // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+  extended: true
+})); 
+//app.use(app.json());       // to support JSON-encoded bodies
+//app.use(app.urlencoded()); // to support URL-encoded bodies
+
 var pages = [];
   fs.readFile("public/index.html", "utf8", function(err, data) {
     pages.index = data;
+  });
+
+  fs.readFile("public/getQuote.html", "utf8", function(err, data) {
+    pages.getQuote = data;
   });
 
 app.set('port', (process.env.PORT || 5000));
@@ -78,6 +92,14 @@ app.get('/fit-test', function(request, response) {
 
 app.get("/", function(request, response) {
   response.send(pages.index);
+});
+
+app.post('/submitGetQuote', function(req, res) {
+    var email = req.body.email,
+        members = req.body.members,
+        date = req.body.date;
+        client.set(email, members);
+    res.send(pages.getQuote);
 });
 
 app.get("/set", function(request, response) {

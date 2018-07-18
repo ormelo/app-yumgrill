@@ -217,11 +217,11 @@
                 <div class="col-sm-6 col-md-4">
                     <div class="panel-center">
                         <h1 class="form_title" style="display: none">Catering Need</h1>
-                        <form method="post" class="landing_page" novalidate="novalidate">
+                        <form onSubmit="checkFields();" action="/submitGetQuote" method="post" class="landing_page" >
     
         
     
-        <input type="text" name="email" placeholder="Email" class="form-control" id="id_email" value="" title="email@example.com" pattern="\S+@\S+\.\S+" required="required" dcvalue="" aria-required="true">
+        <input type="text" id="email" name="email" placeholder="Mobile number" class="form-control" id="id_email" value="" title="email@example.com" required="required" dcvalue="" aria-required="true">
         
     
 
@@ -230,14 +230,12 @@
         
     
 
-    
-        <input type="text" name="when" placeholder="Party date" class="form-control hasDatepicker" id="id_when" value="" dcvalue="" autocomplete="off">
-
+  
 
     
 
     
-        <input type="text" name="location" placeholder="No. of members expected" class="form-control" id="id_location" value="" dcvalue="" autocomplete="off">
+        <input type="text" id="members" name="members" placeholder="No. of members expected" class="form-control" id="id_location" value="" dcvalue="" autocomplete="off">
 
 
     
@@ -622,6 +620,15 @@ s0.parentNode.insertBefore(s1,s0);
       $('html,body').animate({
           scrollTop: scrollVal
       }, 800);
+    }
+
+    function checkFields(e) {
+      var emailTxt = document.getElementById('email').value;
+      var emailMem = document.getElementById('members').value;
+      if(emailTxt.trim() === '' || emailMem.trim() === '') {
+        e.preventDefault();
+        return false;
+      }
     }
 
     var changeInt = 0;
