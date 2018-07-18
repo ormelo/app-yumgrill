@@ -94,6 +94,10 @@ app.get("/", function(request, response) {
   response.send(pages.index);
 });
 
+app.get("/getQuote", function(request, response) {
+  response.send(pages.getQuote);
+});
+
 app.post('/submitGetQuote', function(req, res) {
     var email = req.body.email,
         members = req.body.members,
