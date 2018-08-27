@@ -4,35 +4,14 @@ import { render } from 'react-dom';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 class Home extends Component {
-    componentDidMount() {
-      var nlform = new NLForm( document.getElementById( 'nl-form' ));
-    }
     render(){
         return (<div>
-                  <div className="logo"><img alt="Scoosh.in" src="./sc/logo.png"/></div>
-                  <div className="headline">Quote Checker</div>
-                  <hr className="line1" height="1px"/>
-                  <hr className="line2" height="10px"/>
-                  <div className="description main clearfix">
-                    <form id="nl-form" className="nl-form">
-                      I need catering for&nbsp;
-                      <select>
-                        <option value="1" selected>20 members</option>
-                      </select>
-                       &nbsp;for&nbsp;
-                      <select>
-                        <option value="Breakfast">Breakfast</option>
-                        <option value="Lunch" selected>Lunch</option>
-                        <option value="Snack">Snack</option>
-                        <option value="Dinner">Dinner</option>
-                      </select>
-                      &nbsp;on&nbsp;
-                      <input id="myDate" type="date" style={{width:'148px'}} value="2018-09-01"></input>
-                      <div className="nl-overlay"></div>
-                    </form>
-                  </div>
+                  <div className="logo"></div>
+                  <div className="headline">No more shopping heartbreaks!</div><br/>
+                  <div className="description">Poshfind helps you find fashion online that look & fit you as if tailormade!</div>
+
                   <div className="button-container">
-                    <Link to="/onboard" className="btn"><span>Next ></span></Link>
+                    <Link to="/onboard" className="btn"><span>Tell me how</span></Link>
                   </div>
                 </div>
           );
@@ -86,7 +65,7 @@ class OnboardStep2 extends Component {
 
 render(<Router>
         <div>
-        <Route exact path="/quoteChecker" component={Home}/>
+        <Route exact path="/" component={Home}/>
         <Route path="/onboard" render={()=>(
             <div>
             <OnboardTitle />

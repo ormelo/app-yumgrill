@@ -98,6 +98,10 @@ app.get("/getQuote", function(request, response) {
   response.send(pages.getQuote);
 });
 
+app.get('/quoteChecker', function(request, response) {
+  response.sendFile(path.resolve(__dirname, 'public', 'quoteChecker.html'));
+});
+
 app.post('/submitGetQuote', function(req, res) {
     var email = req.body.email,
         members = req.body.members,
