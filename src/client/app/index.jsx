@@ -4,6 +4,14 @@ import { render } from 'react-dom';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 class Home extends Component {
+    constructor(props) {
+      super(props);
+      this.dateChange = this.dateChange.bind(this);
+      this.state = {dateVal: '2018-09-01'}
+    }
+    dateChange(e) {
+      this.setState({dateVal: e.target.value});
+    }
     componentDidMount() {
       var nlform = new NLForm( document.getElementById( 'nl-form' ));
     }
@@ -27,7 +35,7 @@ class Home extends Component {
                         <option value="Dinner">Dinner</option>
                       </select>
                       &nbsp;on&nbsp;
-                      <input id="myDate" type="date" style={{width:'148px'}} value="2018-09-01"></input>
+                      <input id="myDate" type="date" style={{width:'148px'}} value={this.state.dateVal} onChange={(e)=>{this.dateChange(e);}}></input>
                       <div className="nl-overlay"></div>
                     </form>
                   </div>
