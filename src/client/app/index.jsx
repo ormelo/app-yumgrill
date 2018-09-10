@@ -23,7 +23,8 @@ class Home extends Component {
                   <hr className="line2" height="10px"/>
                   <div className="description main clearfix">
                     <form id="nl-form" className="nl-form">
-                      I need catering for&nbsp;
+                      <table>
+                      <tr><td>I need catering for&nbsp;
                       <select>
                         <option value="1" selected>20 members</option>
                       </select>
@@ -34,8 +35,11 @@ class Home extends Component {
                         <option value="Snack">Snack</option>
                         <option value="Dinner">Dinner</option>
                       </select>
-                      &nbsp;on&nbsp;
+                      </td></tr>
+                      <tr><td>&nbsp;on&nbsp;
                       <input id="myDate" type="date" style={{width:'148px', marginTop:'10px'}} value={this.state.dateVal} onChange={(e)=>{this.dateChange(e);}}></input>
+                      </td></tr>
+                      </table>
                       <div className="nl-overlay"></div>
                     </form>
                   </div>
