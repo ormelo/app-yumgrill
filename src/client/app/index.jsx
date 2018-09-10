@@ -35,7 +35,7 @@ class Home extends Component {
                         <option value="Dinner">Dinner</option>
                       </select>
                       &nbsp;on&nbsp;
-                      <input id="myDate" type="date" style={{width:'148px'}} value={this.state.dateVal} onChange={(e)=>{this.dateChange(e);}}></input>
+                      <input id="myDate" type="date" style={{width:'148px', marginTop:'10px'}} value={this.state.dateVal} onChange={(e)=>{this.dateChange(e);}}></input>
                       <div className="nl-overlay"></div>
                     </form>
                   </div>
