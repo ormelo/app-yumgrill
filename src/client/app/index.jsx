@@ -58,8 +58,58 @@ class OnboardTitle extends Component {
 
 class Onboard extends Component {
     render(){
-        return (<div className="content"><div style={{fontSize:'20px',textAlign:'center'}}>You'll start by clicking a selfie</div><br/>
-            <img src="img/step1.png"  width="160px" style={{margin:'0 auto',width:'200px',display:'inherit',padding:'40px'}}/>
+        return (<div className="content"><div style={{fontSize:'18px',textAlign:'center'}}>Select your cuisine</div><br/>
+            <div id="recent-portfolio-list">
+        
+                    <div className="col-md-4 col-lg-4 col-sm-6 col-xs-12 mix">
+                      <div className="portfolio-item-sm">
+                          <div className="portfolio-img">
+                              <a>
+                                  <img src="/sc/menu_ic.jpeg" alt="Home Caterers in Bangalore" style={{display: 'inline'}}/>
+                              </a>
+                          </div>
+                          <div className="portfolio-item-content">
+                              <h3 className="header">
+                                  North Indian
+                              </h3>
+                              <p className="body"></p>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div className="col-md-4 col-lg-4 col-sm-6 col-xs-12 mix">
+                      <div className="portfolio-item-sm">
+                          <div className="portfolio-img">
+                              <a>
+                                  <img src="/sc/menu_ic.jpeg" alt="Home Caterers in Bangalore" style={{display: 'inline'}}/>
+                              </a>
+                          </div>
+                          <div className="portfolio-item-content">
+                              <h3 className="header">
+                                  South Indian
+                              </h3>
+                              <p className="body"></p>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div className="col-md-4 col-lg-4 col-sm-6 col-xs-12 mix">
+                      <div className="portfolio-item-sm">
+                          <div className="portfolio-img">
+                              <a>
+                                  <img src="/sc/menu_ic.jpeg" alt="Home Caterers in Bangalore" style={{display: 'inline'}}/>
+                              </a>
+                          </div>
+                          <div className="portfolio-item-content">
+                              <h3 className="header">
+                                  Italian
+                              </h3>
+                              <p className="body"></p>
+                          </div>
+                      </div>
+                  </div>
+            </div>
+
             <Link to="/quoteChecker/step2" className="btn" style={{margin:'0 auto',zIndex:0}}>
               <span>Next</span>
             </Link>
