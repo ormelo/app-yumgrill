@@ -107,7 +107,8 @@ app.post('/submitGetQuote', function(req, res) {
         members = req.body.members,
         date = req.body.date;
         client.set(email, members);
-    res.send(pages.getQuote);
+    //res.send(pages.getQuote);
+    res.redirect('/quoteChecker');
 });
 
 app.get("/set", function(request, response) {

@@ -103,6 +103,7 @@
 	padding: 0 1.5em 0 0.5em;
 	cursor: pointer;
 	white-space: nowrap;
+	font-size: 20px;
 }
 
 .nl-dd ul li.nl-dd-checked {

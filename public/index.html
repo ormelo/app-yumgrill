@@ -625,6 +625,7 @@ s0.parentNode.insertBefore(s1,s0);
     function checkFields(e) {
       var emailTxt = document.getElementById('email').value;
       var emailMem = document.getElementById('members').value;
+      localStorage.setItem("num-members", emailMem);
       if(emailTxt.trim() === '' || emailMem.trim() === '') {
         e.preventDefault();
         return false;
