@@ -224,6 +224,9 @@ class OnboardStep1 extends Component {
                   </Link>
                 </div>
               </div>
+              <div className="price-panel">
+                <div className="price-panel-title">Estimated price</div>
+              </div>
           </div>
           );
     }
