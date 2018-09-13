@@ -147,12 +147,81 @@ class Onboard extends Component {
 class OnboardStep1 extends Component {
     constructor(props) {
       super(props);
-      this.state = {cuisine: localStorage.getItem('cuisine')}
+      this.getStarters = this.getStarters.bind(this);
+      this.getMainCourse = this.getMainCourse.bind(this);
+      this.state = {cuisine: localStorage.getItem('cuisine')};
+    }
+    getStarters(){
+      let startersElems = null;
+      switch(localStorage.getItem('cuisine')) {
+        case 'North Indian': startersElems = <div className="box">
+                                              <div className="checkbox">
+                                                <label>
+                                                  <input type="checkbox" />
+                                                  <i className="input-helper"></i>
+                                                  <span>Paneer Tikka</span>
+                                                </label>
+                                              </div>
+                                              <div className="checkbox">
+                                                <label>
+                                                  <input type="checkbox" />
+                                                  <i className="input-helper"></i>
+                                                  <span>Potato cheese balls</span>
+                                                </label>
+                                              </div>
+                                              <div className="checkbox">
+                                                <label>
+                                                  <input type="checkbox" />
+                                                  <i className="input-helper"></i>
+                                                  <span>Spring rolls</span>
+                                                </label>
+                                              </div>
+                                            </div>; break;
+        case 'South Indian': startersElems = <div>South Indian</div>; break;
+        case 'Italian': startersElems = <div>Italian</div>; break;
+        default: null;
+      }
+      return startersElems;
+    }
+    getMainCourse(){
+      let startersElems = null;
+      switch(localStorage.getItem('cuisine')) {
+        case 'North Indian': startersElems = <div className="box">
+                                              <div className="checkbox">
+                                                <label>
+                                                  <input type="checkbox" />
+                                                  <i className="input-helper"></i>
+                                                  <span>Plain Roti</span>
+                                                </label>
+                                              </div>
+                                              <div className="checkbox">
+                                                <label>
+                                                  <input type="checkbox" />
+                                                  <i className="input-helper"></i>
+                                                  <span>Butter Roti</span>
+                                                </label>
+                                              </div>
+                                              <div className="checkbox">
+                                                <label>
+                                                  <input type="checkbox" />
+                                                  <i className="input-helper"></i>
+                                                  <span>Plain Nan</span>
+                                                </label>
+                                              </div>
+                                            </div>; break;
+        case 'South Indian': startersElems = <div>South Indian</div>; break;
+        case 'Italian': startersElems = <div>Italian</div>; break;
+        default: null;
+      }
+      return startersElems;
     }
     render(){
         return (<div className="content margin-sm"><div className="preview-title">Create your {this.state.cuisine} meal plate to check price</div><br/>
             <img src="/sc/plate.png" className="meal-plate" width="160px"/>
             <div className="preview-menu-type">Select Starters</div>
+            {this.getStarters()}
+            <div className="preview-menu-type">Select Main Course</div>
+            {this.getMainCourse()}
             <div className="btn-parent">
               <Link to="/quoteChecker/step3" className="btn fixed-btn" style={{margin:'0 auto',zIndex:0}}>
                 <span>Next</span>
