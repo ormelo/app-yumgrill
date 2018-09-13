@@ -7,7 +7,7 @@ class Home extends Component {
     constructor(props) {
       super(props);
       this.dateChange = this.dateChange.bind(this);
-      this.state = {dateVal: '2018-09-01', members: ''}
+      this.state = {dateVal: '2018-09-01', members: ''};
     }
     dateChange(e) {
       this.setState({dateVal: e.target.value});
@@ -57,15 +57,31 @@ class OnboardTitle extends Component {
 }
 
 class Onboard extends Component {
+  constructor(props) {
+    super(props);
+    this.selectCuisine = this.selectCuisine.bind(this);
+  }
+  selectCuisine(cuisine) {
+    localStorage.setItem('cuisine', cuisine);
+    document.getElementById('north-checked').style.display = 'none';
+    document.getElementById('south-checked').style.display = 'none';
+    document.getElementById('italian-checked').style.display = 'none';
+    document.getElementById('north-img').style.opacity = '1';
+    document.getElementById('south-img').style.opacity = '1';
+    document.getElementById('italian-img').style.opacity = '1';
+    document.getElementById(`${cuisine}-img`).style.opacity = '0.2';
+    document.getElementById(`${cuisine}-checked`).style.display = 'inline';
+  }
     render(){
         return (<div className="content"><div style={{fontSize:'18px',textAlign:'center'}}>Select your cuisine</div><br/>
             <div id="recent-portfolio-list">
         
                     <div className="col-md-4 col-lg-4 col-sm-6 col-xs-12 mix">
-                      <div className="portfolio-item-sm">
+                      <div className="portfolio-item-sm" onClick={()=>this.selectCuisine('north')}>
                           <div className="portfolio-img">
                               <a>
-                                  <img src="/sc/m_north.png" alt="Home Caterers in Bangalore" style={{display: 'inline'}}/>
+                                  <img id="north-img" src="/sc/m_north.png" alt="Home Caterers in Bangalore" style={{display: 'inline'}}/>
+                                  <svg id="north-checked" className="checked" x="0px" y="0px" viewBox="0 0 488.878 488.878" style={{enableBackground:'new 0 0 488.878 488.878'}} width="512px" height="512px"><g><g><polygon points="143.294,340.058 50.837,247.602 0,298.439 122.009,420.447 122.149,420.306 144.423,442.58 488.878,98.123 437.055,46.298 " fill="#0abc9a"/></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
                               </a>
                           </div>
                           <div className="portfolio-item-content">
@@ -78,10 +94,11 @@ class Onboard extends Component {
                   </div>
 
                   <div className="col-md-4 col-lg-4 col-sm-6 col-xs-12 mix">
-                      <div className="portfolio-item-sm">
+                      <div className="portfolio-item-sm" onClick={()=>this.selectCuisine('south')}>
                           <div className="portfolio-img">
                               <a>
-                                  <img src="/sc/m_south.png" alt="Home Caterers in Bangalore" style={{display: 'inline'}}/>
+                                  <img id="south-img" src="/sc/m_south.png" alt="Home Caterers in Bangalore" style={{display: 'inline'}}/>
+                                  <svg id="south-checked" className="checked" x="0px" y="0px" viewBox="0 0 488.878 488.878" style={{enableBackground:'new 0 0 488.878 488.878'}} width="512px" height="512px"><g><g><polygon points="143.294,340.058 50.837,247.602 0,298.439 122.009,420.447 122.149,420.306 144.423,442.58 488.878,98.123 437.055,46.298 " fill="#0abc9a"/></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
                               </a>
                           </div>
                           <div className="portfolio-item-content">
@@ -94,10 +111,11 @@ class Onboard extends Component {
                   </div>
 
                   <div className="col-md-4 col-lg-4 col-sm-6 col-xs-12 mix">
-                      <div className="portfolio-item-sm">
+                      <div className="portfolio-item-sm" onClick={()=>this.selectCuisine('italian')}>
                           <div className="portfolio-img">
                               <a>
-                                  <img src="/sc/m_italian.png" alt="Home Caterers in Bangalore" style={{display: 'inline'}}/>
+                                  <img id="italian-img" src="/sc/m_italian.png" alt="Home Caterers in Bangalore" style={{display: 'inline'}}/>
+                                  <svg id="italian-checked" className="checked" x="0px" y="0px" viewBox="0 0 488.878 488.878" style={{enableBackground:'new 0 0 488.878 488.878'}} width="512px" height="512px"><g><g><polygon points="143.294,340.058 50.837,247.602 0,298.439 122.009,420.447 122.149,420.306 144.423,442.58 488.878,98.123 437.055,46.298 " fill="#0abc9a"/></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
                               </a>
                           </div>
                           <div className="portfolio-item-content">
@@ -107,6 +125,7 @@ class Onboard extends Component {
                               <p className="body"></p>
                           </div>
                       </div>
+                      <br/><br/><br/>
                   </div>
             </div>
             <div className="btn-parent">
