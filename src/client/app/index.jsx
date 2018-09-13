@@ -149,28 +149,71 @@ class OnboardStep1 extends Component {
       super(props);
       this.getStarters = this.getStarters.bind(this);
       this.getMainCourse = this.getMainCourse.bind(this);
-      this.state = {cuisine: localStorage.getItem('cuisine'), members: localStorage.getItem('num-members'), perPlatePrice: '420', lastAdded: 'Gobi manchurian: ₹20', priceForAllPlates: '4200'};
+      this.getDesserts = this.getDesserts.bind(this);
+      this.onCheckHandler = this.onCheckHandler.bind(this);
+      this.onCheck = this.onCheck.bind(this);
+      this.onUncheck = this.onUncheck.bind(this);
+      this.starters = [];
+      this.mainCourse = [];
+      this.desserts = [];
+      this.state = {cuisine: localStorage.getItem('cuisine'), members: localStorage.getItem('num-members'), perPlatePrice: '0', lastAdded: '', priceForAllPlates: '0'};
+
+
+      this.northIndianMenu = {
+        "paneer_tikka": {"price": "45", "imgUrl": "paneer_tikka.png"},
+        "cheese_balls": {"price": "35", "imgUrl": "cheese_balls.png"},
+        "spring_rolls": {"price": "25", "imgUrl": "spring_rolls.png"}
+      };
+    }
+    onCheck(itemType, item) {
+      if(itemType == 'starter') {
+        this.starters.push(item);
+      } else if(itemType == 'main-course') {
+        this.mainCourse.push(item);
+      } else if(itemType == 'desserts') {
+        this.desserts.push(item);
+      }
+      let perPlatePriceVal = parseInt(this.state.perPlatePrice, 10) + parseInt(this.northIndianMenu[item].price,10);
+      let priceForAllPlatesVal = perPlatePriceVal * parseInt(localStorage.getItem('num-members'));
+      let lastAddedVal = 'Last added: '+item.replace(/_/g, ' ')+': ₹'+this.northIndianMenu[item].price;
+      this.setState({lastAdded: lastAddedVal, perPlatePrice: perPlatePriceVal, priceForAllPlates: priceForAllPlatesVal});
+    }
+    onUncheck(itemType, item) {
+      let perPlatePriceVal = parseInt(this.state.perPlatePrice, 10) - parseInt(this.northIndianMenu[item].price,10);
+      let lastAddedVal = 'Last removed: '+item.replace(/_/g, ' ')+': ₹'+this.northIndianMenu[item].price;
+      let priceForAllPlatesVal = perPlatePriceVal * parseInt(localStorage.getItem('num-members'));
+      this.setState({lastAdded: lastAddedVal, perPlatePrice: perPlatePriceVal, priceForAllPlates: priceForAllPlatesVal});
+    }
+    onCheckHandler(e) {
+       console.log(e.target.checked);
+       const itemType = e.target.getAttribute('data-item-type');
+       const item = e.target.getAttribute('data-item');
+       console.log(itemType);
+       console.log(item);
+       if (e.target.checked) {
+          this.onCheck(itemType, item);
+       } else {
+          this.onUncheck(itemType, item);
+       }
+    }
+    createCheckBox(type, item, label) {
+      return <div className="checkbox"><label><input type="checkbox" data-item-type={type} data-item={item}
+        onClick={(e)=>{this.onCheckHandler(e)}}/><i className="input-helper"></i>
+        <span>{label}</span></label></div>;
     }
     getStarters(){
       let startersElems = null;
       switch(localStorage.getItem('cuisine')) {
         case 'North Indian': startersElems = <div className="box">
-                                                <div className="checkbox"><label><input type="checkbox" /><i className="input-helper"></i>
-                                                <span>Paneer Tikka</span></label></div>
-                                                <div className="checkbox"><label><input type="checkbox" /><i className="input-helper"></i>
-                                                <span>Potato cheese balls</span></label></div>
-                                                <div className="checkbox"><label><input type="checkbox" /><i className="input-helper"></i>
-                                                <span>Spring rolls</span></label></div>
-                                                <div className="checkbox"><label><input type="checkbox" /><i className="input-helper"></i>
-                                                <span>Gobi chilli</span></label></div>
-                                                <div className="checkbox"><label><input type="checkbox" /><i className="input-helper"></i>
-                                                <span>Gobi manchurian</span></label></div>
-                                                <div className="checkbox"><label><input type="checkbox" /><i className="input-helper"></i>
-                                                <span>Babycorn manchurian</span></label></div>
-                                                <div className="checkbox"><label><input type="checkbox" /><i className="input-helper"></i>
-                                                <span>Potato wedges</span></label></div>
-                                                <div className="checkbox"><label><input type="checkbox" /><i className="input-helper"></i>
-                                                <span>Potato wedges</span></label></div>
+                                                {this.createCheckBox('starter', 'paneer_tikka', 'Paneer Tikka (5 pieces)..')}
+                                                {this.createCheckBox('starter', 'cheese_balls', 'Potato cheese balls (5 pieces)')}
+                                                {this.createCheckBox('starter', 'spring_rolls', 'Spring rolls (5 pieces)')}
+                                                {this.createCheckBox('starter', 'gobi_chilli', 'Gobi chilli')}
+                                                {this.createCheckBox('starter', 'gobi_manchurian', 'Gobi manchurian')}
+                                                {this.createCheckBox('starter', 'babycorn_manchurian', 'Babycorn manchurian')}
+                                                {this.createCheckBox('starter', 'potato_wedges', 'Potato wedges (5 pieces)')}
+                                                {this.createCheckBox('starter', 'aloo_dal_tikki', 'Aloo & Dal Tikki (5 pieces)')}
+                                                {this.createCheckBox('starter', 'mix_veg_cutlet', 'Mix veg cutlet (1 piece)')}
                                             </div>; break;
         case 'South Indian': startersElems = <div>South Indian</div>; break;
         case 'Italian': startersElems = <div>Italian</div>; break;
@@ -182,27 +225,41 @@ class OnboardStep1 extends Component {
       let startersElems = null;
       switch(localStorage.getItem('cuisine')) {
         case 'North Indian': startersElems = <div className="box">
-                                              <div className="checkbox">
-                                                <label>
-                                                  <input type="checkbox" />
-                                                  <i className="input-helper"></i>
-                                                  <span>Plain Roti</span>
-                                                </label>
-                                              </div>
-                                              <div className="checkbox">
-                                                <label>
-                                                  <input type="checkbox" />
-                                                  <i className="input-helper"></i>
-                                                  <span>Butter Roti</span>
-                                                </label>
-                                              </div>
-                                              <div className="checkbox">
-                                                <label>
-                                                  <input type="checkbox" />
-                                                  <i className="input-helper"></i>
-                                                  <span>Plain Nan</span>
-                                                </label>
-                                              </div>
+                                              {this.createCheckBox('main-course', 'plain_roti', 'Plain Roti (phulka style) - 3 pcs')}
+                                              {this.createCheckBox('main-course', 'butter_nan', 'Butter Nan - 2 pieces')}
+                                              {this.createCheckBox('main-course', 'plain_nan', 'Plain Nan - 2 pieces')}
+                                              {this.createCheckBox('main-course', 'garlic_nan', 'Garlic Nan - 2 pieces')}
+                                              <div><b>Side dish</b></div>
+                                              {this.createCheckBox('main-course', 'paneer_butter_masala', 'Paneer butter masala')}
+                                              {this.createCheckBox('main-course', 'capcicum_masala', 'Capcicum masala')}
+                                              {this.createCheckBox('main-course', 'dal_makhani', 'Dal makhani')}
+                                              {this.createCheckBox('main-course', 'navratan_korma', 'Navratan Korma')}
+                                              {this.createCheckBox('main-course', 'mix_veg_curry', 'Mix veg curry')}
+                                              {this.createCheckBox('main-course', 'dal_tadka', 'Dal tadka')}
+                                              <div><b>Rice</b></div>
+                                              {this.createCheckBox('main-course', 'peas_pualo', 'Peas Pulao - with raitha')}
+                                              {this.createCheckBox('main-course', 'veg_pulao', 'Veg Pulao - with raitha')}
+                                              {this.createCheckBox('main-course', 'veg_biriyani', 'Veg biriyani (with raitha)')}
+                                              {this.createCheckBox('main-course', 'fried_rice', 'Fried rice - with chilli sauce')}
+                                              <div><b>Salads</b></div>
+                                              {this.createCheckBox('main-course', 'veg_salad', 'Veg salad')}
+                                              {this.createCheckBox('main-course', 'sprout_salad', 'Sprout salad')}
+                                            </div>; break;
+        case 'South Indian': startersElems = <div>South Indian</div>; break;
+        case 'Italian': startersElems = <div>Italian</div>; break;
+        default: null;
+      }
+      return startersElems;
+    }
+    getDesserts(){
+      let startersElems = null;
+      switch(localStorage.getItem('cuisine')) {
+        case 'North Indian': startersElems = <div className="box">
+                                                {this.createCheckBox('desserts', 'lemonade', 'Lemonade')}
+                                                {this.createCheckBox('desserts', 'masala_buttermilk', 'Masala Buttermilk')}
+                                                {this.createCheckBox('desserts', 'fruit_punch', 'Fruit punch')}
+                                                {this.createCheckBox('desserts', 'orange_squash', 'Orange squash')}
+                                                {this.createCheckBox('desserts', 'pineapple-squash', 'Pineapple squash')}
                                             </div>; break;
         case 'South Indian': startersElems = <div>South Indian</div>; break;
         case 'Italian': startersElems = <div>Italian</div>; break;
@@ -218,6 +275,8 @@ class OnboardStep1 extends Component {
                 {this.getStarters()}
                 <div className="preview-menu-type">Select Main Course</div>
                 {this.getMainCourse()}
+                <div className="preview-menu-type">Select Desserts</div>
+                {this.getDesserts()}
                 <div className="btn-parent">
                   <Link to="/quoteChecker/step3" className="btn fixed-btn" style={{margin:'0 auto',zIndex:0}}>
                     <span>Next</span>
@@ -226,7 +285,7 @@ class OnboardStep1 extends Component {
               </div>
               {this.state.lastAdded !== '' && 
                 <div className="price-panel">
-                  <div className="price-last-added">{this.state.lastAdded !== '' && <span>Last added: </span>}{this.state.lastAdded !== '' && `${this.state.lastAdded}`}</div>
+                  <div className="price-last-added">{this.state.lastAdded !== '' && `${this.state.lastAdded}`}</div>
                   <div className="price-panel-title">{this.state.perPlatePrice !== '' && <span style={{fontSize: '16px', opacity: '0.5'}}>Price per plate:</span> }
                     <span style={{color: '#039e80',fontSize: '25px'}}>&nbsp;{this.state.perPlatePrice !== '' && `₹${this.state.perPlatePrice}`}</span></div>
                   <div className="price-panel-title">{this.state.priceForAllPlates !== ''
