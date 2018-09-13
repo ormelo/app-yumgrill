@@ -177,6 +177,7 @@ class OnboardStep1 extends Component {
       let priceForAllPlatesVal = perPlatePriceVal * parseInt(localStorage.getItem('num-members'));
       let lastAddedVal = 'Last added: '+item.replace(/_/g, ' ')+': ₹'+this.northIndianMenu[item].price;
       this.setState({lastAdded: lastAddedVal, perPlatePrice: perPlatePriceVal, priceForAllPlates: priceForAllPlatesVal});
+      document.getElementById('starter-item-1').src = '/sc/items/'+this.northIndianMenu[item].imgUrl;
     }
     onUncheck(itemType, item) {
       let perPlatePriceVal = parseInt(this.state.perPlatePrice, 10) - parseInt(this.northIndianMenu[item].price,10);
@@ -270,6 +271,7 @@ class OnboardStep1 extends Component {
     render(){
         return (<div className="content margin-sm"><div className="preview-title">Create your {this.state.cuisine} meal plate to check price</div><br/>
             <img src="/sc/plate.png" className="meal-plate" width="160px"/>
+            <img id="starter-item-1" src="" className="meal-plate starter-item-1" />
               <div className="preview-panel">
                 <div className="preview-menu-type">Select Starters</div>
                 {this.getStarters()}
