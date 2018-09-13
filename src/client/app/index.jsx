@@ -149,7 +149,7 @@ class OnboardStep1 extends Component {
       super(props);
       this.getStarters = this.getStarters.bind(this);
       this.getMainCourse = this.getMainCourse.bind(this);
-      this.state = {cuisine: localStorage.getItem('cuisine')};
+      this.state = {cuisine: localStorage.getItem('cuisine'), members: localStorage.getItem('num-members'), perPlatePrice: '420', lastAdded: 'Gobi manchurian: ₹20', priceForAllPlates: '4200'};
     }
     getStarters(){
       let startersElems = null;
@@ -224,9 +224,15 @@ class OnboardStep1 extends Component {
                   </Link>
                 </div>
               </div>
-              <div className="price-panel">
-                <div className="price-panel-title">Estimated price</div>
-              </div>
+              {this.state.lastAdded !== '' && 
+                <div className="price-panel">
+                  <div className="price-last-added">{this.state.lastAdded !== '' && <span>Last added: </span>}{this.state.lastAdded !== '' && `${this.state.lastAdded}`}</div>
+                  <div className="price-panel-title">{this.state.perPlatePrice !== '' && <span style={{fontSize: '16px', opacity: '0.5'}}>Price per plate:</span> }
+                    <span style={{color: '#039e80',fontSize: '25px'}}>&nbsp;{this.state.perPlatePrice !== '' && `₹${this.state.perPlatePrice}`}</span></div>
+                  <div className="price-panel-title">{this.state.priceForAllPlates !== ''
+                     && <span style={{fontSize: '16px', opacity: '0.5'}}>Price for {this.state.members} plates:</span>}
+                     <span style={{color: '#039e80',fontSize: '18px'}}>&nbsp;{this.state.priceForAllPlates !== '' && `₹${this.state.priceForAllPlates}`}</span></div>
+                </div>}
           </div>
           );
     }
