@@ -109,10 +109,11 @@ class Onboard extends Component {
                       </div>
                   </div>
             </div>
-
-            <Link to="/quoteChecker/step2" className="btn" style={{margin:'0 auto',zIndex:0}}>
-              <span>Next</span>
-            </Link>
+            <div className="btn-parent">
+              <Link to="/quoteChecker/step2" className="btn fixed-btn" style={{margin:'0 auto',zIndex:0}}>
+                <span>Next</span>
+              </Link>
+            </div>
           </div>
           );
     }
