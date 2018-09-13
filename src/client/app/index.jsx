@@ -62,7 +62,13 @@ class Onboard extends Component {
     this.selectCuisine = this.selectCuisine.bind(this);
   }
   selectCuisine(cuisine) {
-    localStorage.setItem('cuisine', cuisine);
+    if(cuisine == 'north')
+      localStorage.setItem('cuisine', 'North Indian');
+    else if(cuisine == 'south')
+      localStorage.setItem('cuisine', 'South Indian');
+    else if(cuisine == 'italian')
+      localStorage.setItem('cuisine', 'Italian');
+
     document.getElementById('north-checked').style.display = 'none';
     document.getElementById('south-checked').style.display = 'none';
     document.getElementById('italian-checked').style.display = 'none';
@@ -84,7 +90,7 @@ class Onboard extends Component {
                                   <svg id="north-checked" className="checked" x="0px" y="0px" viewBox="0 0 488.878 488.878" style={{enableBackground:'new 0 0 488.878 488.878'}} width="512px" height="512px"><g><g><polygon points="143.294,340.058 50.837,247.602 0,298.439 122.009,420.447 122.149,420.306 144.423,442.58 488.878,98.123 437.055,46.298 " fill="#0abc9a"/></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
                               </a>
                           </div>
-                          <div className="portfolio-item-content">
+                          <div className="portfolio-item-content" style={{padding: '10px !important'}}>
                               <h3 className="header">
                                   North Indian
                               </h3>
@@ -139,12 +145,19 @@ class Onboard extends Component {
 }
 
 class OnboardStep1 extends Component {
+    constructor(props) {
+      super(props);
+      this.state = {cuisine: localStorage.getItem('cuisine')}
+    }
     render(){
-        return (<div className="content"><div style={{fontSize:'20px',textAlign:'center'}}>Poshfind e-measures you in a jiffy!</div><br/>
-            <img src="../img/step2.png"  width="160px" style={{margin:'0 auto',width:'420px',display:'inherit',padding:'40px'}}/>
-            <Link to="/quoteChecker/step3" className="btn" style={{margin:'0 auto',zIndex:0}}>
-              <span>Next</span>
-            </Link>
+        return (<div className="content margin-sm"><div className="preview-title">Create your {this.state.cuisine} meal plate to check price</div><br/>
+            <img src="/sc/plate.png" className="meal-plate" width="160px"/>
+            <div className="preview-menu-type">Select Starters</div>
+            <div className="btn-parent">
+              <Link to="/quoteChecker/step3" className="btn fixed-btn" style={{margin:'0 auto',zIndex:0}}>
+                <span>Next</span>
+              </Link>
+            </div>
           </div>
           );
     }
