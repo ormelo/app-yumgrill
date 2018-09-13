@@ -65,7 +65,7 @@ class Onboard extends Component {
                       <div className="portfolio-item-sm">
                           <div className="portfolio-img">
                               <a>
-                                  <img src="/sc/menu_ic.jpeg" alt="Home Caterers in Bangalore" style={{display: 'inline'}}/>
+                                  <img src="/sc/m_north.png" alt="Home Caterers in Bangalore" style={{display: 'inline'}}/>
                               </a>
                           </div>
                           <div className="portfolio-item-content">
@@ -81,7 +81,7 @@ class Onboard extends Component {
                       <div className="portfolio-item-sm">
                           <div className="portfolio-img">
                               <a>
-                                  <img src="/sc/menu_ic.jpeg" alt="Home Caterers in Bangalore" style={{display: 'inline'}}/>
+                                  <img src="/sc/m_south.png" alt="Home Caterers in Bangalore" style={{display: 'inline'}}/>
                               </a>
                           </div>
                           <div className="portfolio-item-content">
@@ -97,7 +97,7 @@ class Onboard extends Component {
                       <div className="portfolio-item-sm">
                           <div className="portfolio-img">
                               <a>
-                                  <img src="/sc/menu_ic.jpeg" alt="Home Caterers in Bangalore" style={{display: 'inline'}}/>
+                                  <img src="/sc/m_italian.png" alt="Home Caterers in Bangalore" style={{display: 'inline'}}/>
                               </a>
                           </div>
                           <div className="portfolio-item-content">
