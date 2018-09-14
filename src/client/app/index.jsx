@@ -149,7 +149,7 @@ class OnboardStep1 extends Component {
       super(props);
       this.getStarters = this.getStarters.bind(this);
       this.getMainCourse = this.getMainCourse.bind(this);
-      this.getDesserts = this.getDesserts.bind(this);
+      this.getDrinks = this.getDrinks.bind(this);
       this.onCheckHandler = this.onCheckHandler.bind(this);
       this.onCheck = this.onCheck.bind(this);
       this.onUncheck = this.onUncheck.bind(this);
@@ -158,6 +158,7 @@ class OnboardStep1 extends Component {
       this.starters = [];
       this.mainCourse = [];
       this.desserts = [];
+      this.drinks = [];
       this.state = {cuisine: localStorage.getItem('cuisine'), members: localStorage.getItem('num-members'), perPlatePrice: '0', lastAdded: '', priceForAllPlates: '0'};
 
 
@@ -172,9 +173,27 @@ class OnboardStep1 extends Component {
         "aloo_dal_tikki": {"price": "75", "imgUrl": "aloo_tikki.png"},
         "mix_veg_cutlet": {"price": "75", "imgUrl": "veg_cutlet.png"},
         "plain_roti": {"price": "25", "imgUrl": "roti.png"},
-        "butter_nan": {"price": "45", "imgUrl": "roti.png"},
-        "plain_nan": {"price": "35", "imgUrl": "roti.png"},
-        "garlic_nan": {"price": "40", "imgUrl": "roti.png"}
+        "butter_nan": {"price": "45", "imgUrl": "nan.png"},
+        "plain_nan": {"price": "35", "imgUrl": "nan.png"},
+        "garlic_nan": {"price": "40", "imgUrl": "nan.png"},
+        "paneer_butter_masala": {"price": "90", "imgUrl": "paneer_butter_masala.png"},
+        "capcicum_masala": {"price": "130", "imgUrl": "capcicum_masala.png"},
+        "dal_makhani": {"price": "60", "imgUrl": "dal_makhani.png"},
+        "navratan_korma": {"price": "120", "imgUrl": "navratan_korma.png"},
+        "mix_veg_curry": {"price": "100", "imgUrl": "mix_veg_curry.png"},
+        "dal_tadka": {"price": "80", "imgUrl": "dal_tadka.png"},
+        "plain_rice": {"price": "35", "imgUrl": "rice.png"},
+        "peas_pulao": {"price": "65", "imgUrl": "peas_pulao.png"},
+        "veg_pulao": {"price": "85", "imgUrl": "veg_pulao.png"},
+        "veg_biriyani": {"price": "105", "imgUrl": "veg_biriyani.png"},
+        "fried_rice": {"price": "55", "imgUrl": "fried_rice.png"},
+        "veg_salad": {"price": "20", "imgUrl": "veg_salad.png"},
+        "sprout_salad": {"price": "30", "imgUrl": "sprout_salad.png"},
+        "lemonade": {"price": "30", "imgUrl": "lemonade.png"},
+        "masala_buttermilk": {"price": "30", "imgUrl": "masala_buttermilk.png"},
+        "fruit_punch": {"price": "30", "imgUrl": "fruit_punch.png"},
+        "orange_squash": {"price": "30", "imgUrl": "orange_juice.png"},
+        "pineapple_squash": {"price": "30", "imgUrl": "pineapple_juice.png"}
       };
     }
     renderItemPreview(itemType, imgUrl) {
@@ -192,6 +211,26 @@ class OnboardStep1 extends Component {
         if(!document.getElementById('main-course-item-1').src.includes('.png')) {
           document.getElementById('main-course-item-1').src = imgUrl;
         }
+      } else if (itemType == 'side-dish') {
+        if(!document.getElementById('side-dish-item-1').src.includes('.png')) {
+          document.getElementById('side-dish-item-1').src = imgUrl;
+        } else if(!document.getElementById('side-dish-item-2').src.includes('.png')) {
+          document.getElementById('side-dish-item-2').src = imgUrl;
+        }
+      } else if (itemType == 'rice-item') {
+        if(!document.getElementById('rice-item-1').src.includes('.png')) {
+          document.getElementById('rice-item-1').src = imgUrl;
+        }
+      } else if (itemType == 'salad-item') {
+        if(!document.getElementById('salad-item-1').src.includes('.png')) {
+          document.getElementById('salad-item-1').src = imgUrl;
+        } else if(!document.getElementById('salad-item-2').src.includes('.png')) {
+          document.getElementById('salad-item-2').src = imgUrl;
+        }
+      } else if (itemType == 'drink') {
+        if(!document.getElementById('drink-item-1').src.includes('.png')) {
+          document.getElementById('drink-item-1').src = imgUrl;
+        } 
       }
     }
     removePreview(item) {
@@ -204,6 +243,8 @@ class OnboardStep1 extends Component {
         this.mainCourse.push(item);
       } else if(itemType == 'desserts') {
         this.desserts.push(item);
+      } else if(itemType == 'drink') {
+        this.drinks.push(item);
       }
       let perPlatePriceVal = parseInt(this.state.perPlatePrice, 10) + parseInt(this.northIndianMenu[item].price,10);
       let priceForAllPlatesVal = perPlatePriceVal * parseInt(localStorage.getItem('num-members'));
@@ -264,20 +305,21 @@ class OnboardStep1 extends Component {
                                               {this.createCheckBox('main-course', 'plain_nan', 'Plain Nan - 2 pieces')}
                                               {this.createCheckBox('main-course', 'garlic_nan', 'Garlic Nan - 2 pieces')}
                                               <div><b>Side dish</b></div>
-                                              {this.createCheckBox('main-course', 'paneer_butter_masala', 'Paneer butter masala')}
-                                              {this.createCheckBox('main-course', 'capcicum_masala', 'Capcicum masala')}
-                                              {this.createCheckBox('main-course', 'dal_makhani', 'Dal makhani')}
-                                              {this.createCheckBox('main-course', 'navratan_korma', 'Navratan Korma')}
-                                              {this.createCheckBox('main-course', 'mix_veg_curry', 'Mix veg curry')}
-                                              {this.createCheckBox('main-course', 'dal_tadka', 'Dal tadka')}
+                                              {this.createCheckBox('side-dish', 'paneer_butter_masala', 'Paneer butter masala')}
+                                              {this.createCheckBox('side-dish', 'capcicum_masala', 'Capcicum masala')}
+                                              {this.createCheckBox('side-dish', 'dal_makhani', 'Dal makhani')}
+                                              {this.createCheckBox('side-dish', 'navratan_korma', 'Navratan Korma')}
+                                              {this.createCheckBox('side-dish', 'mix_veg_curry', 'Mix veg curry')}
+                                              {this.createCheckBox('side-dish', 'dal_tadka', 'Dal tadka')}
                                               <div><b>Rice</b></div>
-                                              {this.createCheckBox('main-course', 'peas_pualo', 'Peas Pulao - with raitha')}
-                                              {this.createCheckBox('main-course', 'veg_pulao', 'Veg Pulao - with raitha')}
-                                              {this.createCheckBox('main-course', 'veg_biriyani', 'Veg biriyani (with raitha)')}
-                                              {this.createCheckBox('main-course', 'fried_rice', 'Fried rice - with chilli sauce')}
+                                              {this.createCheckBox('rice-item', 'plain_rice', 'Plain steamed rice')}
+                                              {this.createCheckBox('rice-item', 'peas_pulao', 'Peas Pulao - with raitha')}
+                                              {this.createCheckBox('rice-item', 'veg_pulao', 'Veg Pulao - with raitha')}
+                                              {this.createCheckBox('rice-item', 'veg_biriyani', 'Veg biriyani (with raitha)')}
+                                              {this.createCheckBox('rice-item', 'fried_rice', 'Fried rice - with chilli sauce')}
                                               <div><b>Salads</b></div>
-                                              {this.createCheckBox('main-course', 'veg_salad', 'Veg salad')}
-                                              {this.createCheckBox('main-course', 'sprout_salad', 'Sprout salad')}
+                                              {this.createCheckBox('salad-item', 'veg_salad', 'Veg salad')}
+                                              {this.createCheckBox('salad-item', 'sprout_salad', 'Sprout salad')}
                                             </div>; break;
         case 'South Indian': startersElems = <div>South Indian</div>; break;
         case 'Italian': startersElems = <div>Italian</div>; break;
@@ -285,15 +327,15 @@ class OnboardStep1 extends Component {
       }
       return startersElems;
     }
-    getDesserts(){
+    getDrinks(){
       let startersElems = null;
       switch(localStorage.getItem('cuisine')) {
         case 'North Indian': startersElems = <div className="box">
-                                                {this.createCheckBox('desserts', 'lemonade', 'Lemonade')}
-                                                {this.createCheckBox('desserts', 'masala_buttermilk', 'Masala Buttermilk')}
-                                                {this.createCheckBox('desserts', 'fruit_punch', 'Fruit punch')}
-                                                {this.createCheckBox('desserts', 'orange_squash', 'Orange squash')}
-                                                {this.createCheckBox('desserts', 'pineapple-squash', 'Pineapple squash')}
+                                                {this.createCheckBox('drink', 'lemonade', 'Lemonade')}
+                                                {this.createCheckBox('drink', 'masala_buttermilk', 'Masala Buttermilk')}
+                                                {this.createCheckBox('drink', 'fruit_punch', 'Fruit punch')}
+                                                {this.createCheckBox('drink', 'orange_squash', 'Orange squash')}
+                                                {this.createCheckBox('drink', 'pineapple_squash', 'Pineapple squash')}
                                             </div>; break;
         case 'South Indian': startersElems = <div>South Indian</div>; break;
         case 'Italian': startersElems = <div>Italian</div>; break;
@@ -310,7 +352,16 @@ class OnboardStep1 extends Component {
             <img id="starter-item-3" src="" className="meal-plate meal-item starter-item-3" />
             <img id="starter-item-4" src="" className="meal-plate meal-item starter-item-4" />
 
-            <img id="main-course-item-1" src="" className="meal-plate meal-item main-course-item-1" />  
+            <img id="main-course-item-1" src="" className="meal-plate meal-item main-course-item-1" />
+            <img id="side-dish-item-1" src="" className="meal-plate meal-item side-dish-item-1" />  
+            <img id="side-dish-item-2" src="" className="meal-plate meal-item side-dish-item-2" /> 
+
+            <img id="rice-item-1" src="" className="meal-plate meal-item rice-item-1" /> 
+
+            <img id="salad-item-1" src="" className="meal-plate meal-item salad-item-1" />
+            <img id="salad-item-2" src="" className="meal-plate meal-item salad-item-2" />
+
+            <img id="drink-item-1" src="" className="meal-plate meal-item drink-item-1" />
 
               <div className="preview-panel">
                 <div className="preview-menu-type">Select Starters</div>
@@ -318,7 +369,7 @@ class OnboardStep1 extends Component {
                 <div className="preview-menu-type">Select Main Course</div>
                 {this.getMainCourse()}
                 <div className="preview-menu-type">Select Desserts</div>
-                {this.getDesserts()}
+                {this.getDrinks()}
                 <div className="btn-parent">
                   <Link to="/quoteChecker/step3" className="btn fixed-btn" style={{margin:'0 auto',zIndex:0}}>
                     <span>Next</span>
