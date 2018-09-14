@@ -270,7 +270,7 @@ class OnboardStep1 extends Component {
     }
     render(){
         return (<div className="content margin-sm"><div className="preview-title">Create your {this.state.cuisine} meal plate to check price</div><br/>
-            <img src="/sc/plate.png" className="meal-plate" width="160px"/>
+            <img src="/sc/plate_big.png" className="meal-plate" width="160px"/>
             <img id="starter-item-1" src="" className="meal-plate starter-item-1" />
               <div className="preview-panel">
                 <div className="preview-menu-type">Select Starters</div>
