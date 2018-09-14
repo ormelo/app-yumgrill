@@ -162,9 +162,11 @@ class OnboardStep1 extends Component {
 
 
       this.northIndianMenu = {
-        "paneer_tikka": {"price": "45", "imgUrl": "paneer_tikka.png"},
+        "paneer_tikka": {"price": "65", "imgUrl": "paneer_tikka.png"},
         "cheese_balls": {"price": "35", "imgUrl": "cheese_balls.png"},
-        "spring_rolls": {"price": "25", "imgUrl": "spring_rolls.png"}
+        "spring_rolls": {"price": "25", "imgUrl": "spring_rolls.png"},
+        "gobi_chilli": {"price": "35", "imgUrl": "gobi_chilli.png"},
+        "gobi_manchurian": {"price": "35", "imgUrl": "gobi_manchurian.png"}
       };
     }
     renderItemPreview(itemType, imgUrl) {
