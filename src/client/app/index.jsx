@@ -193,10 +193,15 @@ class OnboardStep1 extends Component {
         "masala_buttermilk": {"price": "30", "imgUrl": "masala_buttermilk.png"},
         "fruit_punch": {"price": "30", "imgUrl": "fruit_punch.png"},
         "orange_squash": {"price": "30", "imgUrl": "orange_juice.png"},
-        "pineapple_squash": {"price": "30", "imgUrl": "pineapple_juice.png"}
+        "pineapple_squash": {"price": "30", "imgUrl": "pineapple_juice.png"},
+        "gulab_jamoon": {"price": "35", "imgUrl": "gulab_jamoon.png"},
+        "rasgulla": {"price": "55", "imgUrl": "rasgulla.png"},
+        "coconut_burfi": {"price": "25", "imgUrl": "coconut_burfi.png"},
+        "cashew_burfi": {"price": "35", "imgUrl": "cashew_burfi.png"}
       };
     }
     renderItemPreview(itemType, imgUrl) {
+    console.log('itemType: ', itemType);
       if (itemType == 'starter') {
         if(!document.getElementById('starter-item-1').src.includes('.png')) {
           document.getElementById('starter-item-1').src = imgUrl;
@@ -224,9 +229,11 @@ class OnboardStep1 extends Component {
       } else if (itemType == 'salad-item') {
         if(!document.getElementById('salad-item-1').src.includes('.png')) {
           document.getElementById('salad-item-1').src = imgUrl;
-        } else if(!document.getElementById('salad-item-2').src.includes('.png')) {
-          document.getElementById('salad-item-2').src = imgUrl;
-        }
+        } 
+      } else if (itemType == 'dessert') {
+        if(!document.getElementById('dessert-item-1').src.includes('.png')) {
+          document.getElementById('dessert-item-1').src = imgUrl;
+        } 
       } else if (itemType == 'drink') {
         if(!document.getElementById('drink-item-1').src.includes('.png')) {
           document.getElementById('drink-item-1').src = imgUrl;
@@ -237,13 +244,59 @@ class OnboardStep1 extends Component {
       document.querySelectorAll('.meal-item').forEach(function(obj){if(obj.src.includes(item)) obj.src="";});
     }
     onCheck(itemType, item) {
+      let itemTypeChecked = 0;
+      document.querySelectorAll('input[data-item-type="'+itemType+'"]').forEach(function(obj) {
+        if(obj.checked) {
+          itemTypeChecked++;
+        }
+      });
+
       if(itemType == 'starter') {
+        console.log('itemTypeChecked:', itemTypeChecked);
+        if(itemTypeChecked == 5) {
+          alert('Only a maximum of 4 starters allowed.');
+          document.querySelector('input[data-item="'+item+'"]').checked = false;
+          return false;
+        }
         this.starters.push(item);
       } else if(itemType == 'main-course') {
+        if(itemTypeChecked == 2) {
+          alert('Only a maximum of 1 roti/naan type allowed.');
+          document.querySelector('input[data-item="'+item+'"]').checked = false;
+          return false;
+        }
         this.mainCourse.push(item);
-      } else if(itemType == 'desserts') {
+      } else if(itemType == 'side-dish') {
+        if(itemTypeChecked == 3) {
+          alert('Only a maximum of 2 side dish allowed.');
+          document.querySelector('input[data-item="'+item+'"]').checked = false;
+          return false;
+        }
+      } else if(itemType == 'rice-item') {
+        if(itemTypeChecked == 2) {
+          alert('Only a maximum of 1 rice item allowed.');
+          document.querySelector('input[data-item="'+item+'"]').checked = false;
+          return false;
+        }
+      } else if(itemType == 'salad-item') {
+        if(itemTypeChecked == 2) {
+          alert('Only a maximum of 1 salad allowed.');
+          document.querySelector('input[data-item="'+item+'"]').checked = false;
+          return false;
+        }
+      } else if(itemType == 'dessert') {
+        if(itemTypeChecked == 2) {
+          alert('Only a maximum of 1 dessert allowed.');
+          document.querySelector('input[data-item="'+item+'"]').checked = false;
+          return false;
+        }
         this.desserts.push(item);
       } else if(itemType == 'drink') {
+        if(itemTypeChecked == 2) {
+          alert('Only a maximum of 1 drink allowed.');
+          document.querySelector('input[data-item="'+item+'"]').checked = false;
+          return false;
+        }
         this.drinks.push(item);
       }
       let perPlatePriceVal = parseInt(this.state.perPlatePrice, 10) + parseInt(this.northIndianMenu[item].price,10);
@@ -343,6 +396,21 @@ class OnboardStep1 extends Component {
       }
       return startersElems;
     }
+    getDesserts(){
+      let startersElems = null;
+      switch(localStorage.getItem('cuisine')) {
+        case 'North Indian': startersElems = <div className="box">
+                                                {this.createCheckBox('dessert', 'gulab_jamoon', 'Gulab jamoon - 2 pieces')}
+                                                {this.createCheckBox('dessert', 'cashew_burfi', 'Cashew burfi')}
+                                                {this.createCheckBox('dessert', 'coconut_burfi', 'Coconut burfi')}
+                                                {this.createCheckBox('dessert', 'rasgulla', 'Rasgulla - 2 pieces')}
+                                            </div>; break;
+        case 'South Indian': startersElems = <div>South Indian</div>; break;
+        case 'Italian': startersElems = <div>Italian</div>; break;
+        default: null;
+      }
+      return startersElems;
+    }
     render(){
         return (<div className="content margin-sm"><div className="preview-title">Create your {this.state.cuisine} meal plate to check price</div><br/>
             
@@ -359,7 +427,7 @@ class OnboardStep1 extends Component {
             <img id="rice-item-1" src="" className="meal-plate meal-item rice-item-1" /> 
 
             <img id="salad-item-1" src="" className="meal-plate meal-item salad-item-1" />
-            <img id="salad-item-2" src="" className="meal-plate meal-item salad-item-2" />
+            <img id="dessert-item-1" src="" className="meal-plate meal-item dessert-item-1" />
 
             <img id="drink-item-1" src="" className="meal-plate meal-item drink-item-1" />
 
@@ -369,6 +437,8 @@ class OnboardStep1 extends Component {
                 <div className="preview-menu-type">Select Main Course</div>
                 {this.getMainCourse()}
                 <div className="preview-menu-type">Select Desserts</div>
+                {this.getDesserts()}
+                <div className="preview-menu-type">Select Drinks</div>
                 {this.getDrinks()}
                 <div className="btn-parent">
                   <Link to="/quoteChecker/step3" className="btn fixed-btn" style={{margin:'0 auto',zIndex:0}}>
