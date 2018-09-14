@@ -171,7 +171,10 @@ class OnboardStep1 extends Component {
         "potato_wedges": {"price": "60", "imgUrl": "potato_wedges.png"},
         "aloo_dal_tikki": {"price": "75", "imgUrl": "aloo_tikki.png"},
         "mix_veg_cutlet": {"price": "75", "imgUrl": "veg_cutlet.png"},
-        "plain_roti": {"price": "25", "imgUrl": "roti.png"}
+        "plain_roti": {"price": "25", "imgUrl": "roti.png"},
+        "butter_nan": {"price": "45", "imgUrl": "roti.png"},
+        "plain_nan": {"price": "35", "imgUrl": "roti.png"},
+        "garlic_nan": {"price": "40", "imgUrl": "roti.png"}
       };
     }
     renderItemPreview(itemType, imgUrl) {
