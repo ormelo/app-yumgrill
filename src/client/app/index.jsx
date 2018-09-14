@@ -357,20 +357,20 @@ class OnboardStep1 extends Component {
                                               {this.createCheckBox('main-course', 'butter_nan', 'Butter Nan - 2 pieces')}
                                               {this.createCheckBox('main-course', 'plain_nan', 'Plain Nan - 2 pieces')}
                                               {this.createCheckBox('main-course', 'garlic_nan', 'Garlic Nan - 2 pieces')}
-                                              <div><b>Side dish</b></div>
+                                              <div><b>Side dish</b> <span style={{fontSize: '13px'}}>(upto 2)</span></div>
                                               {this.createCheckBox('side-dish', 'paneer_butter_masala', 'Paneer butter masala')}
                                               {this.createCheckBox('side-dish', 'capcicum_masala', 'Capcicum masala')}
                                               {this.createCheckBox('side-dish', 'dal_makhani', 'Dal makhani')}
                                               {this.createCheckBox('side-dish', 'navratan_korma', 'Navratan Korma')}
                                               {this.createCheckBox('side-dish', 'mix_veg_curry', 'Mix veg curry')}
                                               {this.createCheckBox('side-dish', 'dal_tadka', 'Dal tadka')}
-                                              <div><b>Rice</b></div>
+                                              <div><b>Rice</b> <span style={{fontSize: '13px'}}>(any 1)</span></div>
                                               {this.createCheckBox('rice-item', 'plain_rice', 'Plain steamed rice')}
                                               {this.createCheckBox('rice-item', 'peas_pulao', 'Peas Pulao - with raitha')}
                                               {this.createCheckBox('rice-item', 'veg_pulao', 'Veg Pulao - with raitha')}
                                               {this.createCheckBox('rice-item', 'veg_biriyani', 'Veg biriyani (with raitha)')}
                                               {this.createCheckBox('rice-item', 'fried_rice', 'Fried rice - with chilli sauce')}
-                                              <div><b>Salads</b></div>
+                                              <div><b>Salads</b> <span style={{fontSize: '13px'}}>(any 1)</span></div>
                                               {this.createCheckBox('salad-item', 'veg_salad', 'Veg salad')}
                                               {this.createCheckBox('salad-item', 'sprout_salad', 'Sprout salad')}
                                             </div>; break;
@@ -432,13 +432,13 @@ class OnboardStep1 extends Component {
             <img id="drink-item-1" src="" className="meal-plate meal-item drink-item-1" />
 
               <div className="preview-panel">
-                <div className="preview-menu-type">Select Starters</div>
+                <div className="preview-menu-type">Select Starters <span style={{fontSize: '13px'}}>(upto 4)</span></div>
                 {this.getStarters()}
                 <div className="preview-menu-type">Select Main Course</div>
                 {this.getMainCourse()}
-                <div className="preview-menu-type">Select Desserts</div>
+                <div className="preview-menu-type">Select Desserts <span style={{fontSize: '13px'}}>(any 1)</span></div>
                 {this.getDesserts()}
-                <div className="preview-menu-type">Select Drinks</div>
+                <div className="preview-menu-type">Select Drinks <span style={{fontSize: '13px'}}>(any 1)</span></div>
                 {this.getDrinks()}
                 <div className="btn-parent">
                   <Link to="/quoteChecker/step3" className="btn fixed-btn" style={{margin:'0 auto',zIndex:0}}>
@@ -450,10 +450,10 @@ class OnboardStep1 extends Component {
                 <div className="price-panel">
                   <div className="price-last-added">{this.state.lastAdded !== '' && `${this.state.lastAdded}`}</div>
                   <div className="price-panel-title">{this.state.perPlatePrice !== '' && <span style={{fontSize: '16px', opacity: '0.5'}}>Price per plate:</span> }
-                    <span style={{color: '#039e80',fontSize: '25px'}}>&nbsp;{this.state.perPlatePrice !== '' && `₹${this.state.perPlatePrice}`}</span></div>
+                    <span style={{color: '#039e80',fontSize: '25px',fontFamily: 'sans-serif',fontWeight: 'normal'}}>&nbsp;{this.state.perPlatePrice !== '' && `₹${this.state.perPlatePrice}`}</span></div>
                   <div className="price-panel-title">{this.state.priceForAllPlates !== ''
                      && <span style={{fontSize: '16px', opacity: '0.5'}}>Price for {this.state.members} plates:</span>}
-                     <span style={{color: '#039e80',fontSize: '18px'}}>&nbsp;{this.state.priceForAllPlates !== '' && `₹${this.state.priceForAllPlates}`}</span></div>
+                     <span style={{color: '#039e80',fontSize: '18px',fontFamily: 'sans-serif',fontWeight: 'normal'}}>&nbsp;{this.state.priceForAllPlates !== '' && `₹${this.state.priceForAllPlates}`}</span></div>
                 </div>}
           </div>
           );
