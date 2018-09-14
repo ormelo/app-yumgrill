@@ -153,6 +153,8 @@ class OnboardStep1 extends Component {
       this.onCheckHandler = this.onCheckHandler.bind(this);
       this.onCheck = this.onCheck.bind(this);
       this.onUncheck = this.onUncheck.bind(this);
+      this.renderItemPreview = this.renderItemPreview.bind(this);
+      this.removePreview = this.removePreview.bind(this);
       this.starters = [];
       this.mainCourse = [];
       this.desserts = [];
@@ -164,6 +166,22 @@ class OnboardStep1 extends Component {
         "cheese_balls": {"price": "35", "imgUrl": "cheese_balls.png"},
         "spring_rolls": {"price": "25", "imgUrl": "spring_rolls.png"}
       };
+    }
+    renderItemPreview(itemType, imgUrl) {
+      if (itemType == 'starter') {
+        if(!document.getElementById('starter-item-1').src.includes('.png')) {
+          document.getElementById('starter-item-1').src = imgUrl;
+        } else if(!document.getElementById('starter-item-2').src.includes('.png')) {
+          document.getElementById('starter-item-2').src = imgUrl;
+        } else if(!document.getElementById('starter-item-3').src.includes('.png')) {
+          document.getElementById('starter-item-3').src = imgUrl;
+        } else if(!document.getElementById('starter-item-4').src.includes('.png')) {
+          document.getElementById('starter-item-4').src = imgUrl;
+        }
+      }
+    }
+    removePreview(item) {
+      document.querySelectorAll('.meal-item').forEach(function(obj){if(obj.src.includes(item)) obj.src="";});
     }
     onCheck(itemType, item) {
       if(itemType == 'starter') {
@@ -177,13 +195,14 @@ class OnboardStep1 extends Component {
       let priceForAllPlatesVal = perPlatePriceVal * parseInt(localStorage.getItem('num-members'));
       let lastAddedVal = 'Last added: '+item.replace(/_/g, ' ')+': ₹'+this.northIndianMenu[item].price;
       this.setState({lastAdded: lastAddedVal, perPlatePrice: perPlatePriceVal, priceForAllPlates: priceForAllPlatesVal});
-      document.getElementById('starter-item-1').src = '/sc/items/'+this.northIndianMenu[item].imgUrl;
+      this.renderItemPreview(itemType, '/sc/items/'+this.northIndianMenu[item].imgUrl);
     }
     onUncheck(itemType, item) {
       let perPlatePriceVal = parseInt(this.state.perPlatePrice, 10) - parseInt(this.northIndianMenu[item].price,10);
       let lastAddedVal = 'Last removed: '+item.replace(/_/g, ' ')+': ₹'+this.northIndianMenu[item].price;
       let priceForAllPlatesVal = perPlatePriceVal * parseInt(localStorage.getItem('num-members'));
       this.setState({lastAdded: lastAddedVal, perPlatePrice: perPlatePriceVal, priceForAllPlates: priceForAllPlatesVal});
+      this.removePreview(this.northIndianMenu[item].imgUrl);
     }
     onCheckHandler(e) {
        console.log(e.target.checked);
@@ -270,8 +289,13 @@ class OnboardStep1 extends Component {
     }
     render(){
         return (<div className="content margin-sm"><div className="preview-title">Create your {this.state.cuisine} meal plate to check price</div><br/>
+            
             <img src="/sc/plate_big.png" className="meal-plate" width="160px"/>
-            <img id="starter-item-1" src="" className="meal-plate starter-item-1" />
+            <img id="starter-item-1" src="" className="meal-plate meal-item starter-item-2" />
+            <img id="starter-item-2" src="" className="meal-plate meal-item starter-item-1" />
+            <img id="starter-item-3" src="" className="meal-plate meal-item starter-item-3" />
+            <img id="starter-item-4" src="" className="meal-plate meal-item starter-item-4" />  
+
               <div className="preview-panel">
                 <div className="preview-menu-type">Select Starters</div>
                 {this.getStarters()}
