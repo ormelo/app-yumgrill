@@ -166,7 +166,12 @@ class OnboardStep1 extends Component {
         "cheese_balls": {"price": "35", "imgUrl": "cheese_balls.png"},
         "spring_rolls": {"price": "25", "imgUrl": "spring_rolls.png"},
         "gobi_chilli": {"price": "35", "imgUrl": "gobi_chilli.png"},
-        "gobi_manchurian": {"price": "35", "imgUrl": "gobi_manchurian.png"}
+        "gobi_manchurian": {"price": "35", "imgUrl": "gobi_manchurian.png"},
+        "babycorn_manchurian": {"price": "70", "imgUrl": "baby_corn_manchurian.png"},
+        "potato_wedges": {"price": "60", "imgUrl": "potato_wedges.png"},
+        "aloo_dal_tikki": {"price": "75", "imgUrl": "aloo_tikki.png"},
+        "mix_veg_cutlet": {"price": "75", "imgUrl": "veg_cutlet.png"},
+        "plain_roti": {"price": "25", "imgUrl": "roti.png"}
       };
     }
     renderItemPreview(itemType, imgUrl) {
@@ -179,6 +184,10 @@ class OnboardStep1 extends Component {
           document.getElementById('starter-item-3').src = imgUrl;
         } else if(!document.getElementById('starter-item-4').src.includes('.png')) {
           document.getElementById('starter-item-4').src = imgUrl;
+        }
+      } else if(itemType == 'main-course') {
+        if(!document.getElementById('main-course-item-1').src.includes('.png')) {
+          document.getElementById('main-course-item-1').src = imgUrl;
         }
       }
     }
@@ -296,7 +305,9 @@ class OnboardStep1 extends Component {
             <img id="starter-item-1" src="" className="meal-plate meal-item starter-item-2" />
             <img id="starter-item-2" src="" className="meal-plate meal-item starter-item-1" />
             <img id="starter-item-3" src="" className="meal-plate meal-item starter-item-3" />
-            <img id="starter-item-4" src="" className="meal-plate meal-item starter-item-4" />  
+            <img id="starter-item-4" src="" className="meal-plate meal-item starter-item-4" />
+
+            <img id="main-course-item-1" src="" className="meal-plate meal-item main-course-item-1" />  
 
               <div className="preview-panel">
                 <div className="preview-menu-type">Select Starters</div>
