@@ -86,7 +86,7 @@ class Onboard extends Component {
                       <div className="portfolio-item-sm" onClick={()=>this.selectCuisine('north')}>
                           <div className="portfolio-img">
                               <a>
-                                  <img id="north-img" src="/sc/m_north.png" alt="Home Caterers in Bangalore" style={{display: 'inline'}}/>
+                                  <img id="north-img" src="/sc/m_north.jpg" alt="Home Caterers in Bangalore" style={{display: 'inline'}}/>
                                   <svg id="north-checked" className="checked" x="0px" y="0px" viewBox="0 0 488.878 488.878" style={{enableBackground:'new 0 0 488.878 488.878'}} width="512px" height="512px"><g><g><polygon points="143.294,340.058 50.837,247.602 0,298.439 122.009,420.447 122.149,420.306 144.423,442.58 488.878,98.123 437.055,46.298 " fill="#0abc9a"/></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
                               </a>
                           </div>
@@ -103,7 +103,7 @@ class Onboard extends Component {
                       <div className="portfolio-item-sm" onClick={()=>this.selectCuisine('south')}>
                           <div className="portfolio-img">
                               <a>
-                                  <img id="south-img" src="/sc/m_south.png" alt="Home Caterers in Bangalore" style={{display: 'inline'}}/>
+                                  <img id="south-img" src="/sc/m_south.jpg" alt="Home Caterers in Bangalore" style={{display: 'inline'}}/>
                                   <svg id="south-checked" className="checked" x="0px" y="0px" viewBox="0 0 488.878 488.878" style={{enableBackground:'new 0 0 488.878 488.878'}} width="512px" height="512px"><g><g><polygon points="143.294,340.058 50.837,247.602 0,298.439 122.009,420.447 122.149,420.306 144.423,442.58 488.878,98.123 437.055,46.298 " fill="#0abc9a"/></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
                               </a>
                           </div>
@@ -120,7 +120,7 @@ class Onboard extends Component {
                       <div className="portfolio-item-sm" onClick={()=>this.selectCuisine('italian')}>
                           <div className="portfolio-img">
                               <a>
-                                  <img id="italian-img" src="/sc/m_italian.png" alt="Home Caterers in Bangalore" style={{display: 'inline'}}/>
+                                  <img id="italian-img" src="/sc/m_italian.jpg" alt="Home Caterers in Bangalore" style={{display: 'inline'}}/>
                                   <svg id="italian-checked" className="checked" x="0px" y="0px" viewBox="0 0 488.878 488.878" style={{enableBackground:'new 0 0 488.878 488.878'}} width="512px" height="512px"><g><g><polygon points="143.294,340.058 50.837,247.602 0,298.439 122.009,420.447 122.149,420.306 144.423,442.58 488.878,98.123 437.055,46.298 " fill="#0abc9a"/></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
                               </a>
                           </div>
@@ -161,7 +161,6 @@ class OnboardStep1 extends Component {
       this.drinks = [];
       this.state = {cuisine: localStorage.getItem('cuisine'), members: localStorage.getItem('num-members'), perPlatePrice: '0', lastAdded: '', priceForAllPlates: '0'};
 
-
       this.northIndianMenu = {
         "paneer_tikka": {"price": "65", "imgUrl": "paneer_tikka.png"},
         "cheese_balls": {"price": "35", "imgUrl": "cheese_balls.png"},
@@ -199,6 +198,49 @@ class OnboardStep1 extends Component {
         "coconut_burfi": {"price": "25", "imgUrl": "coconut_burfi.png"},
         "cashew_burfi": {"price": "35", "imgUrl": "cashew_burfi.png"}
       };
+
+      this.southIndianMenu = {
+        "cucumber_kosambari": {"price": "20", "imgUrl": "cucumber_kosambari.png"},
+        "moong_dal_kosambari": {"price": "20", "imgUrl": "moong_dal_kosambari.png"},
+        "mix_veg_poriyal": {"price": "35", "imgUrl": "mix_veg_poriyal.png"},
+        "pumpkin_poriyal": {"price": "25", "imgUrl": "pumpkin_poriyal.png"},
+        "beetroot_poriyal": {"price": "35", "imgUrl": "beetroot_poriyal.png"},
+        "aloo_dry_poriyal": {"price": "35", "imgUrl": "aloo_dry_poriyal.png"},
+        "snakeguard_poriyal": {"price": "70", "imgUrl": "snakeguard_poriyal.png"},
+        "thove_parupu": {"price": "70", "imgUrl": "thove_parupu.png"},
+        "masala_vada": {"price": "70", "imgUrl": "masala_vada.png"},
+        "tondekai_poriyal": {"price": "60", "imgUrl": "tondekai_poriyal.png"},
+
+        "chapati": {"price": "25", "imgUrl": "roti.png"},
+        "poori": {"price": "45", "imgUrl": "poori.png"},
+
+        "mix_veg_sagu": {"price": "90", "imgUrl": "sagu.png"},
+        "veg_kurma": {"price": "60", "imgUrl": "kurma.png"},
+        "tomato_gojju": {"price": "120", "imgUrl": "tomato_gojju.png"},
+        "majjige_huli": {"price": "100", "imgUrl": "majjige_huli.png"},
+        "green_leaf_sambar": {"price": "80", "imgUrl": "greenleaf_sambar.png"},
+        "tomato_rasam": {"price": "80", "imgUrl": "rasam.png"},
+
+        "plain_rice": {"price": "35", "imgUrl": "rice.png"},
+        "peas_pulao": {"price": "65", "imgUrl": "peas_pulao.png"},
+        "veg_pulao": {"price": "85", "imgUrl": "veg_pulao.png"},
+        "veg_biriyani": {"price": "105", "imgUrl": "veg_biriyani.png"},
+        "puliyogare": {"price": "55", "imgUrl": "puliyogare.png"},
+        "veg_salad": {"price": "20", "imgUrl": "veg_salad.png"},
+        "sprout_salad": {"price": "30", "imgUrl": "sprout_salad.png"},
+        "lemonade": {"price": "30", "imgUrl": "lemonade.png"},
+        "masala_buttermilk": {"price": "30", "imgUrl": "masala_buttermilk.png"},
+        "gulab_jamoon": {"price": "35", "imgUrl": "gulab_jamoon.png"},
+        "rasmalai": {"price": "55", "imgUrl": "rasmalai.png"},
+        "coconut_burfi": {"price": "25", "imgUrl": "coconut_burfi.png"},
+        "cashew_burfi": {"price": "35", "imgUrl": "cashew_burfi.png"}
+      };
+
+      this.menuType = this.northIndianMenu;
+      if(localStorage.getItem('cuisine') === 'South Indian') {
+        this.menuType = this.southIndianMenu;
+      }
+      
     }
     renderItemPreview(itemType, imgUrl) {
     console.log('itemType: ', itemType);
@@ -299,18 +341,18 @@ class OnboardStep1 extends Component {
         }
         this.drinks.push(item);
       }
-      let perPlatePriceVal = parseInt(this.state.perPlatePrice, 10) + parseInt(this.northIndianMenu[item].price,10);
+      let perPlatePriceVal = parseInt(this.state.perPlatePrice, 10) + parseInt(this.menuType[item].price,10);
       let priceForAllPlatesVal = perPlatePriceVal * parseInt(localStorage.getItem('num-members'));
-      let lastAddedVal = 'Last added: '+item.replace(/_/g, ' ')+': ₹'+this.northIndianMenu[item].price;
+      let lastAddedVal = 'Last added: '+item.replace(/_/g, ' ')+': ₹'+this.menuType[item].price;
       this.setState({lastAdded: lastAddedVal, perPlatePrice: perPlatePriceVal, priceForAllPlates: priceForAllPlatesVal});
-      this.renderItemPreview(itemType, '/sc/items/'+this.northIndianMenu[item].imgUrl);
+      this.renderItemPreview(itemType, '/sc/items/'+this.menuType[item].imgUrl);
     }
     onUncheck(itemType, item) {
-      let perPlatePriceVal = parseInt(this.state.perPlatePrice, 10) - parseInt(this.northIndianMenu[item].price,10);
-      let lastAddedVal = 'Last removed: '+item.replace(/_/g, ' ')+': ₹'+this.northIndianMenu[item].price;
+      let perPlatePriceVal = parseInt(this.state.perPlatePrice, 10) - parseInt(this.menuType[item].price,10);
+      let lastAddedVal = 'Last removed: '+item.replace(/_/g, ' ')+': ₹'+this.menuType[item].price;
       let priceForAllPlatesVal = perPlatePriceVal * parseInt(localStorage.getItem('num-members'));
       this.setState({lastAdded: lastAddedVal, perPlatePrice: perPlatePriceVal, priceForAllPlates: priceForAllPlatesVal});
-      this.removePreview(this.northIndianMenu[item].imgUrl);
+      this.removePreview(this.menuType[item].imgUrl);
     }
     onCheckHandler(e) {
        console.log(e.target.checked);
@@ -343,7 +385,18 @@ class OnboardStep1 extends Component {
                                                 {this.createCheckBox('starter', 'aloo_dal_tikki', 'Aloo & Dal Tikki (5 pieces)')}
                                                 {this.createCheckBox('starter', 'mix_veg_cutlet', 'Mix veg cutlet (1 piece)')}
                                             </div>; break;
-        case 'South Indian': startersElems = <div>South Indian</div>; break;
+        case 'South Indian': startersElems = <div className="box">
+                                                {this.createCheckBox('starter', 'thove_parupu', 'Tovve/parupu')}
+                                                {this.createCheckBox('starter', 'cucumber_kosambari', 'Cucumber kosambri')}
+                                                {this.createCheckBox('starter', 'moong_dal_kosambari', 'Moong dal kosambri')}
+                                                {this.createCheckBox('starter', 'masala_vada', 'Masala vada')}
+                                                {this.createCheckBox('starter', 'mix_veg_poriyal', 'Mix veg poriyal')}
+                                                {this.createCheckBox('starter', 'pumpkin_poriyal', 'Pumpkin poriyal')}
+                                                {this.createCheckBox('starter', 'beetroot_poriyal', 'Beetroot poriyal')}
+                                                {this.createCheckBox('starter', 'aloo_dry_poriyal', 'Aloo dry poriyal')}
+                                                {this.createCheckBox('starter', 'snakeguard_poriyal', 'Snakeguard poriyal')}
+                                                {this.createCheckBox('starter', 'tondekai_poriyal', 'Tondekai poriyal')}
+                                            </div>; break;
         case 'Italian': startersElems = <div>Italian</div>; break;
         default: null;
       }
@@ -374,7 +427,26 @@ class OnboardStep1 extends Component {
                                               {this.createCheckBox('salad-item', 'veg_salad', 'Veg salad')}
                                               {this.createCheckBox('salad-item', 'sprout_salad', 'Sprout salad')}
                                             </div>; break;
-        case 'South Indian': startersElems = <div>South Indian</div>; break;
+        case 'South Indian': startersElems = <div className="box">
+                                              {this.createCheckBox('main-course', 'chapati', 'Chapati - 2 pieces')}
+                                              {this.createCheckBox('main-course', 'poori', 'Poori - 3 pieces')}
+                                              <div><b>Side dish</b> <span style={{fontSize: '13px'}}>(upto 2)</span></div>
+                                              {this.createCheckBox('side-dish', 'mix_veg_sagu', 'Mix veg sagu')}
+                                              {this.createCheckBox('side-dish', 'veg_kurma', 'Mix veg kurma')}
+                                              {this.createCheckBox('side-dish', 'tomato_gojju', 'Tomato gojju')}
+                                              {this.createCheckBox('side-dish', 'majjige_huli', 'Majjige huli')}
+                                              {this.createCheckBox('side-dish', 'green_leaf_sambar', 'Green-leaf sambar')}
+                                              {this.createCheckBox('side-dish', 'tomato_rasam', 'Tomato rasam')}
+                                              <div><b>Rice</b> <span style={{fontSize: '13px'}}>(any 1)</span></div>
+                                              {this.createCheckBox('rice-item', 'plain_rice', 'Plain steamed rice')}
+                                              {this.createCheckBox('rice-item', 'peas_pulao', 'Peas Pulao - with raitha')}
+                                              {this.createCheckBox('rice-item', 'veg_pulao', 'Veg Pulao - with raitha')}
+                                              {this.createCheckBox('rice-item', 'veg_biriyani', 'Veg biriyani (with raitha)')}
+                                              {this.createCheckBox('rice-item', 'puliyogare', 'Puliyogare')}
+                                              <div><b>Salads</b> <span style={{fontSize: '13px'}}>(any 1)</span></div>
+                                              {this.createCheckBox('salad-item', 'veg_salad', 'Veg salad')}
+                                              {this.createCheckBox('salad-item', 'sprout_salad', 'Sprout salad')}
+                                            </div>; break;
         case 'Italian': startersElems = <div>Italian</div>; break;
         default: null;
       }
@@ -390,7 +462,10 @@ class OnboardStep1 extends Component {
                                                 {this.createCheckBox('drink', 'orange_squash', 'Orange squash')}
                                                 {this.createCheckBox('drink', 'pineapple_squash', 'Pineapple squash')}
                                             </div>; break;
-        case 'South Indian': startersElems = <div>South Indian</div>; break;
+        case 'South Indian': startersElems = <div className="box">
+                                                {this.createCheckBox('drink', 'lemonade', 'Lemonade')}
+                                                {this.createCheckBox('drink', 'masala_buttermilk', 'Masala Buttermilk')}
+                                            </div>; break;
         case 'Italian': startersElems = <div>Italian</div>; break;
         default: null;
       }
@@ -405,7 +480,12 @@ class OnboardStep1 extends Component {
                                                 {this.createCheckBox('dessert', 'coconut_burfi', 'Coconut burfi')}
                                                 {this.createCheckBox('dessert', 'rasgulla', 'Rasgulla - 2 pieces')}
                                             </div>; break;
-        case 'South Indian': startersElems = <div>South Indian</div>; break;
+        case 'South Indian': startersElems = <div className="box">
+                                                {this.createCheckBox('dessert', 'gulab_jamoon', 'Gulab jamoon - 2 pieces')}
+                                                {this.createCheckBox('dessert', 'rasmalai', 'Rasmalai')}
+                                                {this.createCheckBox('dessert', 'cashew_burfi', 'Cashew burfi')}
+                                                {this.createCheckBox('dessert', 'coconut_burfi', 'Coconut burfi')}
+                                            </div>; break;
         case 'Italian': startersElems = <div>Italian</div>; break;
         default: null;
       }

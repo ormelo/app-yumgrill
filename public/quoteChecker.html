@@ -134,6 +134,7 @@ html{
   background: -moz-linear-gradient(top, rgba(255,255,255,0) 18%, rgba(255,255,255,0) 19%, rgba(255,255,255,0.82) 100%);
   background: -webkit-gradient(left top, left bottom, color-stop(18%, rgba(255,255,255,0)), color-stop(19%, rgba(255,255,255,0)), color-stop(100%, rgba(255,255,255,0.82)));
   background: -webkit-linear-gradient(top, rgba(255,255,255,0) 18%, rgba(255,255,255,0) 19%, rgba(255,255,255,0.82) 100%);
+  z-index: 1;
 }
 .margin-sm {
   margin-top: 20px;
@@ -243,11 +244,15 @@ html{
 
 .price-panel {
   height: 200px;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 1);
   padding-top: 2px;
   padding-left: 16px;
   border-radius: 8px;
   box-shadow: 0px 0px 18px 3px rgba(136, 136, 136, 0.05);
+  position: fixed;
+  bottom: 0px;
+  width: calc(100% - 31px);
+  z-index: 0;
 }
 
 .price-last-added {
