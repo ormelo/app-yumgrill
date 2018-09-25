@@ -66,15 +66,15 @@ class Onboard extends Component {
       localStorage.setItem('cuisine', 'North Indian');
     else if(cuisine == 'south')
       localStorage.setItem('cuisine', 'South Indian');
-    else if(cuisine == 'italian')
-      localStorage.setItem('cuisine', 'Italian');
+    else if(cuisine == 'north_south')
+      localStorage.setItem('cuisine', 'North/South');
 
     document.getElementById('north-checked').style.display = 'none';
     document.getElementById('south-checked').style.display = 'none';
-    document.getElementById('italian-checked').style.display = 'none';
+    document.getElementById('north_south-checked').style.display = 'none';
     document.getElementById('north-img').style.opacity = '1';
     document.getElementById('south-img').style.opacity = '1';
-    document.getElementById('italian-img').style.opacity = '1';
+    document.getElementById('north_south-img').style.opacity = '1';
     document.getElementById(`${cuisine}-img`).style.opacity = '0.2';
     document.getElementById(`${cuisine}-checked`).style.display = 'inline';
   }
@@ -117,16 +117,16 @@ class Onboard extends Component {
                   </div>
 
                   <div className="col-md-4 col-lg-4 col-sm-6 col-xs-12 mix">
-                      <div className="portfolio-item-sm" onClick={()=>this.selectCuisine('italian')}>
+                      <div className="portfolio-item-sm" onClick={()=>this.selectCuisine('north_south')}>
                           <div className="portfolio-img">
                               <a>
-                                  <img id="italian-img" src="/sc/m_italian.jpg" alt="Home Caterers in Bangalore" style={{display: 'inline'}}/>
-                                  <svg id="italian-checked" className="checked" x="0px" y="0px" viewBox="0 0 488.878 488.878" style={{enableBackground:'new 0 0 488.878 488.878'}} width="512px" height="512px"><g><g><polygon points="143.294,340.058 50.837,247.602 0,298.439 122.009,420.447 122.149,420.306 144.423,442.58 488.878,98.123 437.055,46.298 " fill="#0abc9a"/></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
+                                  <img id="north_south-img" src="/sc/m_north_south.jpg" alt="Home Caterers in Bangalore" style={{display: 'inline'}}/>
+                                  <svg id="north_south-checked" className="checked" x="0px" y="0px" viewBox="0 0 488.878 488.878" style={{enableBackground:'new 0 0 488.878 488.878'}} width="512px" height="512px"><g><g><polygon points="143.294,340.058 50.837,247.602 0,298.439 122.009,420.447 122.149,420.306 144.423,442.58 488.878,98.123 437.055,46.298 " fill="#0abc9a"/></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
                               </a>
                           </div>
                           <div className="portfolio-item-content">
                               <h3 className="header">
-                                  Italian
+                                  North/South Mixed
                               </h3>
                               <p className="body"></p>
                           </div>
@@ -236,9 +236,13 @@ class OnboardStep1 extends Component {
         "cashew_burfi": {"price": "35", "imgUrl": "cashew_burfi.png"}
       };
 
+      this.northSouthMenu = Object.assign({}, this.northIndianMenu, this.southIndianMenu);
+
       this.menuType = this.northIndianMenu;
       if(localStorage.getItem('cuisine') === 'South Indian') {
         this.menuType = this.southIndianMenu;
+      } else if(localStorage.getItem('cuisine') === 'North/South') {
+        this.menuType = this.northSouthMenu;
       }
       
     }
@@ -397,8 +401,28 @@ class OnboardStep1 extends Component {
                                                 {this.createCheckBox('starter', 'snakeguard_poriyal', 'Snakeguard poriyal')}
                                                 {this.createCheckBox('starter', 'tondekai_poriyal', 'Tondekai poriyal')}
                                             </div>; break;
-        case 'Italian': startersElems = <div>Italian</div>; break;
-        default: null;
+        case 'North/South': startersElems = <div className="box">
+                                            {this.createCheckBox('starter', 'paneer_tikka', 'Paneer Tikka (5 pieces)..')}
+                                            {this.createCheckBox('starter', 'cheese_balls', 'Potato cheese balls (5 pieces)')}
+                                            {this.createCheckBox('starter', 'spring_rolls', 'Spring rolls (5 pieces)')}
+                                            {this.createCheckBox('starter', 'gobi_chilli', 'Gobi chilli')}
+                                            {this.createCheckBox('starter', 'gobi_manchurian', 'Gobi manchurian')}
+                                            {this.createCheckBox('starter', 'babycorn_manchurian', 'Babycorn manchurian')}
+                                            {this.createCheckBox('starter', 'potato_wedges', 'Potato wedges (5 pieces)')}
+                                            {this.createCheckBox('starter', 'aloo_dal_tikki', 'Aloo & Dal Tikki (5 pieces)')}
+                                            {this.createCheckBox('starter', 'mix_veg_cutlet', 'Mix veg cutlet (1 piece)')}
+                                            {this.createCheckBox('starter', 'thove_parupu', 'Tovve/parupu')}
+                                            {this.createCheckBox('starter', 'cucumber_kosambari', 'Cucumber kosambri')}
+                                            {this.createCheckBox('starter', 'moong_dal_kosambari', 'Moong dal kosambri')}
+                                            {this.createCheckBox('starter', 'masala_vada', 'Masala vada')}
+                                            {this.createCheckBox('starter', 'mix_veg_poriyal', 'Mix veg poriyal')}
+                                            {this.createCheckBox('starter', 'pumpkin_poriyal', 'Pumpkin poriyal')}
+                                            {this.createCheckBox('starter', 'beetroot_poriyal', 'Beetroot poriyal')}
+                                            {this.createCheckBox('starter', 'aloo_dry_poriyal', 'Aloo dry poriyal')}
+                                            {this.createCheckBox('starter', 'snakeguard_poriyal', 'Snakeguard poriyal')}
+                                            {this.createCheckBox('starter', 'tondekai_poriyal', 'Tondekai poriyal')}
+                                            </div>; break;
+                                            default: null;
       }
       return startersElems;
     }
@@ -447,7 +471,37 @@ class OnboardStep1 extends Component {
                                               {this.createCheckBox('salad-item', 'veg_salad', 'Veg salad')}
                                               {this.createCheckBox('salad-item', 'sprout_salad', 'Sprout salad')}
                                             </div>; break;
-        case 'Italian': startersElems = <div>Italian</div>; break;
+        case 'North/South': startersElems = <div className="box">
+                                              {this.createCheckBox('main-course', 'plain_roti', 'Plain Roti (phulka style) - 3 pcs')}
+                                              {this.createCheckBox('main-course', 'butter_nan', 'Butter Nan - 2 pieces')}
+                                              {this.createCheckBox('main-course', 'plain_nan', 'Plain Nan - 2 pieces')}
+                                              {this.createCheckBox('main-course', 'garlic_nan', 'Garlic Nan - 2 pieces')}
+                                              {this.createCheckBox('main-course', 'chapati', 'Chapati - 2 pieces')}
+                                              {this.createCheckBox('main-course', 'poori', 'Poori - 3 pieces')}
+                                              <div><b>Side dish</b> <span style={{fontSize: '13px'}}>(upto 2)</span></div>
+                                              {this.createCheckBox('side-dish', 'paneer_butter_masala', 'Paneer butter masala')}
+                                              {this.createCheckBox('side-dish', 'capcicum_masala', 'Capcicum masala')}
+                                              {this.createCheckBox('side-dish', 'dal_makhani', 'Dal makhani')}
+                                              {this.createCheckBox('side-dish', 'navratan_korma', 'Navratan Korma')}
+                                              {this.createCheckBox('side-dish', 'mix_veg_curry', 'Mix veg curry')}
+                                              {this.createCheckBox('side-dish', 'dal_tadka', 'Dal tadka')}
+                                              {this.createCheckBox('side-dish', 'mix_veg_sagu', 'Mix veg sagu')}
+                                              {this.createCheckBox('side-dish', 'veg_kurma', 'Mix veg kurma')}
+                                              {this.createCheckBox('side-dish', 'tomato_gojju', 'Tomato gojju')}
+                                              {this.createCheckBox('side-dish', 'majjige_huli', 'Majjige huli')}
+                                              {this.createCheckBox('side-dish', 'green_leaf_sambar', 'Green-leaf sambar')}
+                                              {this.createCheckBox('side-dish', 'tomato_rasam', 'Tomato rasam')}
+                                              <div><b>Rice</b> <span style={{fontSize: '13px'}}>(any 1)</span></div>
+                                              {this.createCheckBox('rice-item', 'plain_rice', 'Plain steamed rice')}
+                                              {this.createCheckBox('rice-item', 'peas_pulao', 'Peas Pulao - with raitha')}
+                                              {this.createCheckBox('rice-item', 'veg_pulao', 'Veg Pulao - with raitha')}
+                                              {this.createCheckBox('rice-item', 'veg_biriyani', 'Veg biriyani (with raitha)')}
+                                              {this.createCheckBox('rice-item', 'fried_rice', 'Fried rice - with chilli sauce')}
+                                              {this.createCheckBox('rice-item', 'puliyogare', 'Puliyogare')}
+                                              <div><b>Salads</b> <span style={{fontSize: '13px'}}>(any 1)</span></div>
+                                              {this.createCheckBox('salad-item', 'veg_salad', 'Veg salad')}
+                                              {this.createCheckBox('salad-item', 'sprout_salad', 'Sprout salad')}
+                                            </div>; break;
         default: null;
       }
       return startersElems;
@@ -466,7 +520,13 @@ class OnboardStep1 extends Component {
                                                 {this.createCheckBox('drink', 'lemonade', 'Lemonade')}
                                                 {this.createCheckBox('drink', 'masala_buttermilk', 'Masala Buttermilk')}
                                             </div>; break;
-        case 'Italian': startersElems = <div>Italian</div>; break;
+        case 'North/South': startersElems = <div className="box">
+                                                {this.createCheckBox('drink', 'lemonade', 'Lemonade')}
+                                                {this.createCheckBox('drink', 'masala_buttermilk', 'Masala Buttermilk')}
+                                                {this.createCheckBox('drink', 'fruit_punch', 'Fruit punch')}
+                                                {this.createCheckBox('drink', 'orange_squash', 'Orange squash')}
+                                                {this.createCheckBox('drink', 'pineapple_squash', 'Pineapple squash')}
+                                            </div>; break;
         default: null;
       }
       return startersElems;
@@ -486,7 +546,13 @@ class OnboardStep1 extends Component {
                                                 {this.createCheckBox('dessert', 'cashew_burfi', 'Cashew burfi')}
                                                 {this.createCheckBox('dessert', 'coconut_burfi', 'Coconut burfi')}
                                             </div>; break;
-        case 'Italian': startersElems = <div>Italian</div>; break;
+        case 'North/South': startersElems = <div className="box">
+                                                {this.createCheckBox('dessert', 'gulab_jamoon', 'Gulab jamoon - 2 pieces')}
+                                                {this.createCheckBox('dessert', 'cashew_burfi', 'Cashew burfi')}
+                                                {this.createCheckBox('dessert', 'coconut_burfi', 'Coconut burfi')}
+                                                {this.createCheckBox('dessert', 'rasgulla', 'Rasgulla - 2 pieces')}
+                                                {this.createCheckBox('dessert', 'rasmalai', 'Rasmalai')}
+                                            </div>; break;
         default: null;
       }
       return startersElems;
