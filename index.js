@@ -32,6 +32,10 @@ var pages = [];
     pages.getQuote = data;
   });
 
+  fs.readFile("public/getSlot.html", "utf8", function(err, data) {
+    pages.getSlot = data;
+  });
+
 app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname + '/public'));
@@ -98,6 +102,10 @@ app.get("/getQuote", function(request, response) {
   response.send(pages.getQuote);
 });
 
+app.get("/getSlot", function(request, response) {
+  response.send(pages.getSlot);
+});
+
 app.get('/quoteChecker', function(request, response) {
   response.sendFile(path.resolve(__dirname, 'public', 'quoteChecker.html'));
 });
@@ -109,6 +117,14 @@ app.post('/submitGetQuote', function(req, res) {
         client.set(email, members);
     //res.send(pages.getQuote);
     res.redirect('/quoteChecker');
+});
+
+app.post('/submitGetSlot', function(req, res) {
+    var email = req.body.email,
+        members = req.body.members;
+        client.set(email, members);
+    //res.send(pages.getQuote);
+    res.send(pages.getSlot);
 });
 
 app.get("/set", function(request, response) {

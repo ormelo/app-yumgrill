@@ -155,11 +155,12 @@ class OnboardStep1 extends Component {
       this.onUncheck = this.onUncheck.bind(this);
       this.renderItemPreview = this.renderItemPreview.bind(this);
       this.removePreview = this.removePreview.bind(this);
+      this.onNextClick = this.onNextClick.bind(this);
       this.starters = [];
       this.mainCourse = [];
       this.desserts = [];
       this.drinks = [];
-      this.state = {cuisine: localStorage.getItem('cuisine'), members: localStorage.getItem('num-members'), perPlatePrice: '0', lastAdded: '', priceForAllPlates: '0'};
+      this.state = {items:[], cuisine: localStorage.getItem('cuisine'), members: localStorage.getItem('num-members'), perPlatePrice: '0', lastAdded: '', priceForAllPlates: '0'};
 
       this.northIndianMenu = {
         "paneer_tikka": {"price": "65", "imgUrl": "paneer_tikka.png"},
@@ -245,6 +246,16 @@ class OnboardStep1 extends Component {
         this.menuType = this.northSouthMenu;
       }
       
+    }
+    shouldComponentUpdate(nextProps, nextState) {
+      console.log('state updated:', nextState);
+      localStorage.setItem('order', JSON.stringify(nextState));
+      return true;
+    }
+    onNextClick() {
+      document.getElementById('email').value = localStorage.getItem('email');
+      document.getElementById('members').value = localStorage.getItem('order');
+      document.getElementById('slotForm').submit();
     }
     renderItemPreview(itemType, imgUrl) {
     console.log('itemType: ', itemType);
@@ -348,6 +359,9 @@ class OnboardStep1 extends Component {
       let perPlatePriceVal = parseInt(this.state.perPlatePrice, 10) + parseInt(this.menuType[item].price,10);
       let priceForAllPlatesVal = perPlatePriceVal * parseInt(localStorage.getItem('num-members'));
       let lastAddedVal = 'Last added: '+item.replace(/_/g, ' ')+': ₹'+this.menuType[item].price;
+      let items = this.state.items;
+      items.push(item.replace(/_/g, ' ')+': ₹'+this.menuType[item].price);
+      this.setState({items});
       this.setState({lastAdded: lastAddedVal, perPlatePrice: perPlatePriceVal, priceForAllPlates: priceForAllPlatesVal});
       this.renderItemPreview(itemType, '/sc/items/'+this.menuType[item].imgUrl);
     }
@@ -560,6 +574,11 @@ class OnboardStep1 extends Component {
     render(){
         return (<div className="content margin-sm"><div className="preview-title">Create your {this.state.cuisine} meal plate to check price</div><br/>
             
+            <form action="/submitGetSlot" method="post" class="landing_page" id="slotForm" style={{display: 'none'}}>
+              <input type="hidden" name="email" value="" id="email" />
+               <input type="hidden" name="members" value="" id="members" />
+            </form>
+
             <img src="/sc/plate_big.png" className="meal-plate" width="160px"/>
             <img id="starter-item-1" src="" className="meal-plate meal-item starter-item-2" />
             <img id="starter-item-2" src="" className="meal-plate meal-item starter-item-1" />
@@ -587,7 +606,7 @@ class OnboardStep1 extends Component {
                 <div className="preview-menu-type">Select Drinks <span style={{fontSize: '13px'}}>(any 1)</span></div>
                 {this.getDrinks()}
                 <div className="btn-parent">
-                  <Link to="/quoteChecker/step3" className="btn fixed-btn" style={{margin:'0 auto',zIndex:0}}>
+                  <Link to="/quoteChecker/step3" onClick={(e)=>{e.preventDefault();this.onNextClick();}} className="btn fixed-btn" style={{margin:'0 auto',zIndex:0}}>
                     <span>Next</span>
                   </Link>
                 </div>
