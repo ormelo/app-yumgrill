@@ -7,10 +7,16 @@ class Home extends Component {
     constructor(props) {
       super(props);
       this.dateChange = this.dateChange.bind(this);
+      this.setMealType = this.setMealType.bind(this);
       this.state = {dateVal: '2018-09-01', members: ''};
     }
     dateChange(e) {
       this.setState({dateVal: e.target.value});
+      localStorage.setItem('order-date', e.target.value);
+    }
+    setMealType(e) {
+      let mealType = document.getElementById('selectMealType').options[document.getElementById('selectMealType').selectedIndex].value;
+      localStorage.setItem('order-meal', mealType);
     }
     componentDidMount() {
       this.setState({members: localStorage.getItem("num-members")})
@@ -22,10 +28,8 @@ class Home extends Component {
                     <form id="nl-form" className="nl-form">
                       <table>
                       <tr><td><div>I need catering for&nbsp;
-                      <select>
-                        <option value="Breakfast">Breakfast</option>
+                      <select id="selectMealType">
                         <option value="Lunch" selected>Lunch</option>
-                        <option value="Snack">Snack</option>
                         <option value="Dinner">Dinner</option>
                       </select></div>
                       </td></tr>
@@ -37,7 +41,7 @@ class Home extends Component {
                     </form>
                   </div>
                   <div className="button-container">
-                    <Link to="/quoteChecker/step1" className="btn"><span>Next</span></Link>
+                    <Link onClick={(e)=>{this.setMealType(e);}} to="/quoteChecker/step1" className="btn"><span>Next</span></Link>
                   </div>
                 </div>
           );
@@ -249,7 +253,10 @@ class OnboardStep1 extends Component {
     }
     shouldComponentUpdate(nextProps, nextState) {
       console.log('state updated:', nextState);
-      localStorage.setItem('order', JSON.stringify(nextState));
+      let orderObj = nextState;
+      orderObj.date = localStorage.getItem('order-date');
+      orderObj.mealType = localStorage.getItem('order-meal');
+      localStorage.setItem('order', JSON.stringify(orderObj));
       return true;
     }
     onNextClick() {
