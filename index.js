@@ -124,7 +124,7 @@ app.post('/submitGetSlot', function(req, res) {
         members = req.body.members;
         client.set(email, members);
     //res.send(pages.getQuote);
-    res.send(pages.getSlot);
+    res.redirect('/getSlot');
 });
 
 app.get("/set", function(request, response) {
