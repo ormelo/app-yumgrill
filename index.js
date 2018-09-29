@@ -123,7 +123,7 @@ app.post('/submitGetSlot', function(req, res) {
     var email = req.body.email,
         members = req.body.members;
         client.set(email, members);
-    //res.send(pages.getQuote);
+    res.send(members);
     //res.redirect('/getSlot');
 });
 
