@@ -111,11 +111,11 @@ app.get('/quoteChecker', function(request, response) {
 });
 
 app.post('/submitGetQuote', function(req, res) {
-    var email = req.body.email,
+    /*var email = req.body.email,
         members = req.body.members,
         date = req.body.date;
         client.set(email, members);
-    //res.send(pages.getQuote);
+    //res.send(pages.getQuote);*/
     res.redirect('/quoteChecker');
 });
 
@@ -124,7 +124,7 @@ app.post('/submitGetSlot', function(req, res) {
         members = req.body.members;
         client.set(email, 123);
         //client.set(email, JSON.stringify(members));
-    res.send(members);
+    //res.send(members);
     //res.redirect('/getSlot');
 });
 
