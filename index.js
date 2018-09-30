@@ -120,12 +120,12 @@ app.post('/submitGetQuote', function(req, res) {
 });
 
 app.post('/submitGetSlot', function(req, res) {
-    var email = req.body.email,
+    var email = req.body.emailM,
         members = req.body.members;
         //client.set(email, 123);
         client.set(email, members);
     //res.send(members);
-    res.redirect('/getSlot');
+    res.send('email);
 });
 
 app.get("/set", function(request, response) {

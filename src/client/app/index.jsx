@@ -260,7 +260,7 @@ class OnboardStep1 extends Component {
       return true;
     }
     onNextClick() {
-      document.getElementById('email').value = localStorage.getItem('mobile');
+      document.getElementById('emailM').value = localStorage.getItem('mobile');
       document.getElementById('members').value = localStorage.getItem('order');
       document.getElementById('slotForm').submit();
     }
@@ -582,7 +582,7 @@ class OnboardStep1 extends Component {
         return (<div className="content margin-sm"><div className="preview-title">Create your {this.state.cuisine} meal plate to check price</div><br/>
             
             <form action="/submitGetSlot" method="post" class="landing_page" id="slotForm" style={{display: 'none'}}>
-              <input type="hidden" name="email" value="" id="email" />
+              <input type="hidden" name="emailM" value="" id="emailM" />
                <input type="hidden" name="members" value="" id="members" />
             </form>
 
