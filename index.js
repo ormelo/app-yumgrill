@@ -123,9 +123,9 @@ app.post('/submitGetSlot', function(req, res) {
     var email = req.body.emailM,
         members = req.body.members;
         //client.set(email, 123);
-        client.set(email, members);
+        client.set(email, members);z
     //res.send(members);
-    res.send('email);
+    res.send(email);
 });
 
 app.get("/set", function(request, response) {
