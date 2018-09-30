@@ -260,7 +260,7 @@ class OnboardStep1 extends Component {
       return true;
     }
     onNextClick() {
-      document.getElementById('email').value = localStorage.getItem('email');
+      document.getElementById('email').value = localStorage.getItem('mobile');
       document.getElementById('members').value = localStorage.getItem('order');
       document.getElementById('slotForm').submit();
     }
