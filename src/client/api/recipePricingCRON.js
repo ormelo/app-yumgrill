@@ -36,7 +36,7 @@ var RecipePricingCRON = function() {
 					        console.log('---mrp of '+itemName+'--', variant.mrp);
 					        var options = { defaultValue: {} };
 					        updateJsonFile(filePath, (data) => {
-								  data[obj.item] = variant.mrp;
+								  data[obj.item] = {mrp: variant.mrp, name: variant.full_name};
 								  return data;
 								}, options);
 					      });
