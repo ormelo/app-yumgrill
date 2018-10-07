@@ -1,0 +1,123 @@
+{
+  "paneer_tikka": [
+    {
+      "item": "paneer",
+      "qty": "30",
+      "unit": "gm"
+    },
+    {
+      "item": "capcicum",
+      "qty": "60",
+      "unit": "gm"
+    },
+    {
+      "item": "curd",
+      "qty": "80",
+      "unit": "ml"
+    },
+    {
+      "item": "ginger_garlic_paste",
+      "qty": "8",
+      "unit": "gm"
+    },
+    {
+      "item": "chilli_powder",
+      "qty": "5",
+      "unit": "gm"
+    },
+    {
+      "item": "kasuri_methi",
+      "qty": "8",
+      "unit": "gm"
+    },
+    {
+      "item": "garam_masala",
+      "qty": "3",
+      "unit": "gm"
+    },
+    {
+      "item": "jeera_powder",
+      "qty": "3",
+      "unit": "gm"
+    },
+    {
+      "item": "salt",
+      "qty": "5",
+      "unit": "gm"
+    },
+    {
+      "item": "cooking_oil",
+      "qty": "70",
+      "unit": "ml"
+    },
+    {
+      "recipe_reference": "https://www.tarladalal.com/paneer-tikkas-video-by-tarla-dalal-137v"
+    }
+  ], 
+
+  "cheese_balls": [
+    {
+      "item": "potato",
+      "qty": "50",
+      "unit": "gm"
+    },
+    {
+      "item": "capcicum",
+      "qty": "25",
+      "unit": "gm"
+    },
+    {
+      "item": "cheese_regular",
+      "qty": "25",
+      "unit": "gm"
+    },
+    {
+      "item": "coriander_powder",
+      "qty": "25",
+      "unit": "gm"
+    },
+    {
+      "item": "green_chillies",
+      "qty": "20",
+      "unit": "gm"
+    },
+    {
+      "item": "ginger_garlic_paste",
+      "qty": "5",
+      "unit": "gm"
+    },
+    {
+      "item": "oregano",
+      "qty": "8",
+      "unit": "gm"
+    },
+    {
+      "item": "maida",
+      "qty": "8",
+      "unit": "gm"
+    },
+    {
+      "item": "salt",
+      "qty": "5",
+      "unit": "gm"
+    },
+    {
+      "item": "cornflour",
+      "qty": "15",
+      "unit": "gm"
+    },
+    {
+      "item": "cooking_oil",
+      "qty": "50",
+      "unit": "ml"
+    }, 
+    {
+      "item": "white_bread",
+      "qty": "50",
+      "unit": "gm"
+    },
+    {
+      "recipe_reference": "https://www.tarladalal.com/Potato-Cheese-Stuffed-Balls-42458r"
+    }
+  ]
+}

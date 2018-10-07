@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
+import RecipePricing from '../api/recipePricing.js';
 // Import routing components
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
@@ -165,7 +166,7 @@ class OnboardStep1 extends Component {
       this.desserts = [];
       this.drinks = [];
       this.state = {items:[], cuisine: localStorage.getItem('cuisine'), members: localStorage.getItem('num-members'), perPlatePrice: '0', lastAdded: '', priceForAllPlates: '0'};
-
+      this.recipePricingAPI = new RecipePricing();
       this.northIndianMenu = {
         "paneer_tikka": {"price": "65", "imgUrl": "paneer_tikka.png"},
         "cheese_balls": {"price": "35", "imgUrl": "cheese_balls.png"},
@@ -260,7 +261,7 @@ class OnboardStep1 extends Component {
       return true;
     }
     onNextClick() {
-      document.getElementById('emailM').value = localStorage.getItem('mobile');
+      document.getElementById('email').value = localStorage.getItem('mobile');
       document.getElementById('members').value = localStorage.getItem('order');
       document.getElementById('slotForm').submit();
     }
@@ -363,6 +364,10 @@ class OnboardStep1 extends Component {
         }
         this.drinks.push(item);
       }
+      // alert(item);
+      console.log(this.recipePricingAPI);
+      const price = this.recipePricingAPI.getPrice(item);
+      alert(price);
       let perPlatePriceVal = parseInt(this.state.perPlatePrice, 10) + parseInt(this.menuType[item].price,10);
       let priceForAllPlatesVal = perPlatePriceVal * parseInt(localStorage.getItem('num-members'));
       let lastAddedVal = 'Last added: '+item.replace(/_/g, ' ')+': ₹'+this.menuType[item].price;
@@ -582,7 +587,7 @@ class OnboardStep1 extends Component {
         return (<div className="content margin-sm"><div className="preview-title">Create your {this.state.cuisine} meal plate to check price</div><br/>
             
             <form action="/submitGetSlot" method="post" class="landing_page" id="slotForm" style={{display: 'none'}}>
-              <input type="hidden" name="emailM" value="" id="emailM" />
+              <input type="hidden" name="email" value="" id="email" />
                <input type="hidden" name="members" value="" id="members" />
             </form>
 

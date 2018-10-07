@@ -23,6 +23,10 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 //app.use(app.json());       // to support JSON-encoded bodies
 //app.use(app.urlencoded()); // to support URL-encoded bodies
 
+var RecipePricingCRON = require('./src/client/api/recipePricingCRON.js');
+
+new RecipePricingCRON().init();
+
 var pages = [];
   fs.readFile("public/index.html", "utf8", function(err, data) {
     pages.index = data;
@@ -120,12 +124,12 @@ app.post('/submitGetQuote', function(req, res) {
 });
 
 app.post('/submitGetSlot', function(req, res) {
-    var email = req.body.emailM,
+    var email = req.body.email,
         members = req.body.members;
         //client.set(email, 123);
-        client.set(email, members);z
+        client.set(email, members);
     //res.send(members);
-    res.send(email);
+    res.redirect('/getSlot');
 });
 
 app.get("/set", function(request, response) {
