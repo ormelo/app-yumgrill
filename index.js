@@ -25,7 +25,7 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 
 var RecipePricingCRON = require('./src/client/api/recipePricingCRON.js');
 
-new RecipePricingCRON().init();
+//new RecipePricingCRON().init();
 
 var pages = [];
   fs.readFile("public/index.html", "utf8", function(err, data) {
@@ -50,6 +50,11 @@ app.set('view engine', 'ejs');
 
 app.get('/get-styled', function(request, response) {
   response.sendFile(path.resolve(__dirname, 'public', 'getstyled.html'));
+});
+
+app.get('/gen-ingredients', function(request, response) {
+  var IngredientsGenerator = require('./src/client/api/ingredientsGenerator.js');
+  new IngredientsGenerator().init();
 });
 
 app.get('/fit-profile', function(request, response) {

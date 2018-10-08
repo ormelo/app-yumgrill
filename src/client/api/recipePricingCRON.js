@@ -6,6 +6,47 @@ var https = require('https');
 var updateJsonFile = require('update-json-file')
 var filePath = 'public/ingredientPricing.json'
 
+function getPricePerStandardQty(priceVal, qty) {
+	var qtyType = 'unknown';
+	var price = 0;
+
+	if(qty.indexOf(' g') !== -1) {
+		qtyType = 'g';
+	} else if(qty.indexOf(' Kg') !== -1) {
+		qtyType = 'Kg';
+	} else if(qty.indexOf(' Ltr') !== -1) {
+		qtyType = 'Ltr';
+	} else if(qty.indexOf(' ml') !== -1) {
+		qtyType = 'ml';
+	} 
+
+	  console.log('------------------------');
+	  console.log('--qtyType--', qtyType);
+
+
+	switch(qtyType) {
+		case 'g': var gramVal = parseInt(qty.replace(/ g/g,''), 10);
+				price = priceVal * 10 / gramVal;
+				break;
+		case 'Kg': var kgVal = parseInt(qty.replace(/ g/g,''), 10);
+				price = priceVal * 10 / 1000;
+				break;
+		case 'Ltr': var ltrVal = parseInt(qty.replace(/ g/g,''), 10);
+				price = priceVal * 10 / 1000;
+				break;
+		case 'ml': var mlVal = parseInt(qty.replace(/ g/g,''), 10);
+				price = priceVal * 10 / mlVal;
+				break;
+		default: price = 0;
+				break;
+	}
+
+	  console.log('--price--', price);
+	  console.log('------------------------');
+
+	return price;
+}
+
 var RecipePricingCRON = function() {
 	this.init = function() {
 		//var j = schedule.scheduleJob('10 * * * *', this.fetch);
@@ -36,7 +77,16 @@ var RecipePricingCRON = function() {
 					        console.log('---mrp of '+itemName+'--', variant.mrp);
 					        var options = { defaultValue: {} };
 					        updateJsonFile(filePath, (data) => {
-								  data[obj.item] = {mrp: variant.mrp, name: variant.full_name};
+					        	  var price = variant.mrp;
+					        	  var qty = variant.properties.Quantity;
+					        	  console.log('------------------------');
+					        	  console.log('--itemName--', itemName);
+					        	  console.log('--price--', price);
+					        	  console.log('--qty--', qty);
+					        	  console.log('------------------------');
+					        	  
+					        	  price = getPricePerStandardQty(price,qty);
+								  data[obj.item] = {standardUnitPrice: price, mrp: variant.mrp, qty: qty, name: variant.full_name, url: variant.url};
 								  return data;
 								}, options);
 					      });

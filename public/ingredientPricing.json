@@ -1,15 +1,128 @@
 {
-	"cornflour": 25,
-	"maida": 22,
-	"kasuri_methi": 25,
-	"green_chillies": 4.5,
-	"capcicum": 4.5,
-	"chilli_powder": 30,
-	"cooking_oil": 21,
-	"salt": 19,
-	"curd": 23,
-	"jeera_powder": 52,
-	"white_bread": 18,
-	"paneer": 65,
-	"ginger_garlic_paste": 22
+	"cornflour": {
+		"standardUnitPrice": 2.5,
+		"mrp": 25,
+		"qty": "100 g",
+		"name": "Weikfield Cornflour 100 g",
+		"url": "/cornflour-v-100-g-p.php"
+	},
+	"maida": {
+		"standardUnitPrice": 0.44,
+		"mrp": 22,
+		"qty": "500 g",
+		"name": "Bhagyalakshmi Maida 500 g",
+		"url": "/bhagyalakshmi-maida-v-500-g-p.php"
+	},
+	"kasuri_methi": {
+		"standardUnitPrice": 10,
+		"mrp": 25,
+		"qty": "25 g",
+		"name": "Everest Kasuri Methi 25 g",
+		"url": "/everest-kasuri-methi-v-25-g-p.php"
+	},
+	"green_chillies": {
+		"standardUnitPrice": 0.45,
+		"mrp": 4.5,
+		"qty": "100 g",
+		"name": "Fresh Chilli Green 100 g",
+		"url": "/fresh-chilli-green-v-100-g-p.php"
+	},
+	"capcicum": {
+		"standardUnitPrice": 0.28,
+		"mrp": 7,
+		"qty": "250 g",
+		"name": "Fresh Capsicum Green 250 g",
+		"url": "/fresh-capsicum-green-v-250-g-p.php"
+	},
+	"chilli_powder": {
+		"standardUnitPrice": 3,
+		"mrp": 30,
+		"qty": "100 g",
+		"name": "Sakthi Chilli Powder 100 g",
+		"url": "/sakthi-chilli-powder-v-100-g-p.php"
+	},
+	"cooking_oil": {
+		"standardUnitPrice": 2.1,
+		"mrp": 21,
+		"qty": "100 g",
+		"name": "More Superior Cooking (Baking) Soda 100 g",
+		"url": "/more-superior-cooking-baking-soda-v-100-g-p.php"
+	},
+	"salt": {
+		"standardUnitPrice": 0.19,
+		"mrp": 19,
+		"qty": "1 Kg",
+		"name": "Tata Salt 1 Kg",
+		"url": "/tata-salt-v-1-kg-p.php"
+	},
+	"curd": {
+		"standardUnitPrice": 0.46,
+		"mrp": 23,
+		"qty": "500 g",
+		"name": "Tirumala Curd 500 g",
+		"url": "/tirumala-curd-v-500-g-p.php"
+	},
+	"jeera_powder": {
+		"standardUnitPrice": 5.2,
+		"mrp": 52,
+		"qty": "100 g",
+		"name": "More Superior Cumin (Jeera) Powder 100 g",
+		"url": "/more-superior-cumin-jeera-powder-v-100-g-p.php"
+	},
+	"white_bread": {
+		"standardUnitPrice": 0.9,
+		"mrp": 18,
+		"qty": "200 g",
+		"name": "Fresh Baked White Bread 200 g",
+		"url": "/fresh-baked-white-bread-v-200-g-p.php"
+	},
+	"paneer": {
+		"standardUnitPrice": 3.25,
+		"mrp": 65,
+		"qty": "200 g",
+		"name": "Nandini Paneer 200 g",
+		"url": "/nandini-paneer-v-200-g-p.php"
+	},
+	"ginger_garlic_paste": {
+		"standardUnitPrice": 2.2,
+		"mrp": 22,
+		"qty": "100 g",
+		"name": "Eastern Ginger Garlic Paste 100 g",
+		"url": "/eastern-ginger-garlic-paste-v-100-g-p.php"
+	},
+	"oregano": {
+		"standardUnitPrice": 39.6,
+		"mrp": 99,
+		"qty": "25 g",
+		"name": "On1y Oregano Herbs Tin 25 g",
+		"url": "/on1y-oregano-herbs-tin-v-25-g-p.php"
+	},
+	"garam_masala": {
+		"standardUnitPrice": 4,
+		"mrp": 40,
+		"qty": "100 g",
+		"name": "Catch Super Garam Masala 100 g",
+		"url": "/catch-super-garam-masala-v-100-g-p.php"
+	},
+	"potato": {
+		"standardUnitPrice": 0.28,
+		"mrp": 28,
+		"qty": "1 Kg",
+		"name": "Fresh Potato 1 Kg",
+		"url": "/fresh-potato-v-1-kg-p.php"
+	},
+	"coriander_powder": {
+		"standardUnitPrice": 2.7,
+		"mrp": 27,
+		"qty": "100 g",
+		"name": "Everest Coriander Powder 100 g",
+		"url": "/everest-coriander-powder-v-100-g-p.php"
+	},
+	"cheese_regular": {
+		"standardUnitPrice": 5,
+		"mrp": 50,
+		"qty": "100 g",
+		"name": "GO Cheese Slice 100 g",
+		"url": "/go-cheese-slice-v-100-g-p.php"
+	}
 }

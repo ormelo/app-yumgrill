@@ -36,6 +36,7 @@
     "serve": "^6.0.5",
     "uglifyjs-webpack-plugin": "^0.4.6",
     "update-json-file": "^1.1.1",
-    "webpack": "^3.4.1"
+    "webpack": "^3.4.1",
+    "x-ray": "^2.3.3"
   }
 }

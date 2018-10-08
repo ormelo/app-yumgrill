@@ -366,7 +366,8 @@ class OnboardStep1 extends Component {
       }
       // alert(item);
       console.log(this.recipePricingAPI);
-      const price = this.recipePricingAPI.getPrice(item);
+      let price = this.recipePricingAPI.getPrice(item);
+      price = Math.ceil(price/5)*5;
       alert(price);
       let perPlatePriceVal = parseInt(this.state.perPlatePrice, 10) + parseInt(this.menuType[item].price,10);
       let priceForAllPlatesVal = perPlatePriceVal * parseInt(localStorage.getItem('num-members'));
