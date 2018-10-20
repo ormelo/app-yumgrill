@@ -1,0 +1,136 @@
+{
+	"paneer_tikka": [
+		{
+			"item": "For-Serving",
+			"qty": "unknown",
+			"unit": "gm"
+		},
+		{
+			"item": "dried-fenugreek-leaves--(kasuri-methi)",
+			"qty": "37.5",
+			"unit": "gm"
+		},
+		{
+			"item": "finely-chopped-ginger-(adrak)",
+			"qty": "0",
+			"unit": "gm"
+		},
+		{
+			"item": "salt-to-taste",
+			"qty": "unknown",
+			"unit": "gm"
+		},
+		{
+			"item": "Phudina-chutney",
+			"qty": "unknown",
+			"unit": "ml"
+		},
+		{
+			"item": "chaat-masala",
+			"qty": "2.0250000000000004",
+			"unit": "gm"
+		},
+		{
+			"item": "finely-chopped-coriander-(dhania)",
+			"qty": "7.5",
+			"unit": "gm"
+		},
+		{
+			"item": "For-Serving",
+			"qty": "unknown",
+			"unit": "gm"
+		},
+		{
+			"item": "Phudina-chutney",
+			"qty": "unknown",
+			"unit": "ml"
+		},
+		{
+			"item": "dried-fenugreek-leaves--(kasuri-methi)",
+			"qty": "37.5",
+			"unit": "gm"
+		},
+		{
+			"item": "finely-chopped-coriander-(dhania)",
+			"qty": "7.5",
+			"unit": "gm"
+		},
+		{
+			"item": "chilli-powder",
+			"qty": "2.0250000000000004",
+			"unit": "gm"
+		},
+		{
+			"item": "chaat-masala",
+			"qty": "2.0250000000000004",
+			"unit": "gm"
+		},
+		{
+			"item": "garlic-(lehsun)-paste",
+			"qty": "4.050000000000001",
+			"unit": "gm"
+		},
+		{
+			"item": "besan-(bengal-gram-flour)",
+			"qty": "7.5",
+			"unit": "gm"
+		},
+		{
+			"item": "thick-curds-(dahi)",
+			"qty": "50",
+			"unit": "ml"
+		},
+		{
+			"item": "s-paneer-(cottage-cheese)",
+			"qty": "225",
+			"unit": "gm"
+		},
+		{
+			"item": "finely-chopped-ginger-(adrak)",
+			"qty": "0",
+			"unit": "gm"
+		},
+		{
+			"item": "oil-for-greasing-and-cooking",
+			"qty": "9.450000000000001",
+			"unit": "gm"
+		}
+	],
+	"plain_nan": [
+		{
+			"item": "melted-ghee",
+			"qty": "1/4 tbsp",
+			"unit": "gm"
+		},
+		{
+			"item": "fresh-curds-(dahi)",
+			"qty": "1/4 tbsp",
+			"unit": "ml"
+		},
+		{
+			"item": "sugar",
+			"qty": "0.3375",
+			"unit": "gm"
+		},
+		{
+			"item": "salt-to-taste",
+			"qty": "unknown",
+			"unit": "gm"
+		},
+		{
+			"item": "plain-flour-(maida)-for-rolling",
+			"qty": "unknown",
+			"unit": "gm"
+		},
+		{
+			"item": "black-sesame-seeds-(kala-til)",
+			"qty": "4.050000000000001",
+			"unit": "gm"
+		},
+		{
+			"item": "sugar",
+			"qty": "0.3375",
+			"unit": "gm"
+		}
+	]
+}

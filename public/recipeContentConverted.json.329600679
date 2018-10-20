@@ -1,0 +1,265 @@
+{
+	"paneer_tikka": [
+		{
+			"item": "For-Serving",
+			"category": "Cutlery",
+			"qty": "unknown",
+			"unit": "gm"
+		},
+		{
+			"item": "besan-(bengal-gram-flour)",
+			"category": "Flour",
+			"qty": "7.5",
+			"unit": "gm"
+		},
+		{
+			"item": "chilli-powder",
+			"category": "Masala",
+			"qty": "2.0250000000000004",
+			"unit": "gm"
+		},
+		{
+			"item": "finely-chopped-ginger-(adrak)",
+			"category": "Fresh Vegetables",
+			"qty": "0",
+			"unit": "gm"
+		},
+		{
+			"item": "Phudina-chutney",
+			"category": "Sauce",
+			"qty": "unknown",
+			"unit": "ml"
+		},
+		{
+			"item": "oil-for-greasing-and-cooking",
+			"category": "Masala",
+			"qty": "9.450000000000001",
+			"unit": "gm"
+		}
+	],
+	"gobi_chilli": [
+		{
+			"item": "For-The-Cauliflower",
+			"category": "Fresh Vegetables",
+			"qty": "unknown",
+			"unit": "gm"
+		},
+		{
+			"item": "cauliflower-florets",
+			"category": "Fresh Vegetables",
+			"qty": "112.5",
+			"unit": "gm"
+		},
+		{
+			"item": "soy-sauce",
+			"category": "Sauce",
+			"qty": "1.2333333333333334",
+			"unit": "ml"
+		},
+		{
+			"item": "finely-chopped-celery",
+			"category": "Cutlery",
+			"qty": "1.8",
+			"unit": "gm"
+		},
+		{
+			"item": "red-chilli-sauce",
+			"category": "Sauce",
+			"qty": "5",
+			"unit": "ml"
+		},
+		{
+			"item": "vinegar",
+			"category": "Vinegar",
+			"qty": "1.2333333333333334",
+			"unit": "ml"
+		},
+		{
+			"item": "chopped-spring-onions--(whites-and-greens)",
+			"category": "Fresh Vegetables",
+			"qty": "50",
+			"unit": "gm"
+		}
+	],
+	"spring_rolls": [
+		{
+			"item": "spring-roll-wrappers",
+			"category": "Frozen Snacks",
+			"qty": "3  pcs",
+			"unit": "gm"
+		},
+		{
+			"item": "oil-for-deep-frying",
+			"category": "Cooker & Pans",
+			"qty": "unknown",
+			"unit": "gm"
+		},
+		{
+			"item": "oil",
+			"category": "Hair Oil",
+			"qty": "7.5",
+			"unit": "ml"
+		},
+		{
+			"item": "For-The-Stuffing",
+			"category": "International Condiments",
+			"qty": "unknown",
+			"unit": "gm"
+		},
+		{
+			"item": "finely-chopped-garlic-(lehsun)",
+			"category": "Fresh Vegetables",
+			"qty": "28.125",
+			"unit": "gm"
+		},
+		{
+			"item": "Other-Ingredients",
+			"category": "Other Sports",
+			"qty": "unknown",
+			"unit": "gm"
+		},
+		{
+			"item": "thickly-grated-carrot",
+			"category": "Fresh Vegetables",
+			"qty": "75",
+			"unit": "gm"
+		},
+		{
+			"item": "salt-to-taste",
+			"category": "Edible Oil",
+			"qty": "unknown",
+			"unit": "gm"
+		},
+		{
+			"item": "schezuan-sauce",
+			"category": "Ready to Cook Meals",
+			"qty": "3.0375",
+			"unit": "gm"
+		},
+		{
+			"item": "sliced-onions",
+			"category": "Fresh Vegetables",
+			"qty": "37.5",
+			"unit": "gm"
+		}
+	],
+	"gobi_manchurian": [
+		{
+			"item": "To-Be-Mixed-Into-A-Smooth-Thick-Batter-(using-Approx.-3/4-Cup-Of-Water)",
+			"category": "Candy",
+			"qty": "unknown",
+			"unit": "gm"
+		},
+		{
+			"item": "For-The-Cauliflower",
+			"category": "Fresh Vegetables",
+			"qty": "unknown",
+			"unit": "gm"
+		},
+		{
+			"item": "cauliflower-florets",
+			"category": "Fresh Vegetables",
+			"qty": "112.5",
+			"unit": "gm"
+		},
+		{
+			"item": "For-The-Garnish",
+			"category": {
+				"full_name": "",
+				"mrp": ""
+			},
+			"qty": "unknown",
+			"unit": "gm"
+		},
+		{
+			"item": "finely-chopped-garlic-(lehsun)",
+			"category": "Fresh Vegetables",
+			"qty": "3.333333333333333",
+			"unit": "gm"
+		},
+		{
+			"item": "Other-Ingredients",
+			"category": "Other Sports",
+			"qty": "unknown",
+			"unit": "gm"
+		},
+		{
+			"item": "salt-to-taste",
+			"category": "Edible Oil",
+			"qty": "unknown",
+			"unit": "gm"
+		}
+	],
+	"veg_cutlet": [
+		{
+			"item": "chopped-and-blanched-spinach-(palak)",
+			"category": "Fresh Vegetables",
+			"qty": "18.75",
+			"unit": "gm"
+		}
+	],
+	"cheese_balls": [
+		{
+			"item": "cooked-rice",
+			"category": "Frozen Nonveg",
+			"qty": "3/4 cup",
+			"unit": "gm"
+		},
+		{
+			"item": "mustard-(rai-/-sarson)-powder",
+			"category": "Whole Spice",
+			"qty": "0.3375",
+			"unit": "gm"
+		},
+		{
+			"item": "For-Serving",
+			"category": "Cutlery",
+			"qty": "unknown",
+			"unit": "gm"
+		},
+		{
+			"item": "plain-flour-(maida)",
+			"category": "Flour",
+			"qty": "NaN",
+			"unit": "gm"
+		}
+	],
+	"veg_manchurian": [
+		{
+			"item": "For-The-Garnish",
+			"category": {
+				"full_name": "",
+				"mrp": ""
+			},
+			"qty": "unknown",
+			"unit": "gm"
+		},
+		{
+			"item": "For-The-Manchurian-Balls",
+			"category": "Stainless Steel",
+			"qty": "unknown",
+			"unit": "gm"
+		},
+		{
+			"item": "salt-to-taste",
+			"category": "Edible Oil",
+			"qty": "unknown",
+			"unit": "gm"
+		},
+		{
+			"item": "grated-carrot",
+			"category": "Fresh Vegetables",
+			"qty": "50",
+			"unit": "gm"
+		}
+	],
+	"aloo_tikki": [],
+	"potato_wedges": [
+		{
+			"item": "For-The-Herbed-Mixture",
+			"category": "Healthy Snacks",
+			"qty": "unknown",
+			"unit": "gm"
+		}
+	]
+}

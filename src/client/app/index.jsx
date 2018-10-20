@@ -173,10 +173,10 @@ class OnboardStep1 extends Component {
         "spring_rolls": {"price": "25", "imgUrl": "spring_rolls.png"},
         "gobi_chilli": {"price": "35", "imgUrl": "gobi_chilli.png"},
         "gobi_manchurian": {"price": "35", "imgUrl": "gobi_manchurian.png"},
-        "babycorn_manchurian": {"price": "70", "imgUrl": "baby_corn_manchurian.png"},
+        "veg_manchurian": {"price": "70", "imgUrl": "baby_corn_manchurian.png"},
         "potato_wedges": {"price": "60", "imgUrl": "potato_wedges.png"},
-        "aloo_dal_tikki": {"price": "75", "imgUrl": "aloo_tikki.png"},
-        "mix_veg_cutlet": {"price": "75", "imgUrl": "veg_cutlet.png"},
+        "aloo_tikki": {"price": "75", "imgUrl": "aloo_tikki.png"},
+        "veg_cutlet": {"price": "75", "imgUrl": "veg_cutlet.png"},
         "plain_roti": {"price": "25", "imgUrl": "roti.png"},
         "butter_nan": {"price": "45", "imgUrl": "nan.png"},
         "plain_nan": {"price": "35", "imgUrl": "nan.png"},
@@ -368,19 +368,20 @@ class OnboardStep1 extends Component {
       console.log(this.recipePricingAPI);
       let price = this.recipePricingAPI.getPrice(item);
       price = Math.ceil(price/5)*5;
-      alert(price);
-      let perPlatePriceVal = parseInt(this.state.perPlatePrice, 10) + parseInt(this.menuType[item].price,10);
+      let perPlatePriceVal = parseInt(this.state.perPlatePrice, 10) + price;
       let priceForAllPlatesVal = perPlatePriceVal * parseInt(localStorage.getItem('num-members'));
-      let lastAddedVal = 'Last added: '+item.replace(/_/g, ' ')+': ₹'+this.menuType[item].price;
+      let lastAddedVal = 'Last added: '+item.replace(/_/g, ' ')+': ₹'+price;
       let items = this.state.items;
-      items.push(item.replace(/_/g, ' ')+': ₹'+this.menuType[item].price);
+      items.push(item.replace(/_/g, ' ')+': ₹'+price);
       this.setState({items});
       this.setState({lastAdded: lastAddedVal, perPlatePrice: perPlatePriceVal, priceForAllPlates: priceForAllPlatesVal});
       this.renderItemPreview(itemType, '/sc/items/'+this.menuType[item].imgUrl);
     }
     onUncheck(itemType, item) {
-      let perPlatePriceVal = parseInt(this.state.perPlatePrice, 10) - parseInt(this.menuType[item].price,10);
-      let lastAddedVal = 'Last removed: '+item.replace(/_/g, ' ')+': ₹'+this.menuType[item].price;
+      let price = this.recipePricingAPI.getPrice(item);
+      price = Math.ceil(price/5)*5;
+      let perPlatePriceVal = parseInt(this.state.perPlatePrice, 10) - price;
+      let lastAddedVal = 'Last removed: '+item.replace(/_/g, ' ')+': ₹'+price;
       let priceForAllPlatesVal = perPlatePriceVal * parseInt(localStorage.getItem('num-members'));
       this.setState({lastAdded: lastAddedVal, perPlatePrice: perPlatePriceVal, priceForAllPlates: priceForAllPlatesVal});
       this.removePreview(this.menuType[item].imgUrl);
@@ -411,10 +412,10 @@ class OnboardStep1 extends Component {
                                                 {this.createCheckBox('starter', 'spring_rolls', 'Spring rolls (5 pieces)')}
                                                 {this.createCheckBox('starter', 'gobi_chilli', 'Gobi chilli')}
                                                 {this.createCheckBox('starter', 'gobi_manchurian', 'Gobi manchurian')}
-                                                {this.createCheckBox('starter', 'babycorn_manchurian', 'Babycorn manchurian')}
+                                                {this.createCheckBox('starter', 'veg_manchurian', 'Veg manchurian')}
                                                 {this.createCheckBox('starter', 'potato_wedges', 'Potato wedges (5 pieces)')}
-                                                {this.createCheckBox('starter', 'aloo_dal_tikki', 'Aloo & Dal Tikki (5 pieces)')}
-                                                {this.createCheckBox('starter', 'mix_veg_cutlet', 'Mix veg cutlet (1 piece)')}
+                                                {this.createCheckBox('starter', 'aloo_tikki', 'Aloo Tikki (5 pieces)')}
+                                                {this.createCheckBox('starter', 'veg_cutlet', 'Mix veg cutlet (1 piece)')}
                                             </div>; break;
         case 'South Indian': startersElems = <div className="box">
                                                 {this.createCheckBox('starter', 'thove_parupu', 'Tovve/parupu')}
@@ -434,10 +435,10 @@ class OnboardStep1 extends Component {
                                             {this.createCheckBox('starter', 'spring_rolls', 'Spring rolls (5 pieces)')}
                                             {this.createCheckBox('starter', 'gobi_chilli', 'Gobi chilli')}
                                             {this.createCheckBox('starter', 'gobi_manchurian', 'Gobi manchurian')}
-                                            {this.createCheckBox('starter', 'babycorn_manchurian', 'Babycorn manchurian')}
+                                            {this.createCheckBox('starter', 'veg_manchurian', 'Veg manchurian')}
                                             {this.createCheckBox('starter', 'potato_wedges', 'Potato wedges (5 pieces)')}
-                                            {this.createCheckBox('starter', 'aloo_dal_tikki', 'Aloo & Dal Tikki (5 pieces)')}
-                                            {this.createCheckBox('starter', 'mix_veg_cutlet', 'Mix veg cutlet (1 piece)')}
+                                            {this.createCheckBox('starter', 'aloo_tikki', 'Aloo Tikki (5 pieces)')}
+                                            {this.createCheckBox('starter', 'veg_cutlet', 'Mix veg cutlet (1 piece)')}
                                             {this.createCheckBox('starter', 'thove_parupu', 'Tovve/parupu')}
                                             {this.createCheckBox('starter', 'cucumber_kosambari', 'Cucumber kosambri')}
                                             {this.createCheckBox('starter', 'moong_dal_kosambari', 'Moong dal kosambri')}

@@ -1,4 +1,6 @@
-var recipeIngredientsMasterJSON = require ('../json/recipeIngredientsMaster.json');
+//var recipeIngredientsMasterJSON = require ('../json/recipeIngredientsMaster.json');
+var recipeIngredientsMasterJSON = require ('../../../public/recipeContentUpdated.json');
+
 var ingredientPricingMasterJSON = require('../json/ingredientPricingMaster.json');
 var ingredientBrandPreference = require('../json/ingredientBrandPreference.json');
 var schedule = require('node-schedule');
