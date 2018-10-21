@@ -9,7 +9,7 @@ class Home extends Component {
       super(props);
       this.dateChange = this.dateChange.bind(this);
       this.setMealType = this.setMealType.bind(this);
-      this.state = {dateVal: '2018-09-01', members: ''};
+      this.state = {dateVal: '2018-10-21', members: ''};
     }
     dateChange(e) {
       this.setState({dateVal: e.target.value});
