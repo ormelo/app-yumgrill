@@ -84,7 +84,7 @@ class Onboard extends Component {
     document.getElementById(`${cuisine}-checked`).style.display = 'inline';
   }
     render(){
-        return (<div className="content"><div style={{fontSize:'18px',textAlign:'center'}}>Select your cuisine</div><br/>
+        return (<div className="content"><div className="select-cuisine">Select your cuisine</div><br/>
             <div id="recent-portfolio-list">
         
                     <div className="col-md-4 col-lg-4 col-sm-6 col-xs-12 mix">
