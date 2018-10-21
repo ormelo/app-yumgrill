@@ -66,6 +66,21 @@ class Onboard extends Component {
     super(props);
     this.selectCuisine = this.selectCuisine.bind(this);
   }
+
+  componentDidMount() {
+  var myKeyVals = {};
+  myKeyVals.date = localStorage.getItem('order-date');
+  myKeyVals.orderMeal = localStorage.getItem('order-meal');
+  myKeyVals.members = localStorage.getItem('num-members');
+  myKeyVals.email = localStorage.getItem('mobile');
+    var saveData = $.ajax({
+        type: 'POST',
+        url: "/submitMealType",
+        data: myKeyVals,
+        dataType: "text",
+        success: function(resultData) { console.log("Save Complete") }
+    });
+  }
   selectCuisine(cuisine) {
     if(cuisine == 'north')
       localStorage.setItem('cuisine', 'North Indian');
@@ -252,6 +267,21 @@ class OnboardStep1 extends Component {
       }
       
     }
+    componentDidMount() {
+      var myKeyVals = {};
+      myKeyVals.date = localStorage.getItem('order-date');
+      myKeyVals.orderMeal = localStorage.getItem('order-meal');
+      myKeyVals.members = localStorage.getItem('num-members');
+      myKeyVals.email = localStorage.getItem('mobile');
+      myKeyVals.cuisine = localStorage.getItem('cuisine');
+        var saveData = $.ajax({
+            type: 'POST',
+            url: "/submitCuisine",
+            data: myKeyVals,
+            dataType: "text",
+            success: function(resultData) { console.log("Save Complete") }
+        });
+    }
     shouldComponentUpdate(nextProps, nextState) {
       console.log('state updated:', nextState);
       let orderObj = nextState;
@@ -407,15 +437,15 @@ class OnboardStep1 extends Component {
       let startersElems = null;
       switch(localStorage.getItem('cuisine')) {
         case 'North Indian': startersElems = <div className="box">
-                                                {this.createCheckBox('starter', 'paneer_tikka', 'Paneer Tikka (5 pieces)..')}
-                                                {this.createCheckBox('starter', 'cheese_balls', 'Potato cheese balls (5 pieces)')}
-                                                {this.createCheckBox('starter', 'spring_rolls', 'Spring rolls (5 pieces)')}
+                                                {this.createCheckBox('starter', 'paneer_tikka', 'Paneer Tikka (5 pieces)')}
+                                                {this.createCheckBox('starter', 'cheese_balls', 'Potato cheese balls (4 pieces)')}
+                                                {this.createCheckBox('starter', 'spring_rolls', 'Spring rolls (4 pieces)')}
                                                 {this.createCheckBox('starter', 'gobi_chilli', 'Gobi chilli')}
                                                 {this.createCheckBox('starter', 'gobi_manchurian', 'Gobi manchurian')}
                                                 {this.createCheckBox('starter', 'veg_manchurian', 'Veg manchurian')}
                                                 {this.createCheckBox('starter', 'potato_wedges', 'Potato wedges (5 pieces)')}
-                                                {this.createCheckBox('starter', 'aloo_tikki', 'Aloo Tikki (5 pieces)')}
-                                                {this.createCheckBox('starter', 'veg_cutlet', 'Mix veg cutlet (1 piece)')}
+                                                {this.createCheckBox('starter', 'aloo_tikki', 'Aloo Tikki (4 pieces)')}
+                                                {this.createCheckBox('starter', 'veg_cutlet', 'Mix veg cutlet (2 pieces)')}
                                             </div>; break;
         case 'South Indian': startersElems = <div className="box">
                                                 {this.createCheckBox('starter', 'thove_parupu', 'Tovve/parupu')}
@@ -426,19 +456,19 @@ class OnboardStep1 extends Component {
                                                 {this.createCheckBox('starter', 'pumpkin_poriyal', 'Pumpkin poriyal')}
                                                 {this.createCheckBox('starter', 'beetroot_poriyal', 'Beetroot poriyal')}
                                                 {this.createCheckBox('starter', 'aloo_dry_poriyal', 'Aloo dry poriyal')}
-                                                {this.createCheckBox('starter', 'snakeguard_poriyal', 'Snakeguard poriyal')}
+                                                {this.createCheckBox('starter', 'snakeguard_poriyal', 'Snakegourd poriyal')}
                                                 {this.createCheckBox('starter', 'tondekai_poriyal', 'Tondekai poriyal')}
                                             </div>; break;
         case 'North/South': startersElems = <div className="box">
-                                            {this.createCheckBox('starter', 'paneer_tikka', 'Paneer Tikka (5 pieces)..')}
-                                            {this.createCheckBox('starter', 'cheese_balls', 'Potato cheese balls (5 pieces)')}
-                                            {this.createCheckBox('starter', 'spring_rolls', 'Spring rolls (5 pieces)')}
+                                            {this.createCheckBox('starter', 'paneer_tikka', 'Paneer Tikka (5 pieces)')}
+                                            {this.createCheckBox('starter', 'cheese_balls', 'Potato cheese balls (4 pieces)')}
+                                            {this.createCheckBox('starter', 'spring_rolls', 'Spring rolls (4 pieces)')}
                                             {this.createCheckBox('starter', 'gobi_chilli', 'Gobi chilli')}
                                             {this.createCheckBox('starter', 'gobi_manchurian', 'Gobi manchurian')}
                                             {this.createCheckBox('starter', 'veg_manchurian', 'Veg manchurian')}
                                             {this.createCheckBox('starter', 'potato_wedges', 'Potato wedges (5 pieces)')}
-                                            {this.createCheckBox('starter', 'aloo_tikki', 'Aloo Tikki (5 pieces)')}
-                                            {this.createCheckBox('starter', 'veg_cutlet', 'Mix veg cutlet (1 piece)')}
+                                            {this.createCheckBox('starter', 'aloo_tikki', 'Aloo Tikki (4 pieces)')}
+                                            {this.createCheckBox('starter', 'veg_cutlet', 'Mix veg cutlet (2 pieces)')}
                                             {this.createCheckBox('starter', 'thove_parupu', 'Tovve/parupu')}
                                             {this.createCheckBox('starter', 'cucumber_kosambari', 'Cucumber kosambri')}
                                             {this.createCheckBox('starter', 'moong_dal_kosambari', 'Moong dal kosambri')}
@@ -447,7 +477,7 @@ class OnboardStep1 extends Component {
                                             {this.createCheckBox('starter', 'pumpkin_poriyal', 'Pumpkin poriyal')}
                                             {this.createCheckBox('starter', 'beetroot_poriyal', 'Beetroot poriyal')}
                                             {this.createCheckBox('starter', 'aloo_dry_poriyal', 'Aloo dry poriyal')}
-                                            {this.createCheckBox('starter', 'snakeguard_poriyal', 'Snakeguard poriyal')}
+                                            {this.createCheckBox('starter', 'snakeguard_poriyal', 'Snakegourd poriyal')}
                                             {this.createCheckBox('starter', 'tondekai_poriyal', 'Tondekai poriyal')}
                                             </div>; break;
                                             default: null;

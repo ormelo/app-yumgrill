@@ -120,12 +120,35 @@ app.get('/quoteChecker', function(request, response) {
 });
 
 app.post('/submitGetQuote', function(req, res) {
-    /*var email = req.body.email,
+    var email = req.body.email,
         members = req.body.members,
         date = req.body.date;
         client.set(email, members);
     //res.send(pages.getQuote);*/
     res.redirect('/quoteChecker');
+});
+
+app.post('/submitMealType', function(req, res) {
+    var date = req.body.date,
+        orderMeal = req.body.orderMeal,
+        email = req.body.email;
+        members = req.body.members;
+    var obj = {date:date, mealType:orderMeal, members: members}    
+        client.set(email, JSON.stringify(obj));
+    //res.send(pages.getQuote);*/
+    res.send('success');
+});
+
+app.post('/submitCuisine', function(req, res) {
+    var date = req.body.date,
+        orderMeal = req.body.orderMeal,
+        email = req.body.email,
+        members = req.body.members,
+        cuisine = req.body.cuisine;
+    var obj = {date:date, mealType:orderMeal, members: members, cuisine: cuisine}
+        client.set(email, JSON.stringify(obj));
+    //res.send(pages.getQuote);*/
+    res.send('success');
 });
 
 app.post('/submitGetSlot', function(req, res) {

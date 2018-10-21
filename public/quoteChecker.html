@@ -490,6 +490,13 @@ body{
     #recent-portfolio-list {
         margin-top: 26px;
     }
+    .price-panel {
+      width: 100vw !important;
+      box-shadow: none;
+      border-radius: 0px;
+      left: 0px;
+      text-align: center;
+    }
     .gylph img {
       width: 184px;
       margin-left: 26px;
@@ -510,7 +517,7 @@ body{
       width: 275px;
     }
     .content {
-      margin-top: 100px;
+      margin-top: 40px;
     }
     .glitter {
       background-image: url(img/bg.png);
@@ -574,6 +581,20 @@ body{
     .meal-plate {
       display: none;
     }
+    .preview-title {
+      width: 600px;
+    }
+    .preview-panel {
+      height: 250px;
+      overflow: visible;
+    }
+    .price-panel {
+      width: 100vw !important;
+      box-shadow: none;
+      border-radius: 0px;
+      left: 0px;
+      text-align: center;
+    }
     .gylph img {
       width: 184px;
       margin-left: 26px;
@@ -588,6 +609,9 @@ body{
       position: relative;
       width: 240px;
     }
+    .price-panel {
+      width: calc(100% - 33vw);
+    }
 }
 
 </style>
@@ -597,6 +621,8 @@ body{
 <div class="container" id="container">
 </div>
 <!--Bundled file-->
+        <script src="./sc/jquery.min.js"></script>
+        <script src="./sc/jquery-ui.min.js"></script>
         <script src="app.bundle.min.js"></script>
 </body>
 
