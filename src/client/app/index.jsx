@@ -288,6 +288,16 @@ class OnboardStep1 extends Component {
       orderObj.date = localStorage.getItem('order-date');
       orderObj.mealType = localStorage.getItem('order-meal');
       localStorage.setItem('order', JSON.stringify(orderObj));
+      var myKeyVals = {};
+      myKeyVals.email = localStorage.getItem('mobile');
+      myKeyVals.members = JSON.stringify(orderObj);
+        var saveData = $.ajax({
+            type: 'POST',
+            url: "/submitItemChange",
+            data: myKeyVals,
+            dataType: "text",
+            success: function(resultData) { console.log("Save Complete") }
+        });
       return true;
     }
     onNextClick() {
@@ -415,6 +425,8 @@ class OnboardStep1 extends Component {
       let priceForAllPlatesVal = perPlatePriceVal * parseInt(localStorage.getItem('num-members'));
       this.setState({lastAdded: lastAddedVal, perPlatePrice: perPlatePriceVal, priceForAllPlates: priceForAllPlatesVal});
       this.removePreview(this.menuType[item].imgUrl);
+
+
     }
     onCheckHandler(e) {
        console.log(e.target.checked);

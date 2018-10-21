@@ -160,6 +160,15 @@ app.post('/submitGetSlot', function(req, res) {
     res.redirect('/getSlot');
 });
 
+app.post('/submitItemChange', function(req, res) {
+    var email = req.body.email,
+        members = req.body.members;
+        //client.set(email, 123);
+        client.set(email, members);
+    //res.send(members);
+    res.send('success');
+});
+
 app.get("/set", function(request, response) {
   keyName++;valName++;
   response.send(client.set('key'+keyName, "User"+valName));
