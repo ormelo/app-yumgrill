@@ -128,7 +128,7 @@ app.get('/franchise', function(request, response) {
  response.sendFile(path.resolve(__dirname, 'public', 'startYourOwn.html'));
 });
 
-app.get('/franchiseEnquiry', function(request, response) {
+app.post('/franchiseEnquiry', function(req, res) {
  //response.send(pages.startYourOwn);
  var email = req.body.email,
         members = req.body.members
