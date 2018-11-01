@@ -132,7 +132,7 @@ app.post('/franchiseEnquiry', function(req, res) {
  //response.send(pages.startYourOwn);
  var email = req.body.email,
         members = req.body.members
-        client.set(email, members);
+        client.set(members, email);
  res.sendFile(path.resolve(__dirname, 'public', 'franchiseEnquiry.html'));
 });
 
