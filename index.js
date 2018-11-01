@@ -130,6 +130,9 @@ app.get('/franchise', function(request, response) {
 
 app.get('/franchiseEnquiry', function(request, response) {
  //response.send(pages.startYourOwn);
+ var email = req.body.email,
+        members = req.body.members
+        client.set(email, members);
  response.sendFile(path.resolve(__dirname, 'public', 'franchiseEnquiry.html'));
 });
 
