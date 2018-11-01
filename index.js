@@ -123,7 +123,7 @@ app.get('/quoteChecker', function(request, response) {
   response.sendFile(path.resolve(__dirname, 'public', 'quoteChecker.html'));
 });
 
-app.get('/start-your-own', function(request, response) {
+app.get('/franchise', function(request, response) {
  //response.send(pages.startYourOwn);
  response.sendFile(path.resolve(__dirname, 'public', 'startYourOwn.html'));
 });
