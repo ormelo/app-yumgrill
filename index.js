@@ -128,6 +128,11 @@ app.get('/franchise', function(request, response) {
  response.sendFile(path.resolve(__dirname, 'public', 'startYourOwn.html'));
 });
 
+app.get('/franchiseEnquiry', function(request, response) {
+ //response.send(pages.startYourOwn);
+ response.sendFile(path.resolve(__dirname, 'public', 'franchiseEnquiry.html'));
+});
+
 app.post('/submitGetQuote', function(req, res) {
     var email = req.body.email,
         members = req.body.members,
