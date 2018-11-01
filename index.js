@@ -133,7 +133,7 @@ app.post('/franchiseEnquiry', function(req, res) {
  var email = req.body.email,
         members = req.body.members
         client.set(email, members);
- response.sendFile(path.resolve(__dirname, 'public', 'franchiseEnquiry.html'));
+ res.sendFile(path.resolve(__dirname, 'public', 'franchiseEnquiry.html'));
 });
 
 app.post('/submitGetQuote', function(req, res) {
