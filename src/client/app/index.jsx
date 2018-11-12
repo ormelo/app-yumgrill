@@ -661,20 +661,22 @@ class OnboardStep1 extends Component {
                 {this.getDesserts()}
                 <div className="preview-menu-type">Select Drinks <span style={{fontSize: '13px'}}>(any 1)</span></div>
                 {this.getDrinks()}
-                <div className="btn-parent">
-                  <Link to="/quoteChecker/step3" onClick={(e)=>{e.preventDefault();this.onNextClick();}} className="btn fixed-btn" style={{margin:'0 auto',zIndex:0}}>
+                <div className="btn-parent-float">
+                  <Link to="/quoteChecker/step3" onClick={(e)=>{e.preventDefault();this.onNextClick();}} className="btn fixed-btn-float" style={{margin:'0 auto',zIndex:0}}>
                     <span>Next</span>
                   </Link>
                 </div>
               </div>
               {this.state.lastAdded !== '' && 
-                <div className="price-panel">
-                  <div className="price-last-added">{this.state.lastAdded !== '' && `${this.state.lastAdded}`}</div>
-                  <div className="price-panel-title">{this.state.perPlatePrice !== '' && <span style={{fontSize: '16px', opacity: '0.5'}}>Price per plate:</span> }
-                    <span style={{color: '#039e80',fontSize: '25px',fontFamily: 'sans-serif',fontWeight: 'normal'}}>&nbsp;{this.state.perPlatePrice !== '' && `₹${this.state.perPlatePrice}`}</span></div>
-                  <div className="price-panel-title">{this.state.priceForAllPlates !== ''
-                     && <span style={{fontSize: '16px', opacity: '0.5'}}>Price for {this.state.members} plates:</span>}
-                     <span style={{color: '#039e80',fontSize: '18px',fontFamily: 'sans-serif',fontWeight: 'normal'}}>&nbsp;{this.state.priceForAllPlates !== '' && `₹${this.state.priceForAllPlates}`}</span></div>
+                <div className="price-panel-container">
+                  <div className="price-panel">
+                    
+                    <div className="price-panel-title">{this.state.perPlatePrice !== '' && <span style={{fontSize: '16px', opacity: '0.5'}}>Price per plate:</span> }
+                      <span style={{color: '#039e80',fontSize: '25px',fontFamily: 'sans-serif',fontWeight: 'normal'}}>&nbsp;{this.state.perPlatePrice !== '' && `₹${this.state.perPlatePrice}`}</span></div>
+                    <div className="price-panel-title">{this.state.priceForAllPlates !== ''
+                       && <span style={{fontSize: '16px', opacity: '0.5'}}>Price for {this.state.members} plates:</span>}
+                       <span style={{color: '#039e80',fontSize: '18px',fontFamily: 'sans-serif',fontWeight: 'normal'}}>&nbsp;{this.state.priceForAllPlates !== '' && `₹${this.state.priceForAllPlates}`}</span></div>
+                  </div>
                 </div>}
           </div>
           );

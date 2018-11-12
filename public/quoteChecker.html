@@ -131,11 +131,35 @@ body{
   bottom: 20px;
   width: 85%;
 }
+.fixed-btn-float {
+  margin: 0px auto;
+  left: 0;
+  right: 0;
+  z-index: 0;
+  position: relative;
+  bottom: 20px;
+  width: 85%;
+  top: 12px;
+}
 .btn-parent {
   width: 100%;
   height: 96px;
   background: #8e8e8e;
   position: fixed;
+  margin: 0 auto;
+  right: 0;
+  bottom: 0px;
+  background: rgba(255,255,255,0);
+  background: -moz-linear-gradient(top, rgba(255,255,255,0) 18%, rgba(255,255,255,0) 19%, rgba(255,255,255,0.82) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(18%, rgba(255,255,255,0)), color-stop(19%, rgba(255,255,255,0)), color-stop(100%, rgba(255,255,255,0.82)));
+  background: -webkit-linear-gradient(top, rgba(255,255,255,0) 18%, rgba(255,255,255,0) 19%, rgba(255,255,255,0.82) 100%);
+  z-index: 1;
+}
+.btn-parent-float {
+  width: 100%;
+  height: 96px;
+  background: #8e8e8e;
+  position: relative;
   margin: 0 auto;
   right: 0;
   bottom: 0px;
@@ -162,6 +186,7 @@ body{
   float: right;
   right: -35px;
   top: -37px;
+  z-index: 9;
 }
 .preview-menu-type {
   font-size: 18px;
@@ -247,21 +272,29 @@ body{
 }
 
 .preview-panel {
-  height: 250px;
-  overflow: scroll;
+  //height: 250px;
+  //overflow: au;
+}
+
+.price-panel-container {
+  width: 100%;
+  background: #fff;
+  height: 119px;
+  position: fixed;
+  top: 0px;
 }
 
 .price-panel {
-  height: 200px;
+  height: 120px;
   background: rgba(255, 255, 255, 1);
   padding-top: 2px;
   padding-left: 16px;
   border-radius: 8px;
-  box-shadow: 0px 0px 18px 3px rgba(136, 136, 136, 0.05);
   position: fixed;
-  bottom: 0px;
-  width: calc(100% - 31px);
+  top: 0px;
+  width: calc(100% - 173px);
   z-index: 0;
+  margin-left: -15px;
 }
 
 .price-last-added {
@@ -280,49 +313,49 @@ body{
 .starter-item-1 {
   width: 114px;
   top: 11px;
-  z-index: 1;
+  z-index: 9;
   right: 88px;
 }
 
 .starter-item-2 {
   width: 114px;
   top: 50px;
-  z-index: 1;
+  z-index: 9;
   right: 86px;
 }
 
 .starter-item-3 {
   width: 114px;
   top: 9px;
-  z-index: 1;
+  z-index: 9;
   right: -22px;
 }
 
 .starter-item-4 {
   width: 114px;
   top: 49px;
-  z-index: 1;
+  z-index: 9;
   right: -19px;
 }
 
 .main-course-item-1 {
   width: 148px;
   top: 22px;
-  z-index: 1;
+  z-index: 9;
   right: 16px;
 }
 
 .side-dish-item-1 {
   width: 130px;
   top: -35px;
-  z-index: 1;
+  z-index: 9;
   right: 52px;
 }
 
 .side-dish-item-2 {
   width: 130px;
   top: -35px;
-  z-index: 1;
+  z-index: 9;
   right: 0px;
   -moz-transform: scale(-1, 1);
   -o-transform: scale(-1, 1);
@@ -333,14 +366,14 @@ body{
 .rice-item-1 {
   width: 130px;
   top: -35px;
-  z-index: 1;
+  z-index: 9;
   right: 121px;
 }
 
 .salad-item-1 {
   width: 124px;
   top: 77px;
-  z-index: 1;
+  z-index: 9;
   right: 53px;
   -moz-transform: scale(1, -1);
   -o-transform: scale(1, -1);
@@ -351,7 +384,7 @@ body{
 .dessert-item-1 {
   width: 124px;
   top: 77px;
-  z-index: 1;
+  z-index: 9;
   right: 6px;
   transform: scale(-1, -1);
 }
@@ -359,7 +392,7 @@ body{
 .drink-item-1 {
   width: 130px;
   top: 114px;
-  z-index: 1;
+  z-index: 9;
   right: -23px;
 }
 
@@ -585,8 +618,8 @@ body{
       width: 600px;
     }
     .preview-panel {
-      height: 250px;
-      overflow: visible;
+      //height: 250px;
+      //overflow: visible;
     }
     .price-panel {
       width: 100vw !important;
