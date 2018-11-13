@@ -24,6 +24,7 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 //app.use(app.urlencoded()); // to support URL-encoded bodies
 
 var RecipePricingCRON = require('./src/client/api/recipePricingCRON.js');
+var IngredientsRecommender = require('./src/client/api/ingredientsRecommender.js');
 
 //new RecipePricingCRON().init();
 
@@ -38,6 +39,10 @@ var pages = [];
 
   fs.readFile("public/getSlot.html", "utf8", function(err, data) {
     pages.getSlot = data;
+  });
+
+  fs.readFile("public/ingredients.html", "utf8", function(err, data) {
+    pages.ingredients = data;
   });
 
   fs.readFile("public/startYourOwn.html", "utf8", function(err, data) {
@@ -119,6 +124,10 @@ app.get("/getSlot", function(request, response) {
   response.send(pages.getSlot);
 });
 
+app.get("/ingredients", function(request, response) {
+  response.send(pages.ingredients);
+});
+
 app.get('/quoteChecker', function(request, response) {
   response.sendFile(path.resolve(__dirname, 'public', 'quoteChecker.html'));
 });
@@ -126,6 +135,22 @@ app.get('/quoteChecker', function(request, response) {
 app.get('/franchise', function(request, response) {
  //response.send(pages.startYourOwn);
  response.sendFile(path.resolve(__dirname, 'public', 'startYourOwn.html'));
+});
+
+app.get('/getIngredients', function(request, response) {
+ var uid = request.query.u;
+ console.log('--user id--', uid);
+ client.get(uid, function (err, reply) {
+    if (reply != null) {
+      var recipeJson = reply;
+      var ingredientsRecommender = new IngredientsRecommender();
+      var allIngredients = ingredientsRecommender.getAllIngredients(recipeJson);
+      response.send(allIngredients);
+    } else {
+      response.send("key not found");
+    }
+  });
+ 
 });
 
 app.post('/franchiseEnquiry', function(req, res) {
