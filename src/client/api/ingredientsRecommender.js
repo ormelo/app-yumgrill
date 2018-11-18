@@ -3,7 +3,9 @@ var ingredientPricing = require ('../../../public/ingredientPricing.json');
 
 class IngredientsRecommender {
 	getAllIngredients(json) {
+		var finalJson = {};
 		var allIngredients = {};
+		var ingredientsByRecipe = {};
 		var recipeJson = JSON.parse(json);
 
 		recipeJson.items.forEach(function(recipe) {
@@ -21,10 +23,14 @@ class IngredientsRecommender {
 					allIngredients[ingredients[i].item].price = allIngredients[ingredients[i].item].price + actualPrice;
 				}
 			}
+			ingredientsByRecipe[recipeKey] = ingredients;
 
 		});
-
-		return allIngredients;
+		console.log('----mem:---', recipeJson.members);
+		finalJson.allIngredients = allIngredients;
+		finalJson.ingredientsByRecipe = ingredientsByRecipe;
+		finalJson.members = recipeJson.members;
+		return finalJson;
 	}
 }
 

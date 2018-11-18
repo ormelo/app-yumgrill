@@ -173,7 +173,9 @@
                 var qtyTotal = 0;
                 var priceTotal = 0;
                // Typical action to be performed when the document is ready:
-               var recipeIngredients = JSON.parse(xhttp.responseText);
+               var finalJson = JSON.parse(xhttp.responseText);
+               console.log('recipeIngredients: ', finalJson);
+               var recipeIngredients = finalJson.allIngredients;
                for(var key of Object.keys(recipeIngredients)){
                         var item = key;
                         var qty = recipeIngredients[key].qty;
@@ -225,6 +227,58 @@
                 tr.appendChild(totalUnitTd);
                 tr.appendChild(totalPriceTd);
                 document.getElementById("totalIngredients").appendChild(tr);
+
+
+
+                //ingredients per recipe
+               var ingredientsByRecipe = finalJson.ingredientsByRecipe;
+
+
+               for(var key of Object.keys(ingredientsByRecipe)){
+
+                        var tabTitle = document.createElement('h3');
+                        tabTitle.innerHTML = key;
+                        tabTitle.style.marginTop = '20px';
+                        document.getElementById("ingredientsPerRecipe").appendChild(tabTitle);
+
+                        var tab = document.createElement('table');
+
+                        for(var rcpIngredient of ingredientsByRecipe[key]) {
+                            console.log('rcpIngredient: ', rcpIngredient);
+                            var tr = document.createElement('tr');
+
+                            var itemTd = document.createElement('td');
+                            itemTd.innerHTML = rcpIngredient.item;
+
+                            var qtyTd = document.createElement('td');
+                            qtyTd.innerHTML = parseInt(rcpIngredient.qty,10) * JSON.parse(finalJson.members) ;
+
+                            var unitTd = document.createElement('td');
+                            unitTd.innerHTML = rcpIngredient.unit;
+
+
+                            tr.appendChild(itemTd);
+                            tr.appendChild(qtyTd);
+                            tr.appendChild(unitTd);
+                            tab.appendChild(tr);
+                        }
+
+                        document.getElementById("ingredientsPerRecipe").appendChild(tab);
+
+                        /*var item = key;
+                        var qty = recipeIngredients[key].qty;
+                        var unit = recipeIngredients[key].unit;
+                        var price = recipeIngredients[key].price;
+
+                        if(qty != null && price != null) {
+                            qtyTotal += parseInt(qty, 10);
+                            priceTotal += parseInt(price, 10);
+                        }
+
+                        
+                        document.getElementById("ingredientsPerRecipe").appendChild(tab);*/
+
+               };
 
                
                //document.getElementById("totalIngredients").innerHTML = xhttp.responseText;
@@ -289,7 +343,9 @@
 
                     <h3 class="small_title" style="font-weight: normal;font-family: quicksand">Ingredients per recipe:</h3>
 
-                    
+                    <div id="ingredientsPerRecipe">
+
+                    </div>
 
                     <!--<div style="margin-top: 20px;"><h3 class="small_title">Tovve parupu:</h3><table id="tovve_parupu" style="margin-top: 10px">
                       <tr>
