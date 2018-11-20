@@ -9,7 +9,7 @@ class Home extends Component {
       super(props);
       this.dateChange = this.dateChange.bind(this);
       this.setMealType = this.setMealType.bind(this);
-      this.state = {dateVal: '2018-10-21', members: ''};
+      this.state = {dateVal: '2018-11-20', members: ''};
     }
     dateChange(e) {
       this.setState({dateVal: e.target.value});
@@ -284,7 +284,13 @@ class OnboardStep1 extends Component {
     }
     shouldComponentUpdate(nextProps, nextState) {
       console.log('state updated:', nextState);
+
       let orderObj = nextState;
+       if(orderObj.lastAdded.includes('Last removed:')) {
+          let itemTobeRemoved = orderObj.lastAdded.split('Last removed: ')[1];
+          orderObj.items.splice( orderObj.items.indexOf(itemTobeRemoved), 1 );
+       }
+       console.log('--orderObj--', orderObj);
       orderObj.date = localStorage.getItem('order-date');
       orderObj.mealType = localStorage.getItem('order-meal');
       localStorage.setItem('order', JSON.stringify(orderObj));
