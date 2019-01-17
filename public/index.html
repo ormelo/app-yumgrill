@@ -145,9 +145,9 @@ text-size-adjust:none;
                 .mob-banner {
                   display: none;
                 }
-                .mob-h {
+                /*.mob-h {
                     display: none;
-                }
+                }*/
             }
            @media (min-width: 1025px){
               .mob-banner {
@@ -155,7 +155,7 @@ text-size-adjust:none;
                 }
             }
             @media (max-width: 574px) {
-                .mob-st {
+                /*.mob-st {
                     position: fixed;
                     bottom: 65px;
                     background: rgba(255, 255, 255, 0.85) !important;
@@ -169,7 +169,7 @@ text-size-adjust:none;
                     padding: 2px;
                     color: #00c098;
                     border-radius: 6px;
-                }
+                }*/
             }
     </style>
 
@@ -240,7 +240,7 @@ text-size-adjust:none;
 
                 <div class="col-sm-6 col-md-4 mob-st">
                     <div class="panel-center">
-                        <span class="mob-h">Start here</span>
+                        <span class="mob-h" style="display: none">Start here</span>
                         <h1 class="form_title" style="display: none">Catering Need</h1>
                         <form onSubmit="checkFields();" action="/submitGetQuote" method="post" class="landing_page" >
     
