@@ -145,10 +145,30 @@ text-size-adjust:none;
                 .mob-banner {
                   display: none;
                 }
+                .mob-h {
+                    display: none;
+                }
             }
            @media (min-width: 1025px){
               .mob-banner {
                   display: none;
+                }
+            }
+            @media (max-width: 574px) {
+                .mob-st {
+                    position: fixed;
+                    bottom: 65px;
+                    background: rgba(255, 255, 255, 0.85) !important;
+                    z-index: 9999;
+                }
+                .mob-h {
+                    margin: -19px;
+                    top: -20px;
+                    position: relative;
+                    border: 1px solid #00c098;
+                    padding: 2px;
+                    color: #00c098;
+                    border-radius: 6px;
                 }
             }
     </style>
@@ -218,8 +238,9 @@ text-size-adjust:none;
                     <img class="mob-banner" src="./sc/asbgm1.png" style="margin-top: 30px;margin-bottom: 20px;" />
                 </div>
 
-                <div class="col-sm-6 col-md-4">
+                <div class="col-sm-6 col-md-4 mob-st">
                     <div class="panel-center">
+                        <span class="mob-h">Start here</span>
                         <h1 class="form_title" style="display: none">Catering Need</h1>
                         <form onSubmit="checkFields();" action="/submitGetQuote" method="post" class="landing_page" >
     
