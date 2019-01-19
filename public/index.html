@@ -361,7 +361,7 @@ text-size-adjust:none;
                 </div>
 
                 <div class="col-sm-6 col-md-4">
-                    <div class="panel-center mob-st">
+                    <div id="mobSt" class="panel-center">
                         <h1 class="form_title" style="display: none">Catering Need</h1>
                         <form onSubmit="checkFields();" action="/franchiseEnquiry" method="post" class="landing_page" >
     
@@ -788,6 +788,10 @@ setInterval(function() {
         i = 0;
     }
 }, 2000);
+
+window.addEventListener('scroll',function(){
+    $('#mobSt').addClass('mob-st');
+})
 
 </script>
 
