@@ -32,6 +32,9 @@ text-size-adjust:none;
 <link rel="stylesheet" href="./sc/font-awesome.min.css" type="text/css" media="screen">
 <link rel="stylesheet" href="./sc/jquery-ui.min.css">
 
+      <link rel="stylesheet" type="text/css" href="https://rawgit.com/kenwheeler/slick/master/slick/slick.css">
+      <link rel="stylesheet" type="text/css" href="https://rawgit.com/kenwheeler/slick/master/slick/slick-theme.css">
+
 
 
     <!-- Icon -->
@@ -178,6 +181,105 @@ text-size-adjust:none;
           background-color: #03b1ae;
         }
 
+        .parallax-section {
+          -webkit-background-size: cover;
+          background-size: cover;
+          background-attachment: fixed;
+          background-repeat: no-repeat;
+          position: relative;
+        }
+
+        .client {
+            background: #adadad;
+            padding-top: 10px;
+            border-radius: 10px;
+            padding-bottom: 10px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+        }
+
+        #testimonial {
+          padding: 50px 0;
+          /*background-image: url(../images/bg-testimonial.jpg)*/
+        }
+        #testimonial .overlay {
+          background: #fff;
+          /* rgba(221,87,128,0.8);*/
+        }
+
+        .testimonial-slide {
+          text-align: center;
+          color: #ffffff;
+          width: 85%;
+          margin: 0 auto;
+        }
+        .testimonial-slide p {
+          font-size: 24px;
+          line-height: 36px;
+          font-style: italic;
+          font-family: "Droid Serif";
+          margin-bottom: 35px;
+        }
+        .testimonial-slide .testimonial-item {
+          margin-bottom: 15px;
+        }
+        .testimonial-slide .testimonial-item .icon-client {
+          background: #ffffff;
+          width: 29px;
+          height: 29px;
+          -webkit-border-radius: 50%;
+          -moz-border-radius: 50%;
+          -ms-border-radius: 50%;
+          -o-border-radius: 50%;
+          border-radius: 50%;
+          float: left;
+          text-align: center;
+          line-height: 29px;
+          margin-top: 2px;
+        }
+        .testimonial-slide .testimonial-item .icon-client i {
+          color: #333;
+        }
+        .testimonial-slide .testimonial-item .client {
+          display: inline-block;
+          margin: 0 auto;
+          width: auto;
+        }
+        .testimonial-slide .testimonial-item .client .client-name {
+          padding-left: 38px;
+          font-size: 12.8px;
+          letter-spacing: 2px;
+          font-family: "Montserrat";
+          display: block;
+          line-height: normal;
+          white-space: nowrap;
+        }
+        .testimonial-slide .testimonial-item .client .client-position {
+          font-size: 12px;
+          font-style: italic;
+          line-height: normal;
+          padding-left: 38px;
+          display: block;
+          text-align: left;
+        }
+        .testimonial-slide .testimonial-item .client .client-position a {
+          color: white;
+        }
+        .testimonial-slide .testimonial-item .client .client-position a:hover {
+          color: #5ed9e7;
+        }
+
+
+
+
         @media (max-width: 768px){
                 #banner {
                   display: none;
@@ -295,6 +397,7 @@ text-size-adjust:none;
                   }
                 }
             }
+
     </style>
 
 
@@ -447,111 +550,49 @@ text-size-adjust:none;
 
 
             
-<div class="row recent-projects" style="margin-top: 52px;">
-    <h2 class="classic-title"><span style="padding-bottom: 12px;">What we serve</span></h2>
+<div class="row recent-projects" style="margin-top: 22px;">
+    <h2 class="classic-title"><span style="padding-bottom: 12px;">Recent Testimonials</span></h2>
     <!-- Portfolio Recent Projects -->
     <div id="recent-portfolio-list">
         
-        <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12 mix">
-    <div class="portfolio-item">
-        <div class="portfolio-img">
-            <a style="cursor: pointer;">
-                <img  src="./sc/menu_ic.jpeg" alt="Home Caterers in Bangalore" style="display: inline;">
-            </a>
+     <section id="testimonial" class="parallax-section">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="testimonial-slide">
+      <div class="testimonial-item">
+        <p>"Delicious food!! Had ordered catering for house warming ceremony. They did arrive on time and food was tasty. Our guests loved it..."</p>
+        <div class="client">
+          <span class="icon-client">
+            <img src="assets/images/icon-testimonial.png" alt="">
+          </span>
+          <span class="client-name">Shraddha</span>
+          <span class="client-position">ordered on 23rd Nov 2018</span>
         </div>
-        <div class="portfolio-item-content">
-            <h3 class="header" style="">
-                Garlic bread / Pasta / dessert
-            </h3>
-            <p class="body"></p>
+      </div>
+      <div class="testimonial-item">
+        <p>"I opted their service on my kid's birthday. We shortlisted quickly &ordered a free sample and were very satisfied during actual function."</p>
+        <div class="client">
+          <span class="icon-client"><i clas="fa fa-user"></i></span>
+          <span class="client-name">Mukul</span>
+          <span class="client-position">North Indian dinner</span>
         </div>
+      </div>
+      <div class="testimonial-item">
+        <p>"Have order couple of times and was happy with their service and timeliness of delivery. Highly recommend this caterer... "</p>
+        <div class="client">
+          <span class="icon-client"><img src="assets/images/icon-testimonial.png" alt=""></span>
+          <span class="client-name">Prashant</span>
+          <span class="client-position">South Indian lunch for 150 people</span>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
     </div>
 </div>
 
-        
-        <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12 mix">
-    <div class="portfolio-item">
-        <div class="portfolio-img">
-            <a style="cursor: pointer;">
-                <img  src="./sc/dimsum_menu.jpeg" alt="Tandoori Nights" style="display: inline;">
-            </a>
-        </div>
-        <div class="portfolio-item-content">
-            <h3 class="header" style="">
-                Soup / Momos / Chowmein / dessert
-            </h3>
-            <p class="body"></p>
-        </div>
-    </div>
-</div>
-
-        
-        <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12 mix">
-    <div class="portfolio-item">
-        <div class="portfolio-img">
-            <a style="cursor: pointer;">
-                <img  src="./sc/desi_menu.jpg" alt="Book House party Chef" style="display: inline;">
-            </a>
-        </div>
-        <div class="portfolio-item-content">
-            <h3 class="header" style="">
-                Desi Tadka Dinner
-            </h3>
-            <p class="body"></p>
-        </div>
-    </div>
-</div>
-
-        
-        <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12 mix">
-    <div class="portfolio-item">
-        <div class="portfolio-img">
-            <a style="cursor: pointer;">
-                <img  src="./sc/pp_menu.jpg" alt="Weekend Bash" style="display: inline;">
-            </a>
-        </div>
-        <div class="portfolio-item-content">
-            <h3 class="header" style="">
-                Pani Puri / Masala Puri / Beverage
-            </h3>
-            <p class="body"></p>
-        </div>
-    </div>
-</div>
-
-        
-        <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12 mix">
-    <div class="portfolio-item">
-        <div class="portfolio-img">
-            <a style="cursor: pointer;">
-                <img  src="./sc/bbq_menu.jpg" alt="Classic  Barbeque" style="display: inline;">
-            </a>
-        </div>
-        <div class="portfolio-item-content">
-            <h3 class="header" style="">
-                Classic Barbeque
-            </h3>
-            <p class="body"></p>
-        </div>
-    </div>
-</div>
-
-        
-        <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12 mix">
-    <div class="portfolio-item">
-        <div class="portfolio-img">
-            <a style="cursor: pointer;">
-                <img src="./sc/salad_menu.jpg" alt="Classic European" style="display: inline;">
-            </a>
-        </div>
-        <div class="portfolio-item-content">
-            <h3 class="header" style="">
-                Salads / Sprouts / Milkshake
-            </h3>
-            <p class="body"></p>
-        </div>
-    </div>
-</div>
 
         
     </div>
@@ -653,9 +694,9 @@ text-size-adjust:none;
 </div>
     
 </div>
-<script src="./sc/jquery.min.js"></script>
+<script src="//code.jquery.com/jquery-2.1.0.js"></script>
 <script src="./sc/jquery-ui.min.js"></script>
-    
+<script type="text/javascript" src="https://rawgit.com/simeydotme/slick/bugfix-327/slick/slick.js"></script>
 
 
     
@@ -700,7 +741,17 @@ setInterval(function() {
 
 window.addEventListener('scroll',function(){
     $('#mobSt').addClass('mob-st');
-})
+});
+
+ if ($(".testimonial-slide").length > 0) {    
+        $(".testimonial-slide").slick({
+            autoplay: true,
+            autoplaySpeed: 4000,           
+            slidesToScroll: 1,
+            adaptiveHeight: true,
+            dots: false
+        });
+    };
 
 </script>
 
