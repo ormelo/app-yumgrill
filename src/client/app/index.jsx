@@ -74,6 +74,7 @@ class Home extends Component {
                       <button onClick={(e)=>{this.showMore(e);}} id="myBtn" className="read-more">Read more</button>
                       <a className="btn" href="/quoteChecker/step1"><span>Book free sample</span></a>
                     </div>
+                    <br/>
                   </div>
                   <div className="bc"><div className="button-container">
                     <center><span style={{fontSize: '20px'}}>Menu not to your taste?</span></center>
