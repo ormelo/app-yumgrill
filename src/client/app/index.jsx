@@ -9,7 +9,23 @@ class Home extends Component {
       super(props);
       this.dateChange = this.dateChange.bind(this);
       this.setMealType = this.setMealType.bind(this);
+      this.showMore = this.showMore.bind(this);
       this.state = {dateVal: '2018-11-20', members: ''};
+    }
+    showMore(e) {
+      var dots = document.getElementById("dots");
+      var moreText = document.getElementById("more");
+      var btnText = document.getElementById("myBtn");
+
+      if (dots.style.display === "none") {
+        dots.style.display = "inline";
+        btnText.innerHTML = "Read more"; 
+        moreText.style.display = "none";
+      } else {
+        dots.style.display = "none";
+        btnText.innerHTML = "Read less"; 
+        moreText.style.display = "inline";
+      }
     }
     dateChange(e) {
       this.setState({dateVal: e.target.value});
@@ -20,29 +36,48 @@ class Home extends Component {
       localStorage.setItem('order-meal', mealType);
     }
     componentDidMount() {
-      this.setState({members: localStorage.getItem("num-members")})
-      var nlform = new NLForm( document.getElementById( 'nl-form' ));
+      this.setState({members: '30'});
+      localStorage.setItem('cuisine','North/South');
+      //var nlform = new NLForm( document.getElementById( 'nl-form' ));
     }
     render(){
         return (<div>
                   <div className="description main clearfix">
-                    <form id="nl-form" className="nl-form">
-                      <table>
-                      <tr><td><div>I need catering for&nbsp;
-                      <select id="selectMealType">
-                        <option value="Lunch" selected>Lunch</option>
-                        <option value="Dinner">Dinner</option>
-                      </select></div>
-                      </td></tr>
-                      <tr><td>&nbsp;on&nbsp;
-                      <input id="myDate" type="date" style={{width:'148px', marginTop:'10px'}} value={this.state.dateVal} onChange={(e)=>{this.dateChange(e);}}></input>
-                      </td></tr>
-                      </table>
-                      <div className="nl-overlay"></div>
-                    </form>
+                    <div className="card" style={{marginTop: '0px'}}>
+                      <h2>North Indian Meal - ₹250</h2>
+                      <img src="./sc/menu1.png" style={{padding:'10px'}}/>
+                      <p>Veg manchurian, Potato wedges, Butter Nan - 2 pcs<span id="dots">...</span><span id="more">Capcicum masala, Peas Pulao - with raitha, Veg salad,Cashew burfi</span></p>
+                      <button onClick={(e)=>{this.showMore(e);}} id="myBtn" className="read-more">Read more</button>
+                      <a className="btn" href="/quoteChecker/step1"><span>Book free sample</span></a>
+                    </div>
+
+                    <div className="card">
+                      <h2>North Indian Meal - ₹250</h2>
+                      <img src="./sc/menu1.png" style={{padding:'10px'}}/>
+                      <p>Veg manchurian, Potato wedges, Butter Nan - 2 pcs<span id="dots">...</span><span id="more">Capcicum masala, Peas Pulao - with raitha, Veg salad,Cashew burfi</span></p>
+                      <button onClick={(e)=>{this.showMore(e);}} id="myBtn" className="read-more">Read more</button>
+                      <a className="btn" href="/quoteChecker/step1"><span>Book free sample</span></a>
+                    </div>
+
+                    <div className="card">
+                      <h2>North Indian Meal - ₹250</h2>
+                      <img src="./sc/menu1.png" style={{padding:'10px'}}/>
+                      <p>Veg manchurian, Potato wedges, Butter Nan - 2 pcs<span id="dots">...</span><span id="more">Capcicum masala, Peas Pulao - with raitha, Veg salad,Cashew burfi</span></p>
+                      <button onClick={(e)=>{this.showMore(e);}} id="myBtn" className="read-more">Read more</button>
+                      <a className="btn" href="/quoteChecker/step1"><span>Book free sample</span></a>
+                    </div>
+
+                    <div className="card">
+                      <h2>North Indian Meal - ₹250</h2>
+                      <img src="./sc/menu1.png" style={{padding:'10px'}}/>
+                      <p>Veg manchurian, Potato wedges, Butter Nan - 2 pcs<span id="dots">...</span><span id="more">Capcicum masala, Peas Pulao - with raitha, Veg salad,Cashew burfi</span></p>
+                      <button onClick={(e)=>{this.showMore(e);}} id="myBtn" className="read-more">Read more</button>
+                      <a className="btn" href="/quoteChecker/step1"><span>Book free sample</span></a>
+                    </div>
                   </div>
                   <div className="button-container">
-                    <Link onClick={(e)=>{this.setMealType(e);}} to="/quoteChecker/step1" className="btn"><span>Next</span></Link>
+                    <center><span style={{fontSize: '20px'}}>Menu not to your taste?</span></center>
+                    <Link to="/quoteChecker/step2" className="btn" style={{marginTop: '10px',marginBottom: '20px'}}><span>Customise your menu</span></Link>
                   </div>
                 </div>
           );
@@ -53,7 +88,7 @@ class OnboardTitle extends Component {
     render(){
         return (<div>
                   <div className="logo"><img alt="Scoosh.in" src="./sc/logo.png"/></div>
-                  <div className="headline">Quote Checker</div>
+                  <div className="headline">Menu Options</div>
                   <hr className="line1" height="1px"/>
                   <hr className="line2" height="10px"/>
                 </div>
@@ -68,18 +103,18 @@ class Onboard extends Component {
   }
 
   componentDidMount() {
-  var myKeyVals = {};
-  myKeyVals.date = localStorage.getItem('order-date');
-  myKeyVals.orderMeal = localStorage.getItem('order-meal');
-  myKeyVals.members = localStorage.getItem('num-members');
-  myKeyVals.email = localStorage.getItem('mobile');
-    var saveData = $.ajax({
-        type: 'POST',
-        url: "/submitMealType",
-        data: myKeyVals,
-        dataType: "text",
-        success: function(resultData) { console.log("Save Complete") }
-    });
+    /*var myKeyVals = {};
+    myKeyVals.date = localStorage.getItem('order-date');
+    myKeyVals.orderMeal = localStorage.getItem('order-meal');
+    myKeyVals.members = localStorage.getItem('num-members');
+    myKeyVals.email = localStorage.getItem('mobile');
+      var saveData = $.ajax({
+          type: 'POST',
+          url: "/submitMealType",
+          data: myKeyVals,
+          dataType: "text",
+          success: function(resultData) { console.log("Save Complete") }
+      });*/
   }
   selectCuisine(cuisine) {
     if(cuisine == 'north')
@@ -268,6 +303,7 @@ class OnboardStep1 extends Component {
       
     }
     componentDidMount() {
+      $(window).scrollTop(0);
       var myKeyVals = {};
       myKeyVals.date = localStorage.getItem('order-date');
       myKeyVals.orderMeal = localStorage.getItem('order-meal');

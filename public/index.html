@@ -467,7 +467,7 @@ text-size-adjust:none;
                 <div class="col-sm-6 col-md-4">
                     <div id="mobSt" class="panel-center">
                         <h1 class="form_title" style="display: none">Catering Need</h1>
-                        <form onSubmit="checkFields();" action="/franchiseEnquiry" method="post" class="landing_page" >
+                        <form onSubmit="checkFields(this);" action="/submitGetMembers" method="post" class="landing_page" >
     
         
     
@@ -491,10 +491,10 @@ text-size-adjust:none;
             
             <div>Number of members expected at the event:</div>
             <input type="hidden" name="csrfmiddlewaretoken" value="pilbkKuqZAMQ8uQhfnjWpSo3L1q5xB8vaV8nDgEpHFKYEdktYBsJOXx7y9qGuB7y">
-            <input type="submit" class="submit form-control" id="id_submit" value="25+" dcvalue="25+" style="width: 63px"/>
-            <input type="submit" class="submit form-control" id="id_submit" value="35+" dcvalue="35+" style="width: 63px"/>
-            <input type="submit" class="submit form-control" id="id_submit" value="50+" dcvalue="50+" style="width: 63px"/>
-            <input type="submit" class="submit form-control" id="id_submit" value="100+" dcvalue="100+" style="width: 63px"/>
+            <input type="submit" class="submit form-control" id="id_submit" value="25+" dcvalue="25+" style="width: 63px" onclick="localStorage.setItem('members', '25')" />
+            <input type="submit" class="submit form-control" id="id_submit" value="35+" dcvalue="35+" style="width: 63px" onclick="localStorage.setItem('members', '35')"/>
+            <input type="submit" class="submit form-control" id="id_submit" value="50+" dcvalue="50+" style="width: 63px" onclick="localStorage.setItem('members', '50')"/>
+            <input type="submit" class="submit form-control" id="id_submit" value="100+" dcvalue="100+" style="width: 63px" onclick="localStorage.setItem('members', '100')"/>
         </div>
     </div>
 </form>
@@ -714,14 +714,6 @@ text-size-adjust:none;
     }
 
     function checkFields(e) {
-      var emailTxt = document.getElementById('email').value;
-      var emailMem = document.getElementById('members').value;
-      localStorage.setItem("num-members", emailMem);
-      localStorage.setItem("mobile", emailTxt);
-      if(emailTxt.trim() === '' || emailMem.trim() === '') {
-        e.preventDefault();
-        return false;
-      }
     }
 
     var changeInt = 0;

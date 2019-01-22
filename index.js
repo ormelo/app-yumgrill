@@ -132,6 +132,10 @@ app.get('/quoteChecker', function(request, response) {
   response.sendFile(path.resolve(__dirname, 'public', 'quoteChecker.html'));
 });
 
+app.get('/menuOptions', function(request, response) {
+  response.sendFile(path.resolve(__dirname, 'public', 'menuOptions.html'));
+});
+
 app.get('/franchise', function(request, response) {
  //response.send(pages.startYourOwn);
  response.sendFile(path.resolve(__dirname, 'public', 'startYourOwn.html'));
@@ -166,6 +170,11 @@ app.post('/submitGetQuote', function(req, res) {
         members = req.body.members,
         date = req.body.date;
         client.set(email, members);
+    //res.send(pages.getQuote);*/
+    res.redirect('/quoteChecker');
+});
+
+app.post('/submitGetMembers', function(req, res) {
     //res.send(pages.getQuote);*/
     res.redirect('/quoteChecker');
 });
