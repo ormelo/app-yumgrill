@@ -75,10 +75,10 @@ class Home extends Component {
                       <a className="btn" href="/quoteChecker/step1"><span>Book free sample</span></a>
                     </div>
                   </div>
-                  <div className="button-container">
+                  <div className="bc"><div className="button-container">
                     <center><span style={{fontSize: '20px'}}>Menu not to your taste?</span></center>
                     <Link to="/quoteChecker/step2" className="btn" style={{marginTop: '10px',marginBottom: '20px'}}><span>Customise your menu</span></Link>
-                  </div>
+                  </div></div>
                 </div>
           );
     }
@@ -88,7 +88,7 @@ class OnboardTitle extends Component {
     render(){
         return (<div>
                   <div className="logo"><img alt="Scoosh.in" src="./sc/logo.png"/></div>
-                  <div className="headline">Menu Options</div>
+                  <div className="headline">Popular Menus </div>
                   <hr className="line1" height="1px"/>
                   <hr className="line2" height="10px"/>
                 </div>
