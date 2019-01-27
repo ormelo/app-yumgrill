@@ -7,7 +7,7 @@ class RecipePricing {
 		debugger;
 		const ingredients = recipeIngredientsMasterJSON[item];
 		let price = 0;
-		const profit = 1;
+		const profit = 0;
 
 		ingredients.forEach((ingredient) => {
 			if (typeof ingredient.item !== 'undefined') {

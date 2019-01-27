@@ -9,13 +9,17 @@ class Home extends Component {
       super(props);
       this.dateChange = this.dateChange.bind(this);
       this.setMealType = this.setMealType.bind(this);
+      this.setMenu = this.setMenu.bind(this);
       this.showMore = this.showMore.bind(this);
       this.state = {dateVal: '2018-11-20', members: ''};
     }
-    showMore(e) {
-      var dots = document.getElementById("dots");
-      var moreText = document.getElementById("more");
-      var btnText = document.getElementById("myBtn");
+    setMenu(i) {
+      localStorage.setItem('order','{"items":"'+i+'""}');
+    }
+    showMore(e,i) {
+      var dots = document.getElementById("dots"+i);
+      var moreText = document.getElementById("more"+i);
+      var btnText = document.getElementById("myBtn"+i);
 
       if (dots.style.display === "none") {
         dots.style.display = "inline";
@@ -36,7 +40,7 @@ class Home extends Component {
       localStorage.setItem('order-meal', mealType);
     }
     componentDidMount() {
-      this.setState({members: '30'});
+      this.setState({members: localStorage.getItem('members') || '35'});
       localStorage.setItem('cuisine','North/South');
       //var nlform = new NLForm( document.getElementById( 'nl-form' ));
     }
@@ -44,41 +48,42 @@ class Home extends Component {
         return (<div>
                   <div className="description main clearfix">
                     <div className="card" style={{marginTop: '0px'}}>
-                      <h2>North Indian Meal - ₹250</h2>
+                      <h2>North Special Thali - ₹250</h2>
                       <img src="./sc/menu1.png" style={{padding:'10px'}}/>
-                      <p>Veg manchurian, Potato wedges, Butter Nan - 2 pcs<span id="dots">...</span><span id="more">Capcicum masala, Peas Pulao - with raitha, Veg salad,Cashew burfi</span></p>
-                      <button onClick={(e)=>{this.showMore(e);}} id="myBtn" className="read-more">Read more</button>
-                      <a className="btn" href="/quoteChecker/step1"><span>Book free sample</span></a>
+                      <p>Veg manchurian, Potato wedges, Butter Nan - 2 pcs<span id="dots1">...</span><span id="more1">, Capcicum masala, Dal makhani, Peas Pulao - with raitha, Veg salad, Cashew burfi</span></p>
+                      <button onClick={(e)=>{this.showMore(e,1);}} id="myBtn1" className="read-more">Read more</button>
+                      <Link className="btn" to="/quoteChecker/step3" onClick={(e)=>{this.setMenu('1');}}><span>Book free sample</span></Link>
                     </div>
 
                     <div className="card">
-                      <h2>North Indian Meal - ₹250</h2>
-                      <img src="./sc/menu1.png" style={{padding:'10px'}}/>
-                      <p>Veg manchurian, Potato wedges, Butter Nan - 2 pcs<span id="dots">...</span><span id="more">Capcicum masala, Peas Pulao - with raitha, Veg salad,Cashew burfi</span></p>
-                      <button onClick={(e)=>{this.showMore(e);}} id="myBtn" className="read-more">Read more</button>
-                      <a className="btn" href="/quoteChecker/step1"><span>Book free sample</span></a>
+                      <h2>North Deluxe Thali - ₹225</h2>
+                      <img src="./sc/menu2.png" style={{padding:'10px'}}/>
+                      <p>Spring rolls, Gobi chilli, Mix veg poriyal<span id="dots2">...</span><span id="more2">, Plain Roti - 2 pcs, Mix veg curry, Plain steamed rice, Veg salad, Gulab Jamoon</span></p>
+                      <button onClick={(e)=>{this.showMore(e,2);}} id="myBtn2" className="read-more">Read more</button>
+                      <Link className="btn" to="/quoteChecker/step3" onClick={(e)=>{this.setMenu('2');}}><span>Book free sample</span></Link>
                     </div>
 
                     <div className="card">
-                      <h2>North Indian Meal - ₹250</h2>
-                      <img src="./sc/menu1.png" style={{padding:'10px'}}/>
-                      <p>Veg manchurian, Potato wedges, Butter Nan - 2 pcs<span id="dots">...</span><span id="more">Capcicum masala, Peas Pulao - with raitha, Veg salad,Cashew burfi</span></p>
-                      <button onClick={(e)=>{this.showMore(e);}} id="myBtn" className="read-more">Read more</button>
-                      <a className="btn" href="/quoteChecker/step1"><span>Book free sample</span></a>
+                      <h2>South Special Thali - ₹205</h2>
+                      <img src="./sc/menu3.png" style={{padding:'10px'}}/>
+                      <p>Veg manchurian, Tovve/parupu, Cucumber kosambri<span id="dots3">...</span><span id="more3">, Chapati - large 3 pcs, Green-leaf sambar, Plain steamed rice, Roasted Papad, Veg salad, Gulab jamoon</span></p>
+                      <button onClick={(e)=>{this.showMore(e,3);}} id="myBtn3" className="read-more">Read more</button>
+                      <Link className="btn" to="/quoteChecker/step3" onClick={(e)=>{this.setMenu('3');}}><span>Book free sample</span></Link>
                     </div>
 
                     <div className="card">
-                      <h2>North Indian Meal - ₹250</h2>
-                      <img src="./sc/menu1.png" style={{padding:'10px'}}/>
-                      <p>Veg manchurian, Potato wedges, Butter Nan - 2 pcs<span id="dots">...</span><span id="more">Capcicum masala, Peas Pulao - with raitha, Veg salad,Cashew burfi</span></p>
-                      <button onClick={(e)=>{this.showMore(e);}} id="myBtn" className="read-more">Read more</button>
-                      <a className="btn" href="/quoteChecker/step1"><span>Book free sample</span></a>
+                      <h2>Special Value Meal - ₹180</h2>
+                      <img src="./sc/menu4.png" style={{padding:'10px'}}/>
+                      <p>Gobi Manchurian, Tovve/parupu, Cucumber kosambri<span id="dots4">...</span><span id="more4">, Chapati - 2 pcs, Green-leaf sambar, Tomato rasam, Plain steamed rice, Veg salad, Gulab jamoon - 2 pcs</span></p>
+                      <button onClick={(e)=>{this.showMore(e,4);}} id="myBtn4" className="read-more">Read more</button>
+                      <Link className="btn" to="/quoteChecker/step3" onClick={(e)=>{this.setMenu('4');}}><span>Book free sample</span></Link>
                     </div>
                     <br/>
                   </div>
                   <div className="bc"><div className="button-container">
                     <center><span style={{fontSize: '20px'}}>Menu not to your taste?</span></center>
                     <Link to="/quoteChecker/step2" className="btn" style={{marginTop: '10px',marginBottom: '20px'}}><span>Customise your menu</span></Link>
+                    <center><div style={{marginTop: '20px'}}>Questions? Call us at <a href="tel:+91-7619514999">+91-7619514999</a></div></center>
                   </div></div>
                 </div>
           );
@@ -89,7 +94,7 @@ class OnboardTitle extends Component {
     render(){
         return (<div>
                   <div className="logo"><img alt="Scoosh.in" src="./sc/logo.png"/></div>
-                  <div className="headline">Popular Menus </div>
+                  <div className="headline">Popular Menus - veg only</div>
                   <hr className="line1" height="1px"/>
                   <hr className="line2" height="10px"/>
                 </div>
@@ -192,7 +197,7 @@ class Onboard extends Component {
             </div>
             <div className="btn-parent">
               <Link to="/quoteChecker/step2" className="btn fixed-btn" style={{margin:'0 auto',zIndex:0}}>
-                <span>Next</span>
+                <span>Book free sample</span>
               </Link>
             </div>
           </div>
@@ -216,7 +221,7 @@ class OnboardStep1 extends Component {
       this.mainCourse = [];
       this.desserts = [];
       this.drinks = [];
-      this.state = {items:[], cuisine: localStorage.getItem('cuisine'), members: localStorage.getItem('num-members'), perPlatePrice: '0', lastAdded: '', priceForAllPlates: '0'};
+      this.state = {items:[], cuisine: localStorage.getItem('cuisine'), members: localStorage.getItem('members'), perPlatePrice: '0', lastAdded: '', priceForAllPlates: '0'};
       this.recipePricingAPI = new RecipePricing();
       this.northIndianMenu = {
         "paneer_tikka": {"price": "65", "imgUrl": "paneer_tikka.png"},
@@ -308,7 +313,7 @@ class OnboardStep1 extends Component {
       var myKeyVals = {};
       myKeyVals.date = localStorage.getItem('order-date');
       myKeyVals.orderMeal = localStorage.getItem('order-meal');
-      myKeyVals.members = localStorage.getItem('num-members');
+      myKeyVals.members = localStorage.getItem('members');
       myKeyVals.email = localStorage.getItem('mobile');
       myKeyVals.cuisine = localStorage.getItem('cuisine');
         var saveData = $.ajax({
@@ -452,7 +457,7 @@ class OnboardStep1 extends Component {
       let price = this.recipePricingAPI.getPrice(item);
       price = Math.ceil(price/5)*5;
       let perPlatePriceVal = parseInt(this.state.perPlatePrice, 10) + price;
-      let priceForAllPlatesVal = perPlatePriceVal * parseInt(localStorage.getItem('num-members'));
+      let priceForAllPlatesVal = perPlatePriceVal * parseInt(localStorage.getItem('members'));
       let lastAddedVal = 'Last added: '+item.replace(/_/g, ' ')+': ₹'+price;
       let items = this.state.items;
       items.push(item.replace(/_/g, ' ')+': ₹'+price);
@@ -465,7 +470,7 @@ class OnboardStep1 extends Component {
       price = Math.ceil(price/5)*5;
       let perPlatePriceVal = parseInt(this.state.perPlatePrice, 10) - price;
       let lastAddedVal = 'Last removed: '+item.replace(/_/g, ' ')+': ₹'+price;
-      let priceForAllPlatesVal = perPlatePriceVal * parseInt(localStorage.getItem('num-members'));
+      let priceForAllPlatesVal = perPlatePriceVal * parseInt(localStorage.getItem('members'));
       this.setState({lastAdded: lastAddedVal, perPlatePrice: perPlatePriceVal, priceForAllPlates: priceForAllPlatesVal});
       this.removePreview(this.menuType[item].imgUrl);
 
@@ -705,9 +710,10 @@ class OnboardStep1 extends Component {
                 <div className="preview-menu-type">Select Drinks <span style={{fontSize: '13px'}}>(any 1)</span></div>
                 {this.getDrinks()}
                 <div className="btn-parent-float">
-                  <Link to="/quoteChecker/step3" onClick={(e)=>{e.preventDefault();this.onNextClick();}} className="btn fixed-btn-float" style={{margin:'0 auto',zIndex:0}}>
-                    <span>Next</span>
+                  <Link to="/quoteChecker/step3" className="btn fixed-btn-float" style={{margin:'0 auto',zIndex:0}}>
+                    <span>Book free sample</span>
                   </Link>
+                  <center><div style={{marginTop: '24px'}}>Questions? Call us at <a href="tel:+91-7619514999">+91-7619514999</a></div></center>
                 </div>
               </div>
               {this.state.lastAdded !== '' && 
@@ -727,11 +733,33 @@ class OnboardStep1 extends Component {
 }
 
 class OnboardStep2 extends Component {
-    render(){
-        return (<div className="content"><div style={{fontSize:'20px',textAlign:'center',padding:'0 20px'}}>Try on clothes online & order the right fit!</div><br/>
-            <img src="../img/step3.png"  width="160px" style={{margin:'0 auto',width:'300px',display:'inherit',padding:'40px'}}/>
-            <Link to="/onboard/start" className="btn" style={{margin:'0 auto',zIndex:0}}>
-              <span>Get started</span>
+    constructor(props) {
+      super(props);
+      this.state = {mob: '+91-'};
+      this.setMob = this.setMob.bind(this);
+      this.onNextClick = this.onNextClick.bind(this);
+    }
+    componentDidMount() {
+      $(window).scrollTop(0);
+    }
+    setMob(e) {
+      this.setState({mob: e.target.value});
+    }
+    onNextClick() {
+      document.getElementById('email').value = this.state.mob;
+      document.getElementById('members').value = localStorage.getItem('order');
+      document.getElementById('slotForm').submit();
+    }
+    render(){ 
+        return (<div className="content"><div style={{fontSize:'16px',textAlign:'center',padding:'0 20px'}}>Enter your mobile number below to confirm free taste sample.</div><br/>
+          <form action="/submitGetSlot" method="post" class="landing_page" id="slotForm" style={{display: 'none'}}>
+                <input type="hidden" name="email" value="" id="email" />
+                 <input type="hidden" name="members" value="" id="members" />
+              </form>
+            <center><input name="mobNum" type="text" id="mobNum" style={{width:'280px'}} value={this.state.mob} required="" className="custom-text" onChange={(e)=>{this.setMob(e)}} /></center>
+            <img src="../sc/ic_delivery.png"  width="160px" style={{margin:'0 auto',width:'300px',display:'inherit',padding:'40px'}}/>
+            <Link to="/onboard/start" onClick={(e)=>{e.preventDefault();this.onNextClick();}} className="btn" style={{margin:'0 auto',zIndex:0}}>
+              <span>Book Now! (free)</span>
             </Link>
           </div>
           );
